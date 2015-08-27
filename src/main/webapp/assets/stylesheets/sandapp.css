@@ -262,5 +262,5 @@ body {
 
 /* line 10, ../sass/_form.scss */
 .modal-body .form-control {
-  border-radius: 0px;
+  border-radius: 3px;
 }
