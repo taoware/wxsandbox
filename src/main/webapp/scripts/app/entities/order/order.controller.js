@@ -39,7 +39,7 @@ angular.module('sandboxApp')
             },
             {headerName: "Id", field: "id", filter: 'number', filterParams: {newRowsAction: 'keep'}},
             {headerName: "MyString", field: "myString", filter: 'text', filterParams: {newRowsAction: 'keep'}},
-            {headerName: "MyInteger", field: "myInteger"},
+            {headerName: "MyInteger", field: "myInteger",filter: 'text', filterParams: {newRowsAction: 'keep'}},
             {headerName: "MyLong", field: "myLong"},
             {headerName: "MyFloat", field: "myFloat"},
             {headerName: "MyDouble", field: "myDouble"},
