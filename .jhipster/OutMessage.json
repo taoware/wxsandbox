@@ -1,0 +1,127 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "wcUsers",
+            "relationshipNameCapitalized": "WcUsers",
+            "relationshipFieldName": "wcUsers",
+            "otherEntityName": "wCUser",
+            "relationshipType": "many-to-many",
+            "otherEntityNameCapitalized": "WCUser",
+            "otherEntityField": "nickname",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "type",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Type",
+            "fieldNameUnderscored": "type",
+            "fieldInJavaBeanMethod": "Type",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "content",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Content",
+            "fieldNameUnderscored": "content",
+            "fieldInJavaBeanMethod": "Content",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "url",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Url",
+            "fieldNameUnderscored": "url",
+            "fieldInJavaBeanMethod": "Url",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "1000"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "picUrl",
+            "fieldType": "String",
+            "fieldNameCapitalized": "PicUrl",
+            "fieldNameUnderscored": "pic_url",
+            "fieldInJavaBeanMethod": "PicUrl",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "1000"
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Title",
+            "fieldNameUnderscored": "title",
+            "fieldInJavaBeanMethod": "Title",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "menuName",
+            "fieldType": "String",
+            "fieldNameCapitalized": "MenuName",
+            "fieldNameUnderscored": "menu_name",
+            "fieldInJavaBeanMethod": "MenuName",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 7,
+            "fieldName": "startDate",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "StartDate",
+            "fieldNameUnderscored": "start_date",
+            "fieldInJavaBeanMethod": "StartDate",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 8,
+            "fieldName": "endDate",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "EndDate",
+            "fieldNameUnderscored": "end_date",
+            "fieldInJavaBeanMethod": "EndDate",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 9,
+            "fieldName": "disable",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "Disable",
+            "fieldNameUnderscored": "disable",
+            "fieldInJavaBeanMethod": "Disable",
+            "fieldValidate": false
+        }
+    ],
+    "fieldsContainOwnerManyToMany": true,
+    "fieldsContainOwnerOneToOne": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": true,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": true,
+    "fieldsContainDate": false,
+    "changelogDate": "20150821131107",
+    "dto": "no",
+    "pagination": "pager",
+    "validation": true
+}

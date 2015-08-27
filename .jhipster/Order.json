@@ -1,0 +1,59 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "myString",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "myInteger",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "myLong",
+            "fieldType": "Long"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "myFloat",
+            "fieldType": "Float"
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "myDouble",
+            "fieldType": "Double"
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "myDecimal",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldId": 7,
+            "fieldName": "myDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldId": 8,
+            "fieldName": "myDateTime",
+            "fieldType": "DateTime"
+        },
+        {
+            "fieldId": 9,
+            "fieldName": "myBoolean",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldId": 10,
+            "fieldName": "myEnumeration",
+            "fieldType": "DataType",
+            "fieldValues": "String,Decimal"
+        }
+    ],
+    "changelogDate": "20150807024736",
+    "dto": "no",
+    "pagination": "pager"
+}

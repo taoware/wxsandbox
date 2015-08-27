@@ -1,0 +1,123 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "wcUsers",
+            "relationshipNameCapitalized": "WcUsers",
+            "relationshipFieldName": "wcUsers",
+            "otherEntityName": "wCUser",
+            "relationshipType": "many-to-many",
+            "otherEntityNameCapitalized": "WCUser",
+            "otherEntityField": "name",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "disable",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "Disable",
+            "fieldNameUnderscored": "disable",
+            "fieldInJavaBeanMethod": "Disable",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Name",
+            "fieldNameUnderscored": "name",
+            "fieldInJavaBeanMethod": "Name",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "indexName",
+            "fieldType": "String",
+            "fieldNameCapitalized": "IndexName",
+            "fieldNameUnderscored": "index_name",
+            "fieldInJavaBeanMethod": "IndexName",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "folderName",
+            "fieldType": "String",
+            "fieldNameCapitalized": "FolderName",
+            "fieldNameUnderscored": "folder_name",
+            "fieldInJavaBeanMethod": "FolderName",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "required","unique"
+            ]
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "type",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Type",
+            "fieldNameUnderscored": "type",
+            "fieldInJavaBeanMethod": "Type",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Description",
+            "fieldNameUnderscored": "description",
+            "fieldInJavaBeanMethod": "Description",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 7,
+            "fieldName": "url",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Url",
+            "fieldNameUnderscored": "url",
+            "fieldInJavaBeanMethod": "Url",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "1000"
+        },
+        {
+            "fieldId": 8,
+            "fieldName": "startDate",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "StartDate",
+            "fieldNameUnderscored": "start_date",
+            "fieldInJavaBeanMethod": "StartDate",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 9,
+            "fieldName": "endDate",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "EndDate",
+            "fieldNameUnderscored": "end_date",
+            "fieldInJavaBeanMethod": "EndDate",
+            "fieldValidate": false
+        }
+    ],
+    "fieldsContainOwnerManyToMany": true,
+    "fieldsContainOwnerOneToOne": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": true,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": true,
+    "fieldsContainDate": false,
+    "changelogDate": "20150821094304",
+    "dto": "no",
+    "pagination": "pager",
+    "validation": true
+}

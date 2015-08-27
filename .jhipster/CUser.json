@@ -1,0 +1,47 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "coupon",
+            "relationshipNameCapitalized": "Coupon",
+            "relationshipFieldName": "coupon",
+            "otherEntityName": "coupon",
+            "relationshipType": "many-to-many",
+            "otherEntityNameCapitalized": "Coupon",
+            "otherEntityField": "code",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "mobile",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Mobile",
+            "fieldNameUnderscored": "mobile",
+            "fieldInJavaBeanMethod": "Mobile",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "openId",
+            "fieldType": "String",
+            "fieldNameCapitalized": "OpenId",
+            "fieldNameUnderscored": "openId",
+            "fieldInJavaBeanMethod": "OpenId",
+            "fieldValidate": false
+        }
+    ],
+    "fieldsContainOwnerManyToMany": true,
+    "fieldsContainOwnerOneToOne": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": false,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": false,
+    "fieldsContainDate": false,
+    "changelogDate": "20150824033514",
+    "dto": "no",
+    "pagination": "pager",
+    "validation": false
+}
