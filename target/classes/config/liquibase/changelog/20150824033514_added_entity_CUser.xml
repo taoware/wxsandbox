@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <property name="now" value="now()" dbms="mysql,h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+    <property name="now" value="sysdate" dbms="oracle"/>
+
+    <property name="autoIncrement" value="true" dbms="mysql,h2,postgresql"/>
+    <property name="autoIncrement" value="false" dbms="oracle"/>
+    <!--
+        Added the entity CUser.
+    -->
+    <changeSet id="20150824033514" author="jhipster">
+        <createTable tableName="CUSER">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}" >
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="mobile" type="varchar(255)"/>
+            <column name="openId" type="varchar(255)"/>
+        </createTable>
+        
+        <createTable tableName="CUSER_COUPON">
+            <column name="coupons_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cusers_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="cusers_id, coupons_id" tableName="CUSER_COUPON"/>
+
+        <addForeignKeyConstraint baseColumnNames="cusers_id"
+                                 baseTableName="CUSER_COUPON"
+                                 constraintName="fk_cuser_coupon_coupon_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="CUSER"/>
+
+        <addForeignKeyConstraint baseColumnNames="coupons_id"
+                                 baseTableName="CUSER_COUPON"
+                                 constraintName="fk_coupon_coupon_cuser_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="COUPON"/>
+        
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,18 @@
+{
+    "sandboxApp": {
+        "list" : {
+            "home": {
+                "title": "Lists",
+                "createLabel": "Create a new List",
+                "createOrEditLabel": "Create or edit a List"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete List {{ id }}?"
+            },
+            "detail": {
+                "title": "List"
+            },
+            "title": "Title"
+        }
+    }
+}

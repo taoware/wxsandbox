@@ -1,0 +1,9 @@
+{
+    "sandboxApp": {
+        "DataType" : {
+            "SELECT": "{VALUE, select, String{String} Decimal{Decimal} other{}}",
+            "String": "String",
+            "Decimal": "Decimal"
+        }
+    }
+}

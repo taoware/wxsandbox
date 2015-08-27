@@ -1,0 +1,23 @@
+{
+    "sandboxApp": {
+        "wego" : {
+            "home": {
+                "title": "Wegos",
+                "createLabel": "Créer un nouveau Wego",
+                "createOrEditLabel": "Créer ou éditer un Wego"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Wego {{ id }} ?"
+            },
+            "detail": {
+                "title": "Wego"
+            },
+            "title": "Title",
+            "description": "Description",
+            "start": "Start",
+            "end": "End",
+            "file": "File"
+        }
+    }
+}
+

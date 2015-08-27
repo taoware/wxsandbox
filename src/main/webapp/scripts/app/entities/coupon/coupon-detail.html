@@ -1,0 +1,54 @@
+
+<div>
+    <h2><span translate="sandboxApp.coupon.detail.title">Coupon</span> {{coupon.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="entity.detail.field">Field</th>
+                    <th translate="entity.detail.value">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.coupon.code">Code</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{coupon.code}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.coupon.password">Password</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{coupon.password}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.coupon.category">Category</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{coupon.category}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.coupon.status">Status</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{coupon.status}}" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            ui-sref="coupon"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

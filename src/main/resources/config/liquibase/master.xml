@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <include file="classpath:config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20150805080911_added_entity_Author.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20150805081149_added_entity_Book.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20150807024736_added_entity_Order.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20150821125800_added_entity_Wego.xml" relativeToChangelogFile="false"/>
+	<include file="classpath:config/liquibase/changelog/20150821092335_added_entity_WCUser.xml" relativeToChangelogFile="false"/>
+	<include file="classpath:config/liquibase/changelog/20150821094304_added_entity_Activity.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20150821131107_added_entity_OutMessage.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20150824031715_added_entity_Coupon.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20150824033514_added_entity_CUser.xml" relativeToChangelogFile="false"/>
+    <!-- JHipster will add liquibase changelogs here -->
+</databaseChangeLog>

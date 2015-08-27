@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8" />
+    <title>微信活动</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="icon" href="/img/favicon.ico" />
+</head>
+<body>
+<div class="header">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/web/index">微信活动</a>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="wrap">
+
+    <div class="container">
+
+        <div class="main_side col-md-2">
+            <div class="side_title">
+                <span class="glyphicon glyphicon-inbox"></span>&nbsp;<span>活动管理</span>
+            </div>
+            <ul>
+                <li><a class="selected" href="/web/index">创建活动</a></li>
+                <li><a href="/web/listads">活动列表</a></li>
+            </ul>
+
+            <div class="side_title">
+                <span class="glyphicon glyphicon-qrcode"></span>&nbsp;<span>图文管理</span>
+            </div>
+            <ul>
+                <li><a href="/web/imgtext">创建图文</a></li>
+                <li><a href="/web/text">创建文本</a></li>
+                <li><a href="/web/listimgtext">推送列表</a></li>
+            </ul>
+        </div>
+
+
+        <div class="main_content col-md-10">
+            <div>
+                <div class="con_title">
+                   创建活动
+                </div>
+                <div class="con_body">
+
+                    <div class="con_type col-md-5">
+                        <a href="/web/ads">
+                            <div class="event_icon item1">
+                            </div>
+                            <div class="event_content">
+                                <div class="event_title">
+                                    看广告
+                                </div>
+                                <div class="event_desc">
+                                    看广告送饮料，看的越多送的越多
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="con_type col-md-5">
+                        <a href="/web/draw">
+                            <div class="event_icon item2">
+                            </div>
+                            <div class="event_content">
+                                <div class="event_title">
+                                    抽奖
+                                </div>
+                                <div class="event_desc">
+                                    随机抽奖，看运气好不好
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="con_type col-md-5">
+                        <a href="/web/game">
+                            <div class="event_icon item3">
+                            </div>
+                            <div class="event_content">
+                                <div class="event_title">
+                                    小游戏
+                                </div>
+                                <div class="event_desc">
+                                    玩游戏还有奖品拿
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="con_type col-md-5">
+                        <a href="#">
+                            <div class="event_icon item4">
+                            </div>
+                            <div class="event_content">
+                                <div class="event_title">
+                                    未完待续
+                                </div>
+                                <div class="event_desc">
+                                    更多精彩即将带来
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--javascript-->
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $(".main_side > ul > li > a").click(function() {
+            $(this).addClass("selected").parents().siblings().find("a").removeClass("selected");
+        });
+    })
+</script>
+
+</body>
+</html>

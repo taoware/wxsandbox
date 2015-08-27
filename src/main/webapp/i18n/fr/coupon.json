@@ -1,0 +1,22 @@
+{
+    "sandboxApp": {
+        "coupon" : {
+            "home": {
+                "title": "Coupons",
+                "createLabel": "Créer un nouveau Coupon",
+                "createOrEditLabel": "Créer ou éditer un Coupon"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Coupon {{ id }} ?"
+            },
+            "detail": {
+                "title": "Coupon"
+            },
+            "code": "Code",
+            "password": "Password",
+            "category": "Category",
+            "status": "Status"
+        }
+    }
+}
+

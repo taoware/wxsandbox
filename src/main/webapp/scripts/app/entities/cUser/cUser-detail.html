@@ -1,0 +1,38 @@
+
+<div>
+    <h2><span translate="sandboxApp.cUser.detail.title">CUser</span> {{cUser.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="entity.detail.field">Field</th>
+                    <th translate="entity.detail.value">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.cUser.mobile">Mobile</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{cUser.mobile}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.cUser.openId">OpenId</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{cUser.openId}}" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            ui-sref="cUser"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

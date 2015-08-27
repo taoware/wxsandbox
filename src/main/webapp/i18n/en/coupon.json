@@ -1,0 +1,21 @@
+{
+    "sandboxApp": {
+        "coupon" : {
+            "home": {
+                "title": "Coupons",
+                "createLabel": "Create a new Coupon",
+                "createOrEditLabel": "Create or edit a Coupon"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Coupon {{ id }}?"
+            },
+            "detail": {
+                "title": "Coupon"
+            },
+            "code": "Code",
+            "password": "Password",
+            "category": "Category",
+            "status": "Status"
+        }
+    }
+}

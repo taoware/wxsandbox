@@ -1,0 +1,100 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myOrderLabel" translate="sandboxApp.order.home.createOrEditLabel">Create or edit a Order</h4>
+    </div>
+    <div class="modal-body">
+        <div class="container-fluid">
+            <div class="form-group col-sm-6">
+                <label for="id" translate="global.field.id">ID</label>
+                <input type="text" class="form-control" id="id" name="id"
+                       ng-model="order.id" readonly>
+            </div>
+
+            <div class="form-group col-sm-6">
+                <label translate="sandboxApp.order.myString" for="field_myString">MyString</label>
+                <input type="text" class="form-control" name="myString" id="field_myString"
+                       ng-model="order.myString"
+                        >
+
+            </div>
+            <div class="form-group col-sm-6">
+                <label translate="sandboxApp.order.myInteger" for="field_myInteger">MyInteger</label>
+                <input type="number" class="form-control" name="myInteger" id="field_myInteger"
+                       ng-model="order.myInteger"
+                        >
+
+            </div>
+            <div class="form-group col-sm-6">
+                <label translate="sandboxApp.order.myLong" for="field_myLong">MyLong</label>
+                <input type="number" class="form-control" name="myLong" id="field_myLong"
+                       ng-model="order.myLong"
+                        >
+
+            </div>
+            <div class="form-group col-sm-6">
+                <label translate="sandboxApp.order.myFloat" for="field_myFloat">MyFloat</label>
+                <input type="number" class="form-control" name="myFloat" id="field_myFloat"
+                       ng-model="order.myFloat"
+                        >
+
+            </div>
+            <div class="form-group col-sm-6">
+                <label translate="sandboxApp.order.myDouble" for="field_myDouble">MyDouble</label>
+                <input type="number" class="form-control" name="myDouble" id="field_myDouble"
+                       ng-model="order.myDouble"
+                        >
+
+            </div>
+            <div class="form-group col-sm-6">
+                <label translate="sandboxApp.order.myDecimal" for="field_myDecimal">MyDecimal</label>
+                <input type="number" class="form-control" name="myDecimal" id="field_myDecimal"
+                       ng-model="order.myDecimal"
+                        >
+
+            </div>
+            <div class="form-group col-sm-6">
+                <label translate="sandboxApp.order.myDate" for="field_myDate">MyDate</label>
+                <input type="date" class="form-control" name="myDate" id="field_myDate"
+                       ng-model="order.myDate"
+                        >
+
+            </div>
+            <div class="form-group col-sm-6">
+                <label translate="sandboxApp.order.myDateTime" for="field_myDateTime">MyDateTime</label>
+                <input type="datetime-local" class="form-control" name="myDateTime" id="field_myDateTime"
+                       ng-model="order.myDateTime" ng-model-options="{timezone: 'UTC'}"
+                        >
+
+            </div>
+            <div class="form-group col-sm-6">
+                <label translate="sandboxApp.order.myBoolean" for="field_myBoolean">MyBoolean</label>
+                <input type="checkbox" class="form-control" name="myBoolean" id="field_myBoolean"
+                       ng-model="order.myBoolean"
+                        >
+
+            </div>
+            <div class="form-group col-sm-6">
+                <label translate="sandboxApp.order.myEnumeration" for="field_myEnumeration">MyEnumeration</label>
+                <select class="form-control" name="myEnumeration" ng-model="order.myEnumeration" id="field_myEnumeration">
+                    <option value="String" translate="sandboxApp.DataType.String">String</option>
+                    <option value="Decimal" translate="sandboxApp.DataType.Decimal">Decimal</option>
+                </select>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || editForm.$submitted" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

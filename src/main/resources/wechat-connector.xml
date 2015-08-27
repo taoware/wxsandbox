@@ -1,0 +1,10 @@
+<xml>
+    <appId>wxa1c8a107ae33becc</appId>
+    <secret>8382cbbb42089144acf2a10994d1358b</secret>
+    <token>weixin</token>
+    <aesKey>zyNSJDIBoUivOb5nbzWqFLGOnhiWYLcOo4ZK3r3kGvj</aesKey>
+    <accessToken></accessToken>
+    <expiresTime>7200</expiresTime>
+    <openId>某个加你公众号的用户的openId</openId>
+    <oauth2redirectUri>http://vps1.taoware.com/oauth2/</oauth2redirectUri>
+</xml>

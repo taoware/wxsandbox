@@ -1,0 +1,28 @@
+{
+    "sandboxApp": {
+        "outMessage" : {
+            "home": {
+                "title": "OutMessages",
+                "createLabel": "Créer un nouveau OutMessage",
+                "createOrEditLabel": "Créer ou éditer un OutMessage"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le OutMessage {{ id }} ?"
+            },
+            "detail": {
+                "title": "OutMessage"
+            },
+            "type": "Type",
+            "content": "Content",
+            "url": "Url",
+            "picUrl": "PicUrl",
+            "title": "Title",
+            "menuName": "MenuName",
+            "startDate": "StartDate",
+            "endDate": "EndDate",
+            "disable": "Disable",
+            "wcUsers": "wcUsers"
+        }
+    }
+}
+

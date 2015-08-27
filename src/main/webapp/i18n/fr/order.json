@@ -1,0 +1,28 @@
+{
+    "sandboxApp": {
+        "order" : {
+            "home": {
+                "title": "Orders",
+                "createLabel": "Créer un nouveau Order",
+                "createOrEditLabel": "Créer ou éditer un Order"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Order {{ id }} ?"
+            },
+            "detail": {
+                "title": "Order"
+            },
+            "myString": "MyString",
+            "myInteger": "MyInteger",
+            "myLong": "MyLong",
+            "myFloat": "MyFloat",
+            "myDouble": "MyDouble",
+            "myDecimal": "MyDecimal",
+            "myDate": "MyDate",
+            "myDateTime": "MyDateTime",
+            "myBoolean": "MyBoolean",
+            "myEnumeration": "MyEnumeration"
+        }
+    }
+}
+

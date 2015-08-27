@@ -1,0 +1,261 @@
+body{
+    background: #f2f2f2;
+}
+a{
+    text-decoration: none;
+}
+a:focus{
+    text-decoration: none;
+    outline: 0;
+}
+a:hover{
+    text-decoration: none;
+}
+a:active{
+    text-decoration: none;
+}
+a:visited{
+    text-decoration: none;
+}
+button:focus{
+    outline: 0;
+}
+button:active{
+    outline: 0;
+}
+
+.navbar-default{
+    background: #fff;
+}
+.container{
+    background: #fff;
+
+}
+
+.wrap{
+    margin-top: 50px;
+}
+
+/*sidebar*/
+
+.main_side{
+    background: #fff;
+    height: auto;
+}
+.col-md-2{
+    padding: 0;
+}
+.side_title{
+    padding: 10px;
+}
+.side_title span{
+    font-size: 18px;
+}
+
+.main_side ul {
+    list-style: none;
+    margin-left: -15px;
+    padding: 10px 0px;
+}
+.main_side li{
+    padding: 10px 0px;
+}
+
+.main_side ul li a{
+    font-size: 14px;
+    color: #6f6f6f;
+    padding: 12px 117px 12px 32px;
+}
+
+.main_side li .selected{
+    background: #fd4d2a;
+    color:#fff;
+}
+
+@media screen and (max-width: 787px){
+    .main_side ul li a{
+        padding: 12px 117px 12px 32px;
+        margin-left: 50px;
+    }
+}
+/*main_content*/
+.main_content{
+    background: #fff;
+    border-left: 1px solid #f6f6f6;
+}
+.con_title{
+    padding: 10px 0px;
+    border-bottom: 1px solid #f6f6f6;
+    font-size: 18px;
+}
+.con_type{
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    min-height:100px;
+    padding: 0px 15px;
+    margin: 20px 20px 20px 40px;
+}
+.con_type:last-child{
+    margin-bottom: 100px;
+}
+
+.event_icon{
+    float: left;
+    width: 85px;
+    height: 85px;
+    background: url("../img/events.png");
+    background-repeat: no-repeat;
+    margin-top: 5px;
+}
+.item1{
+    background-position: -5px -937px;
+}
+.item2{
+    background-position: -5px -667px;
+}
+.item3{
+    background-position: -5px -90px;
+}
+.item4{
+    background-position: -5px -847px;
+}
+
+.event_content{
+    position: relative;
+    top: 30px;
+    left: 20px;
+}
+.event_title{
+    font-size: 15px;
+    color: #000;
+}
+
+.event_desc{
+    font-size: 12px;
+    color: #6f6f6f;
+}
+
+
+/*popular page*/
+
+.set_con{
+    font-size: 16px;
+    padding: 20px 20px 10px 0px;
+}
+.submit_form{
+    padding: 10px 20px 20px 0px;
+}
+.submit_form .form-group {
+    padding: 10px 0px;
+}
+.submit_form .form-group label{
+    font-size: 14px;
+}
+.submit_form .form-control{
+    border-radius: 0px;
+    width: 70%;
+}
+.ac_desc{
+    height: 100px;
+}
+.input_large{
+    width: 180px;
+    height: 34px;
+}
+.input_view{
+    margin-left: -4px;
+    margin-top: -2px;
+    border-top-left-radius: 0px;
+    -webkit-border-top-left-radius:0px;
+    -moz-border-radius-topleft: 0px;
+    border-bottom-left-radius: 0px;
+    -webkit-border-bottom-left-radius: 0px;
+    -moz-border-radius-bottomleft: 0px;
+}
+
+/*listpopular*/
+.list_nav{
+    padding: 20px 20px 10px 0px;
+}
+.list_content{
+    padding: 10px 20px 20px 0px;;
+}
+.table{
+    border: 1px solid #e0e0e0;
+}
+.table thead{
+    background: #f6f6f6;
+    text-align: center;
+}
+.table tbody{
+    text-align: center;
+}
+
+
+/*pannel*/
+.modal-title{
+    text-align: center;
+}
+.pannel-group{
+    margin-top: 10px;
+    background: #fff;
+}
+.modal-content{
+    width: 380px;
+    margin-left: 110px;
+}
+.modal-body{
+    margin-bottom: 50px;
+
+}
+@media screen and (max-width: 480px){
+    .modal-content{
+        width: 280px;
+        margin:auto;
+    }
+
+}
+
+
+/*edit*/
+.btn-toolbar{
+    margin-left: 20px;
+}
+#editor {
+    margin-left: 20px;
+    max-height: 250px;
+    height: 250px;
+    background-color: white;
+    border-collapse: separate;
+    border: 1px solid rgb(204, 204, 204);
+    padding: 4px;
+    box-sizing: content-box;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset;
+    box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset;
+    border-top-right-radius: 3px; border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px; border-top-left-radius: 3px;
+    overflow: scroll;
+    outline: none;
+}
+
+div[data-role="editor-toolbar"] {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.dropdown-menu a {
+    cursor: pointer;
+}
+
+.editor-btn{
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.btn-group input[type="file"]{
+    display: inline;
+}

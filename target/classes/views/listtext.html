@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8" />
+    <title>微信活动</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="icon" href="/img/favicon.ico" />
+</head>
+<body>
+<div class="header">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/web/index">微信活动</a>
+            </div>
+
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+</div>
+
+<div class="wrap">
+
+    <div class="container">
+
+        <div class="main_side col-md-2">
+            <div class="side_title">
+                <span class="glyphicon glyphicon-inbox"></span>&nbsp;<span>活动管理</span>
+            </div>
+            <ul>
+                <li><a href="/web/index">创建活动</a></li>
+                <li><a href="/web/listads">活动列表</a></li>
+            </ul>
+
+            <div class="side_title">
+                <span class="glyphicon glyphicon-qrcode"></span>&nbsp;<span>图文管理</span>
+            </div>
+            <ul>
+                <li><a href="/web/imgtext">创建图文</a></li>
+                <li><a href="/web/text">创建文本</a></li>
+                <li><a class="selected" href="/web/listimgtext">推送列表</a></li>
+            </ul>
+        </div>
+
+
+        <div class="main_content col-md-10">
+            <div>
+                <div class="con_title">
+                    推送列表
+                </div>
+                <div class="con_body">
+                    <div class="list_nav">
+                        <ul class="nav nav-tabs" id="list_tabs">
+                            <li role="presentation"><a href="/web/listimgtext">图文消息</a></li>
+                            <li role="presentation" class="active"><a href="/web/listdraw">文本消息</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="list_content">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <td>菜单名</td>
+                                <td>开始/结束时间</td>
+                                <td>文字内容</td>
+                                <td>状态</td>
+                                
+                                <td>操作</td>
+                            </tr>
+                            </thead>
+                        </table>
+
+                        <div class="pagenav">
+                            <nav>
+                                <ul class="pagination" id="pg_list">
+
+                                </ul>
+                            </nav>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!--javascript-->
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/listtext.js"></script>
+<script type="text/javascript" src="/layer/layer.js"></script>
+
+</body>
+</html>

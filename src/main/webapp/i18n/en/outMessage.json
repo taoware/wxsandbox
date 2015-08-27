@@ -1,0 +1,27 @@
+{
+    "sandboxApp": {
+        "outMessage" : {
+            "home": {
+                "title": "OutMessages",
+                "createLabel": "Create a new OutMessage",
+                "createOrEditLabel": "Create or edit a OutMessage"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete OutMessage {{ id }}?"
+            },
+            "detail": {
+                "title": "OutMessage"
+            },
+            "type": "Type",
+            "content": "Content",
+            "url": "Url",
+            "picUrl": "PicUrl",
+            "title": "Title",
+            "menuName": "MenuName",
+            "startDate": "StartDate",
+            "endDate": "EndDate",
+            "disable": "Disable",
+            "wcUsers": "wcUsers"
+        }
+    }
+}

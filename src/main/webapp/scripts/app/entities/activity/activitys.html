@@ -1,0 +1,214 @@
+<div>
+
+    <h2 translate="sandboxApp.activity.home.title">Activitys</h2>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#saveActivityModal" ng-click="clear()">
+                    <span class="glyphicon glyphicon-flash"></span> <span translate="sandboxApp.activity.home.createLabel">Create a new Activity</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="saveActivityModal" tabindex="-1" role="dialog" aria-labelledby="myActivityLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" id="myActivityLabel" translate="sandboxApp.activity.home.createOrEditLabel">Create or edit a Activity</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label translate="global.field.id">ID</label>
+                            <input type="text" class="form-control" name="id"
+                                   ng-model="activity.id" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label translate="sandboxApp.activity.disable">Disable</label>
+                            <input type="checkbox" class="form-control" name="disable"
+                                   ng-model="activity.disable">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.activity.name">Name</label>
+                            <input type="text" class="form-control" name="name"
+                                   ng-model="activity.name" required>
+
+                            <div ng-show="editForm.name.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.name.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.activity.indexName">IndexName</label>
+                            <input type="text" class="form-control" name="indexName"
+                                   ng-model="activity.indexName" required>
+
+                            <div ng-show="editForm.indexName.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.indexName.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.activity.folderName">FolderName</label>
+                            <input type="text" class="form-control" name="folderName"
+                                   ng-model="activity.folderName" required>
+
+                            <div ng-show="editForm.folderName.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.folderName.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.activity.type">Type</label>
+                            <input type="text" class="form-control" name="type"
+                                   ng-model="activity.type">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.activity.description">Description</label>
+                            <input type="text" class="form-control" name="description"
+                                   ng-model="activity.description">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.activity.url">Url</label>
+                            <input type="text" class="form-control" name="url"
+                                   ng-model="activity.url" ng-maxlength="1000">
+
+                            <div ng-show="editForm.url.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.url.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="1000">
+                                    This field cannot be longer than 1000 characters.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.activity.startDate">StartDate</label>
+                            <input type="datetime-local" class="form-control" name="startDate"
+                                   ng-model="activity.startDate" ng-model-options="{timezone: 'UTC'}">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.activity.endDate">EndDate</label>
+                            <input type="datetime-local" class="form-control" name="endDate"
+                                   ng-model="activity.endDate" ng-model-options="{timezone: 'UTC'}">
+
+                        </div>
+
+                        <div class="form-group">
+                            <label translate="sandboxApp.activity.wcUsers">wcUsers</label>
+                            <select class="form-control" multiple name="wcUsers" ng-model="activity.wcUserss" ng-options="wCUser as wCUser.nickname for wCUser in wcusers track by wCUser.id">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="editForm.$invalid" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteActivityConfirmation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="deleteForm" ng-submit="confirmDelete(activity.id)">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" translate="entity.delete.title">Confirm delete operation</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p translate="sandboxApp.activity.delete.question" translate-values="{id: '{{activity.id}}'}">Are you sure you want to delete this Activity?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="deleteForm.$invalid" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="global.field.id">ID</th>
+                    <th translate="sandboxApp.activity.disable">Disable</th>
+                    <th translate="sandboxApp.activity.name">Name</th>
+                    <th translate="sandboxApp.activity.indexName">IndexName</th>
+                    <th translate="sandboxApp.activity.folderName">FolderName</th>
+                    <th translate="sandboxApp.activity.type">Type</th>
+                    <th translate="sandboxApp.activity.description">Description</th>
+                    <th translate="sandboxApp.activity.url">Url</th>
+                    <th translate="sandboxApp.activity.startDate">StartDate</th>
+                    <th translate="sandboxApp.activity.endDate">EndDate</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="activity in activitys">
+                    <td><a ui-sref="activityDetail({id:activity.id})">{{activity.id}}</a></td>
+                    <td>{{activity.disable}}</td>
+                    <td>{{activity.name}}</td>
+                    <td>{{activity.indexName}}</td>
+                    <td>{{activity.folderName}}</td>
+                    <td>{{activity.type}}</td>
+                    <td>{{activity.description}}</td>
+                    <td>{{activity.url}}</td>
+                    <td>{{activity.startDate}}</td>
+                    <td>{{activity.endDate}}</td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="activityDetail({id:activity.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="showUpdate(activity.id)"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="delete(activity.id)"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <nav>
+            <ul class="pager">
+                <li ng-show="links['first']" ng-click="loadPage(links['first'])"><a href="#">&lt;&lt;</a></li>
+                <li ng-show="links['prev']" ng-click="loadPage(links['prev'])"><a href="#">&lt;</a></li>
+                <li ng-show="links['next']" ng-click="loadPage(links['next'])"><a href="#">&gt;</a></li>
+                <li ng-show="links['last']" ng-click="loadPage(links['last'])"><a href="#">&gt;&gt;</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>

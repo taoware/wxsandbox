@@ -1,0 +1,177 @@
+<div>
+
+    <h2 translate="sandboxApp.wCUser.home.title">WCUsers</h2>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#saveWCUserModal" ng-click="clear()">
+                    <span class="glyphicon glyphicon-flash"></span> <span translate="sandboxApp.wCUser.home.createLabel">Create a new WCUser</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="saveWCUserModal" tabindex="-1" role="dialog" aria-labelledby="myWCUserLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="editForm" role="form" novalidate ng-submit="save()">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" id="myWCUserLabel" translate="sandboxApp.wCUser.home.createOrEditLabel">Create or edit a WCUser</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label translate="global.field.id">ID</label>
+                            <input type="text" class="form-control" name="id"
+                                   ng-model="wCUser.id" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label translate="sandboxApp.wCUser.openId">OpenId</label>
+                            <input type="text" class="form-control" name="openId"
+                                   ng-model="wCUser.openId">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.wCUser.nickname">Nickname</label>
+                            <input type="text" class="form-control" name="nickname"
+                                   ng-model="wCUser.nickname">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.wCUser.sex">Sex</label>
+                            <input type="text" class="form-control" name="sex"
+                                   ng-model="wCUser.sex">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.wCUser.city">City</label>
+                            <input type="text" class="form-control" name="city"
+                                   ng-model="wCUser.city">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.wCUser.province">Province</label>
+                            <input type="text" class="form-control" name="province"
+                                   ng-model="wCUser.province">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.wCUser.country">Country</label>
+                            <input type="text" class="form-control" name="country"
+                                   ng-model="wCUser.country">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.wCUser.unionId">UnionId</label>
+                            <input type="text" class="form-control" name="unionId"
+                                   ng-model="wCUser.unionId">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.wCUser.mobile">Mobile</label>
+                            <input type="text" class="form-control" name="mobile"
+                                   ng-model="wCUser.mobile">
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="editForm.$invalid" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteWCUserConfirmation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="deleteForm" ng-submit="confirmDelete(wCUser.id)">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" translate="entity.delete.title">Confirm delete operation</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p translate="sandboxApp.wCUser.delete.question" translate-values="{id: '{{wCUser.id}}'}">Are you sure you want to delete this WCUser?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="deleteForm.$invalid" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="global.field.id">ID</th>
+                    <th translate="sandboxApp.wCUser.openId">OpenId</th>
+                    <th translate="sandboxApp.wCUser.nickname">Nickname</th>
+                    <th translate="sandboxApp.wCUser.sex">Sex</th>
+                    <th translate="sandboxApp.wCUser.city">City</th>
+                    <th translate="sandboxApp.wCUser.province">Province</th>
+                    <th translate="sandboxApp.wCUser.country">Country</th>
+                    <th translate="sandboxApp.wCUser.unionId">UnionId</th>
+                    <th translate="sandboxApp.wCUser.mobile">Mobile</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="wCUser in wCUsers">
+                    <td><a ui-sref="wCUserDetail({id:wCUser.id})">{{wCUser.id}}</a></td>
+                    <td>{{wCUser.openId}}</td>
+                    <td>{{wCUser.nickname}}</td>
+                    <td>{{wCUser.sex}}</td>
+                    <td>{{wCUser.city}}</td>
+                    <td>{{wCUser.province}}</td>
+                    <td>{{wCUser.country}}</td>
+                    <td>{{wCUser.unionId}}</td>
+                    <td>{{wCUser.mobile}}</td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="wCUserDetail({id:wCUser.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="showUpdate(wCUser.id)"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="delete(wCUser.id)"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <nav>
+            <ul class="pager">
+                <li ng-show="links['first']" ng-click="loadPage(links['first'])"><a href="#">&lt;&lt;</a></li>
+                <li ng-show="links['prev']" ng-click="loadPage(links['prev'])"><a href="#">&lt;</a></li>
+                <li ng-show="links['next']" ng-click="loadPage(links['next'])"><a href="#">&gt;</a></li>
+                <li ng-show="links['last']" ng-click="loadPage(links['last'])"><a href="#">&gt;&gt;</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>

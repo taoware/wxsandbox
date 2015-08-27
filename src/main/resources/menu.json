@@ -1,0 +1,30 @@
+{
+	"menu":
+		{
+		   "button":[
+		   
+		            
+		      {
+		         "name":"派赠活动",
+		         "sub_button":[
+		            {
+		               "type":"view",
+		               "name":"今日派赠",
+		               "url":"https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxa1c8a107ae33becc&redirect_uri=http%3A%2F%2Fvps1.taoware.com%2Ftest%2F&response_type=code&scope=snsapi_userinfo#wechat_redirect"
+		            },
+		            
+		            {
+		               "type":"view",
+		               "name":"查询赠券",
+		               "url":"https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxa1c8a107ae33becc&redirect_uri=http%3A%2F%2Fvps1.taoware.com%2Fquery%2F&response_type=code&scope=snsapi_userinfo#wechat_redirect"
+		            }
+		         ]
+		      },
+		      {
+		        "type":"click",
+		         "name":"志愿者",
+		         "key":"1"
+		    }
+		   ]
+		}
+}

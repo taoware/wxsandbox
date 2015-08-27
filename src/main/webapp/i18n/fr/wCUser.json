@@ -1,0 +1,26 @@
+{
+    "sandboxApp": {
+        "wCUser" : {
+            "home": {
+                "title": "WCUsers",
+                "createLabel": "Créer un nouveau WCUser",
+                "createOrEditLabel": "Créer ou éditer un WCUser"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le WCUser {{ id }} ?"
+            },
+            "detail": {
+                "title": "WCUser"
+            },
+            "openId": "OpenId",
+            "nickname": "Nickname",
+            "sex": "Sex",
+            "city": "City",
+            "province": "Province",
+            "country": "Country",
+            "unionId": "UnionId",
+            "mobile": "Mobile"
+        }
+    }
+}
+

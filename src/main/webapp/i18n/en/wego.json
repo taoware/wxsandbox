@@ -1,0 +1,22 @@
+{
+    "sandboxApp": {
+        "wego" : {
+            "home": {
+                "title": "Wegos",
+                "createLabel": "Create a new Wego",
+                "createOrEditLabel": "Create or edit a Wego"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Wego {{ id }}?"
+            },
+            "detail": {
+                "title": "Wego"
+            },
+            "title": "Title",
+            "description": "Description",
+            "start": "Start",
+            "end": "End",
+            "file": "File"
+        }
+    }
+}

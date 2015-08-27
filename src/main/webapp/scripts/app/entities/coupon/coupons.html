@@ -1,0 +1,151 @@
+<div>
+
+    <h2 translate="sandboxApp.coupon.home.title">Coupons</h2>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#saveCouponModal" ng-click="clear()">
+                    <span class="glyphicon glyphicon-flash"></span> <span translate="sandboxApp.coupon.home.createLabel">Create a new Coupon</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="saveCouponModal" tabindex="-1" role="dialog" aria-labelledby="myCouponLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" id="myCouponLabel" translate="sandboxApp.coupon.home.createOrEditLabel">Create or edit a Coupon</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label translate="global.field.id">ID</label>
+                            <input type="text" class="form-control" name="id"
+                                   ng-model="coupon.id" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label translate="sandboxApp.coupon.code">Code</label>
+                            <input type="text" class="form-control" name="code"
+                                   ng-model="coupon.code" required>
+
+                            <div ng-show="editForm.code.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.code.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.coupon.password">Password</label>
+                            <input type="text" class="form-control" name="password"
+                                   ng-model="coupon.password">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.coupon.category">Category</label>
+                            <input type="number" class="form-control" name="category"
+                                   ng-model="coupon.category">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.coupon.status">Status</label>
+                            <input type="text" class="form-control" name="status"
+                                   ng-model="coupon.status">
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="editForm.$invalid" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteCouponConfirmation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="deleteForm" ng-submit="confirmDelete(coupon.id)">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" translate="entity.delete.title">Confirm delete operation</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p translate="sandboxApp.coupon.delete.question" translate-values="{id: '{{coupon.id}}'}">Are you sure you want to delete this Coupon?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="deleteForm.$invalid" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="global.field.id">ID</th>
+                    <th translate="sandboxApp.coupon.code">Code</th>
+                    <th translate="sandboxApp.coupon.password">Password</th>
+                    <th translate="sandboxApp.coupon.category">Category</th>
+                    <th translate="sandboxApp.coupon.status">Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="coupon in coupons">
+                    <td><a ui-sref="couponDetail({id:coupon.id})">{{coupon.id}}</a></td>
+                    <td>{{coupon.code}}</td>
+                    <td>{{coupon.password}}</td>
+                    <td>{{coupon.category}}</td>
+                    <td>{{coupon.status}}</td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="couponDetail({id:coupon.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="showUpdate(coupon.id)"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="delete(coupon.id)"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <nav>
+            <ul class="pager">
+                <li ng-show="links['first']" ng-click="loadPage(links['first'])"><a href="#">&lt;&lt;</a></li>
+                <li ng-show="links['prev']" ng-click="loadPage(links['prev'])"><a href="#">&lt;</a></li>
+                <li ng-show="links['next']" ng-click="loadPage(links['next'])"><a href="#">&gt;</a></li>
+                <li ng-show="links['last']" ng-click="loadPage(links['last'])"><a href="#">&gt;&gt;</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+{
+    "sandboxApp": {
+        "cUser" : {
+            "home": {
+                "title": "CUsers",
+                "createLabel": "Créer un nouveau CUser",
+                "createOrEditLabel": "Créer ou éditer un CUser"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le CUser {{ id }} ?"
+            },
+            "detail": {
+                "title": "CUser"
+            },
+            "mobile": "Mobile",
+            "openId": "OpenId",
+            "coupon": "coupon"
+        }
+    }
+}
+

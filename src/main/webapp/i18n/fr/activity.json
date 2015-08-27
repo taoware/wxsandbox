@@ -1,0 +1,28 @@
+{
+    "sandboxApp": {
+        "activity" : {
+            "home": {
+                "title": "Activitys",
+                "createLabel": "Créer un nouveau Activity",
+                "createOrEditLabel": "Créer ou éditer un Activity"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Activity {{ id }} ?"
+            },
+            "detail": {
+                "title": "Activity"
+            },
+            "disable": "Disable",
+            "name": "Name",
+            "indexName": "IndexName",
+            "folderName": "FolderName",
+            "type": "Type",
+            "description": "Description",
+            "url": "Url",
+            "startDate": "StartDate",
+            "endDate": "EndDate",
+            "wcUsers": "wcUsers"
+        }
+    }
+}
+

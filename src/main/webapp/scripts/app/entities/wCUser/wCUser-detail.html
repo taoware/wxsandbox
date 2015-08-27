@@ -1,0 +1,86 @@
+
+<div>
+    <h2><span translate="sandboxApp.wCUser.detail.title">WCUser</span> {{wCUser.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="entity.detail.field">Field</th>
+                    <th translate="entity.detail.value">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.wCUser.openId">OpenId</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{wCUser.openId}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.wCUser.nickname">Nickname</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{wCUser.nickname}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.wCUser.sex">Sex</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{wCUser.sex}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.wCUser.city">City</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{wCUser.city}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.wCUser.province">Province</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{wCUser.province}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.wCUser.country">Country</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{wCUser.country}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.wCUser.unionId">UnionId</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{wCUser.unionId}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.wCUser.mobile">Mobile</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{wCUser.mobile}}" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            ui-sref="wCUser"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>
