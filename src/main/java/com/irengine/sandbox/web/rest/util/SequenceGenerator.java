@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-import org.junit.Test;
 
 
 public class SequenceGenerator {
@@ -76,23 +75,6 @@ public class SequenceGenerator {
 	  return list;
 	}
 
-	@Test
-	public void test() throws FileNotFoundException, UnsupportedEncodingException {
-		PrintWriter writer = new PrintWriter("050coupon.txt", "UTF-8");
 
-		for(int i=100; i<200; i++)
-//			SequenceGenerator.Populate(999999, 50000, "");
-			SequenceGenerator.Populate(9999, 500, "YHQ201403" + String.format("%03d", i), writer);
-
-		writer.close();
-
-		writer = new PrintWriter("300coupon.txt", "UTF-8");
-
-		for(int i=100; i<200; i++)
-//			SequenceGenerator.Populate(999999, 50000, "");
-			SequenceGenerator.Populate(9999, 500, "YHQ201404" + String.format("%03d", i), writer);
-
-		writer.close();
-}
 
 }

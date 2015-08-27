@@ -49,7 +49,7 @@ public class NCouponResource {
             method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<Void> create(@Valid @RequestBody NCoupon nCoupon) throws URISyntaxException {
+    public ResponseEntity<Void> create(/*@Valid*/ @RequestBody NCoupon nCoupon) throws URISyntaxException {
         log.debug("REST request to save NCoupon : {}", nCoupon);
         if (nCoupon.getId() != null) {
             return ResponseEntity.badRequest().header("Failure", "A new nCoupon cannot already have an ID").build();
