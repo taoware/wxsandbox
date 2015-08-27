@@ -1,0 +1,86 @@
+
+<div>
+    <h2><span translate="sandboxApp.couponBatch.detail.title">CouponBatch</span> {{couponBatch.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="entity.detail.field">Field</th>
+                    <th translate="entity.detail.value">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.couponBatch.code">Code</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{couponBatch.code}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.couponBatch.size">Size</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{couponBatch.size}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.couponBatch.quantity">Quantity</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{couponBatch.quantity}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.couponBatch.beginDate">BeginDate</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{couponBatch.beginDate}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.couponBatch.endDate">EndDate</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{couponBatch.endDate}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.couponBatch.enabled">Enabled</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{couponBatch.enabled}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.couponBatch.isGenerated">IsGenerated</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{couponBatch.isGenerated}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.couponBatch.supplierActivity">supplierActivity</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{couponBatch.supplierActivity.name}}" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            ui-sref="couponBatch"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

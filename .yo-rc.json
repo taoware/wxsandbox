@@ -1,0 +1,21 @@
+{
+  "generator-jhipster": {
+    "baseName": "sandbox",
+    "packageName": "com.irengine.sandbox",
+    "packageFolder": "com/irengine/sandbox",
+    "authenticationType": "xauth",
+    "hibernateCache": "ehcache",
+    "clusteredHttpSession": "no",
+    "websocket": "no",
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": "no",
+    "useCompass": false,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "javaVersion": "8",
+    "enableTranslation": true,
+    "rememberMeKey": "3c245f09240c98e22e57edb9a08579d9d6715b06"
+  }
+}

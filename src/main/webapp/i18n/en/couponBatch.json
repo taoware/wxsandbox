@@ -1,0 +1,25 @@
+{
+    "sandboxApp": {
+        "couponBatch" : {
+            "home": {
+                "title": "CouponBatchs",
+                "createLabel": "Create a new CouponBatch",
+                "createOrEditLabel": "Create or edit a CouponBatch"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete CouponBatch {{ id }}?"
+            },
+            "detail": {
+                "title": "CouponBatch"
+            },
+            "code": "Code",
+            "size": "Size",
+            "quantity": "Quantity",
+            "beginDate": "BeginDate",
+            "endDate": "EndDate",
+            "enabled": "Enabled",
+            "isGenerated": "IsGenerated",
+            "supplierActivity": "supplierActivity"
+        }
+    }
+}

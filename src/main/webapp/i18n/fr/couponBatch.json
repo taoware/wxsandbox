@@ -1,0 +1,26 @@
+{
+    "sandboxApp": {
+        "couponBatch" : {
+            "home": {
+                "title": "CouponBatchs",
+                "createLabel": "Créer un nouveau CouponBatch",
+                "createOrEditLabel": "Créer ou éditer un CouponBatch"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le CouponBatch {{ id }} ?"
+            },
+            "detail": {
+                "title": "CouponBatch"
+            },
+            "code": "Code",
+            "size": "Size",
+            "quantity": "Quantity",
+            "beginDate": "BeginDate",
+            "endDate": "EndDate",
+            "enabled": "Enabled",
+            "isGenerated": "IsGenerated",
+            "supplierActivity": "supplierActivity"
+        }
+    }
+}
+

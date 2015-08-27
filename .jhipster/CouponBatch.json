@@ -1,0 +1,103 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "supplierActivity",
+            "relationshipNameCapitalized": "SupplierActivity",
+            "relationshipFieldName": "supplierActivity",
+            "otherEntityName": "supplierActivity",
+            "relationshipType": "many-to-one",
+            "otherEntityNameCapitalized": "SupplierActivity",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "code",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Code",
+            "fieldNameUnderscored": "code",
+            "fieldInJavaBeanMethod": "Code",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "size",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Size",
+            "fieldNameUnderscored": "size",
+            "fieldInJavaBeanMethod": "Size",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "quantity",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Quantity",
+            "fieldNameUnderscored": "quantity",
+            "fieldInJavaBeanMethod": "Quantity",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "beginDate",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "BeginDate",
+            "fieldNameUnderscored": "begin_date",
+            "fieldInJavaBeanMethod": "BeginDate",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "endDate",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "EndDate",
+            "fieldNameUnderscored": "end_date",
+            "fieldInJavaBeanMethod": "EndDate",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "enabled",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "Enabled",
+            "fieldNameUnderscored": "enabled",
+            "fieldInJavaBeanMethod": "Enabled",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 7,
+            "fieldName": "isGenerated",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "IsGenerated",
+            "fieldNameUnderscored": "is_generated",
+            "fieldInJavaBeanMethod": "IsGenerated",
+            "fieldValidate": false
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOwnerOneToOne": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": true,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": true,
+    "fieldsContainDate": false,
+    "changelogDate": "20150827060757",
+    "dto": "no",
+    "pagination": "pager",
+    "validation": true
+}

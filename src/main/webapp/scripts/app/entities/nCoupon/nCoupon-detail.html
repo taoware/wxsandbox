@@ -1,0 +1,62 @@
+
+<div>
+    <h2><span translate="sandboxApp.nCoupon.detail.title">NCoupon</span> {{nCoupon.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="entity.detail.field">Field</th>
+                    <th translate="entity.detail.value">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.nCoupon.code">Code</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{nCoupon.code}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.nCoupon.status">Status</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{nCoupon.status}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.nCoupon.createdTime">CreatedTime</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{nCoupon.createdTime}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.nCoupon.modifedTime">ModifedTime</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{nCoupon.modifedTime}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.nCoupon.couponBatch">couponBatch</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{nCoupon.couponBatch.code}}" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            ui-sref="nCoupon"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

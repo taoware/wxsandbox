@@ -1,0 +1,89 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "openId",
+            "fieldType": "String",
+            "fieldNameCapitalized": "OpenId",
+            "fieldNameUnderscored": "open_id",
+            "fieldInJavaBeanMethod": "OpenId",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "nickname",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Nickname",
+            "fieldNameUnderscored": "nickname",
+            "fieldInJavaBeanMethod": "Nickname",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "sex",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Sex",
+            "fieldNameUnderscored": "sex",
+            "fieldInJavaBeanMethod": "Sex",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "city",
+            "fieldType": "String",
+            "fieldNameCapitalized": "City",
+            "fieldNameUnderscored": "city",
+            "fieldInJavaBeanMethod": "City",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "province",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Province",
+            "fieldNameUnderscored": "province",
+            "fieldInJavaBeanMethod": "Province",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "country",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Country",
+            "fieldNameUnderscored": "country",
+            "fieldInJavaBeanMethod": "Country",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 7,
+            "fieldName": "unionId",
+            "fieldType": "String",
+            "fieldNameCapitalized": "UnionId",
+            "fieldNameUnderscored": "union_id",
+            "fieldInJavaBeanMethod": "UnionId",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 8,
+            "fieldName": "mobile",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Mobile",
+            "fieldNameUnderscored": "mobile",
+            "fieldInJavaBeanMethod": "Mobile",
+            "fieldValidate": false
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOwnerOneToOne": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": false,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": false,
+    "fieldsContainDate": false,
+    "changelogDate": "20150821092335",
+    "dto": "no",
+    "pagination": "pager",
+    "validation": false
+}
