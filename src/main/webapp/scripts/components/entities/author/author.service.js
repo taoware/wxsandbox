@@ -7,6 +7,7 @@ angular.module('sandboxApp')
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {
+                    console.log(data);
                     data = angular.fromJson(data);
                     data.birthDate = DateUtils.convertLocaleDateFromServer(data.birthDate);
                     return data;

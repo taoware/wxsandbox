@@ -44,6 +44,7 @@
                     <th translate="global.field.id">ID</th>
                     <th translate="sandboxApp.author.name">Name</th>
                     <th translate="sandboxApp.author.birthDate">BirthDate</th>
+                    <th translate="sandboxApp.author.file">File</th>
                     <th></th>
                 </tr>
             </thead>
@@ -52,6 +53,7 @@
                     <td><a ui-sref="author.detail({id:author.id})">{{author.id}}</a></td>
                     <td>{{author.name}}</td>
                     <td>{{author.birthDate}}</td>
+                    <td>{{author.file}}</td>
                     <td>
                         <button type="submit"
                                 ui-sref="author.detail({id:author.id})"
