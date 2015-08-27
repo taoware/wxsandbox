@@ -28,7 +28,7 @@ public class CouponBatch implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "code")
+	@Column(name = "code", nullable = false, unique = true)
     private String code;
 
     @NotNull

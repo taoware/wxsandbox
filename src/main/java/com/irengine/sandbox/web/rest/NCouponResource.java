@@ -1,9 +1,15 @@
 package com.irengine.sandbox.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import com.irengine.sandbox.domain.CouponBatch;
 import com.irengine.sandbox.domain.NCoupon;
+import com.irengine.sandbox.domain.NCoupon.COUPONSTATUS;
+import com.irengine.sandbox.repository.CouponBatchRepository;
 import com.irengine.sandbox.repository.NCouponRepository;
 import com.irengine.sandbox.web.rest.util.PaginationUtil;
+import com.irengine.sandbox.web.rest.util.SequenceGenerator;
+
+import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -15,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -32,6 +39,9 @@ public class NCouponResource {
     @Inject
     private NCouponRepository nCouponRepository;
 
+    @Inject
+    private CouponBatchRepository couponBatchRepository;
+    
     /**
      * POST  /nCoupons -> Create a new nCoupon.
      */
@@ -44,8 +54,32 @@ public class NCouponResource {
         if (nCoupon.getId() != null) {
             return ResponseEntity.badRequest().header("Failure", "A new nCoupon cannot already have an ID").build();
         }
-        nCouponRepository.save(nCoupon);
-        return ResponseEntity.created(new URI("/api/nCoupons/" + nCoupon.getId())).build();
+        CouponBatch couponBatch=couponBatchRepository.findOne(nCoupon.getCouponBatch().getId());
+        if(couponBatch==null){
+        	return ResponseEntity.badRequest().header("Failure", "A new nCoupon should have an CouponBatch").build();
+        }
+        if(couponBatch.getIsGenerated()!=null&&couponBatch.getIsGenerated()==true){
+        	return ResponseEntity.ok().header("Failure", "该批次号已被使用").build();
+        }
+        String couponBatchCode=couponBatch.getCode();
+        String size=String.format("%03d", couponBatch.getSize());
+        log.debug("批次号:"+couponBatch.getCode()+".生成数量为"+couponBatch.getQuantity()+"的提货码");
+        List<String> serialNum=SequenceGenerator.Populate(999999, couponBatch.getQuantity());
+        //检验码:待补充逻辑
+        String checkNum="1";
+        DateTime sysTime=new DateTime();
+        for(String str:serialNum){
+        	NCoupon nCoupon2=new NCoupon();
+            nCoupon2.setCode(couponBatchCode+size+str+checkNum);
+            nCoupon2.setCreatedTime(sysTime);
+            nCoupon2.setModifedTime(sysTime);
+            nCoupon2.setStatus(COUPONSTATUS.UNUSED);
+            nCouponRepository.save(nCoupon2);
+        }
+        couponBatch.setIsGenerated(true);
+        couponBatchRepository.save(couponBatch);
+        //return ResponseEntity.created(new URI("/api/nCoupons/" + nCoupon.getId())).build();
+        return ResponseEntity.ok().build();
     }
 
     /**

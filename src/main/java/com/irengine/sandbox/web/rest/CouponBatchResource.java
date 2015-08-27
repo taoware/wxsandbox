@@ -32,6 +32,10 @@ public class CouponBatchResource {
     @Inject
     private CouponBatchRepository couponBatchRepository;
 
+    //code前缀
+    private static String prefix="";
+    //code后缀
+    private static String suffix="";
     /**
      * POST  /couponBatchs -> Create a new couponBatch.
      */
@@ -44,6 +48,9 @@ public class CouponBatchResource {
         if (couponBatch.getId() != null) {
             return ResponseEntity.badRequest().header("Failure", "A new couponBatch cannot already have an ID").build();
         }
+        couponBatch.setEnabled(true);
+        couponBatch.setIsGenerated(false);
+        couponBatch.setCode(prefix+couponBatch.getCode()+suffix);
         couponBatchRepository.save(couponBatch);
         return ResponseEntity.created(new URI("/api/couponBatchs/" + couponBatch.getId())).build();
     }
