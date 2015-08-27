@@ -97,7 +97,7 @@ public class OrderResource {
     private static final String LIMIT = "per_page";
     private static final String OFFSET = "page";
     private static final String SORTING = "sort";
-    //private static final String FILTERING = "filter";
+    private static final String FILTERING = "filter";
 
     /**
      * GET  /orders/q -> query orders.
@@ -135,7 +135,6 @@ public class OrderResource {
         }
 
         // filtering support angular grid filtering number and text
-        /*
         if (params.containsKey(FILTERING) && !params.get(FILTERING).toString().isEmpty()) {
 
             Map<String, Map<String, String>> filter = new HashMap<>();
@@ -143,6 +142,7 @@ public class OrderResource {
 
             try {
                 filter = mapper.readValue(params.get(FILTERING).toString(), new TypeReference<Map<String, Map<String, String>>>(){});
+                log.debug(filter.toString());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -151,14 +151,13 @@ public class OrderResource {
             log.debug("request with filtering");
 
             List<Filter> filters = new ArrayList<>();
-            filters.add(new Filter("id", Filter.Operator.EQ, "1"));
-
+            //filters.add(new Filter("id", Filter.Operator.EQ, "1"));
+            //filters.add(filter);
             Specification<Order> specification = FilterUtil.generateSpecifications(filters, Order.class);
 
             Page<Order> page = orderRepository.findAll(specification, pageable);
             return new ResponseEntity<>(page, HttpStatus.OK);
         }
-        */
 
         Page<Order> page = orderRepository.findAll(pageable);
         return new ResponseEntity<>(page, HttpStatus.OK);
