@@ -1,0 +1,94 @@
+
+<div>
+    <h2><span translate="sandboxApp.supplierActivity.detail.title">SupplierActivity</span> {{supplierActivity.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="entity.detail.field">Field</th>
+                    <th translate="entity.detail.value">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.supplierActivity.code">Code</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{supplierActivity.code}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.supplierActivity.name">Name</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{supplierActivity.name}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.supplierActivity.description">Description</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{supplierActivity.description}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.supplierActivity.beginDate">BeginDate</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{supplierActivity.beginDate}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.supplierActivity.endDate">EndDate</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{supplierActivity.endDate}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.supplierActivity.enabled">Enabled</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{supplierActivity.enabled}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.supplierActivity.createdTime">CreatedTime</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{supplierActivity.createdTime}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.supplierActivity.modifiedTime">ModifiedTime</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{supplierActivity.modifiedTime}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.supplierActivity.supplier">supplier</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{supplierActivity.supplier.name}}" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            ui-sref="supplierActivity"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

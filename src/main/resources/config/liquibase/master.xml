@@ -14,5 +14,9 @@
     <include file="classpath:config/liquibase/changelog/20150821131107_added_entity_OutMessage.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20150824031715_added_entity_Coupon.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20150824033514_added_entity_CUser.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20150827055236_added_entity_Supplier.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20150827055810_added_entity_SupplierActivity.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20150827060757_added_entity_CouponBatch.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20150827061513_added_entity_NCoupon.xml" relativeToChangelogFile="false"/>
     <!-- JHipster will add liquibase changelogs here -->
 </databaseChangeLog>

@@ -15,6 +15,10 @@
         "activity": "Activity",
         "cUser": "CUser",
         "outMessage": "OutMessage",
+        "supplier": "Supplier",
+        "supplierActivity": "SupplierActivity",
+        "couponBatch": "CouponBatch",
+        "nCoupon": "NCoupon",
         "additionalEntity": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

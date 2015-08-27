@@ -1,0 +1,27 @@
+{
+    "sandboxApp": {
+        "supplierActivity" : {
+            "home": {
+                "title": "SupplierActivitys",
+                "createLabel": "Créer un nouveau SupplierActivity",
+                "createOrEditLabel": "Créer ou éditer un SupplierActivity"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le SupplierActivity {{ id }} ?"
+            },
+            "detail": {
+                "title": "SupplierActivity"
+            },
+            "code": "Code",
+            "name": "Name",
+            "description": "Description",
+            "beginDate": "BeginDate",
+            "endDate": "EndDate",
+            "enabled": "Enabled",
+            "createdTime": "CreatedTime",
+            "modifiedTime": "ModifiedTime",
+            "supplier": "supplier"
+        }
+    }
+}
+

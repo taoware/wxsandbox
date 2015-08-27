@@ -1,0 +1,73 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "couponBatch",
+            "relationshipNameCapitalized": "CouponBatch",
+            "relationshipFieldName": "couponBatch",
+            "otherEntityName": "couponBatch",
+            "relationshipType": "many-to-one",
+            "otherEntityNameCapitalized": "CouponBatch",
+            "otherEntityField": "code"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "code",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Code",
+            "fieldNameUnderscored": "code",
+            "fieldInJavaBeanMethod": "Code",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "status",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Status",
+            "fieldNameUnderscored": "status",
+            "fieldInJavaBeanMethod": "Status",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "createdTime",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "CreatedTime",
+            "fieldNameUnderscored": "created_time",
+            "fieldInJavaBeanMethod": "CreatedTime",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "modifedTime",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "ModifedTime",
+            "fieldNameUnderscored": "modifed_time",
+            "fieldInJavaBeanMethod": "ModifedTime",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOwnerOneToOne": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": true,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": true,
+    "fieldsContainDate": false,
+    "changelogDate": "20150827061513",
+    "dto": "no",
+    "pagination": "pager",
+    "validation": true
+}

@@ -1,0 +1,178 @@
+<div>
+
+    <h2 translate="sandboxApp.nCoupon.home.title">NCoupons</h2>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#saveNCouponModal" ng-click="clear()">
+                    <span class="glyphicon glyphicon-flash"></span> <span translate="sandboxApp.nCoupon.home.createLabel">Create a new NCoupon</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="saveNCouponModal" tabindex="-1" role="dialog" aria-labelledby="myNCouponLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" id="myNCouponLabel" translate="sandboxApp.nCoupon.home.createOrEditLabel">Create or edit a NCoupon</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>ID</label>
+                            <input type="text" class="form-control" name="id"
+                                   ng-model="nCoupon.id" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label translate="sandboxApp.nCoupon.code">Code</label>
+                            <input type="text" class="form-control" name="code"
+                                   ng-model="nCoupon.code">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.nCoupon.status">Status</label>
+                            <input type="text" class="form-control" name="status"
+                                   ng-model="nCoupon.status" required>
+
+                            <div ng-show="editForm.status.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.status.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.nCoupon.createdTime">CreatedTime</label>
+                            <input type="datetime-local" class="form-control" name="createdTime"
+                                   ng-model="nCoupon.createdTime" ng-model-options="{timezone: 'UTC'}" required>
+
+                            <div ng-show="editForm.createdTime.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.createdTime.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                                <p class="help-block"
+                                   ng-show="editForm.createdTime.$error.datetimelocal" translate="entity.validation.datetimelocal">
+                                    This field should be a date and time.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.nCoupon.modifedTime">ModifedTime</label>
+                            <input type="datetime-local" class="form-control" name="modifedTime"
+                                   ng-model="nCoupon.modifedTime" ng-model-options="{timezone: 'UTC'}" required>
+
+                            <div ng-show="editForm.modifedTime.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.modifedTime.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                                <p class="help-block"
+                                   ng-show="editForm.modifedTime.$error.datetimelocal" translate="entity.validation.datetimelocal">
+                                    This field should be a date and time.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label translate="sandboxApp.nCoupon.couponBatch">couponBatch</label>
+                            <select class="form-control" name="couponBatch" ng-model="nCoupon.couponBatch.id" ng-options="couponBatch.id as couponBatch.code for couponBatch in couponbatchs">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="editForm.$invalid" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteNCouponConfirmation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="deleteForm" ng-submit="confirmDelete(nCoupon.id)">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" translate="entity.delete.title">Confirm delete operation</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p translate="sandboxApp.nCoupon.delete.question" translate-values="{id: '{{nCoupon.id}}'}">Are you sure you want to delete this NCoupon?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="deleteForm.$invalid" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th translate="sandboxApp.nCoupon.code">Code</th>
+                    <th translate="sandboxApp.nCoupon.status">Status</th>
+                    <th translate="sandboxApp.nCoupon.createdTime">CreatedTime</th>
+                    <th translate="sandboxApp.nCoupon.modifedTime">ModifedTime</th>
+                    <th translate="sandboxApp.nCoupon.couponBatch">couponBatch</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="nCoupon in nCoupons">
+                    <td><a ui-sref="nCouponDetail({id:nCoupon.id})">{{nCoupon.id}}</a></td>
+                    <td>{{nCoupon.code}}</td>
+                    <td>{{nCoupon.status}}</td>
+                    <td>{{nCoupon.createdTime}}</td>
+                    <td>{{nCoupon.modifedTime}}</td>
+                    <td>{{nCoupon.couponBatch.code}}</td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="nCouponDetail({id:nCoupon.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="showUpdate(nCoupon.id)"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="delete(nCoupon.id)"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <nav>
+            <ul class="pager">
+                <li ng-show="links['first']" ng-click="loadPage(links['first'])"><a href="#">&lt;&lt;</a></li>
+                <li ng-show="links['prev']" ng-click="loadPage(links['prev'])"><a href="#">&lt;</a></li>
+                <li ng-show="links['next']" ng-click="loadPage(links['next'])"><a href="#">&gt;</a></li>
+                <li ng-show="links['last']" ng-click="loadPage(links['last'])"><a href="#">&gt;&gt;</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>

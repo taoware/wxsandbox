@@ -1,0 +1,21 @@
+{
+    "sandboxApp": {
+        "supplier" : {
+            "home": {
+                "title": "Suppliers",
+                "createLabel": "Create a new Supplier",
+                "createOrEditLabel": "Create or edit a Supplier"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Supplier {{ id }}?"
+            },
+            "detail": {
+                "title": "Supplier"
+            },
+            "code": "Code",
+            "name": "Name",
+            "address": "Address",
+            "contact": "Contact"
+        }
+    }
+}

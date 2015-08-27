@@ -1,0 +1,23 @@
+{
+    "sandboxApp": {
+        "nCoupon" : {
+            "home": {
+                "title": "NCoupons",
+                "createLabel": "Créer un nouveau NCoupon",
+                "createOrEditLabel": "Créer ou éditer un NCoupon"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le NCoupon {{ id }} ?"
+            },
+            "detail": {
+                "title": "NCoupon"
+            },
+            "code": "Code",
+            "status": "Status",
+            "createdTime": "CreatedTime",
+            "modifedTime": "ModifedTime",
+            "couponBatch": "couponBatch"
+        }
+    }
+}
+

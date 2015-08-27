@@ -1,0 +1,190 @@
+<div>
+
+    <h2 translate="sandboxApp.supplierActivity.home.title">SupplierActivitys</h2>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#saveSupplierActivityModal" ng-click="clear()">
+                    <span class="glyphicon glyphicon-flash"></span> <span translate="sandboxApp.supplierActivity.home.createLabel">Create a new SupplierActivity</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="saveSupplierActivityModal" tabindex="-1" role="dialog" aria-labelledby="mySupplierActivityLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" id="mySupplierActivityLabel" translate="sandboxApp.supplierActivity.home.createOrEditLabel">Create or edit a SupplierActivity</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>ID</label>
+                            <input type="text" class="form-control" name="id"
+                                   ng-model="supplierActivity.id" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label translate="sandboxApp.supplierActivity.code">Code</label>
+                            <input type="text" class="form-control" name="code"
+                                   ng-model="supplierActivity.code">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.supplierActivity.name">Name</label>
+                            <input type="text" class="form-control" name="name"
+                                   ng-model="supplierActivity.name" required>
+
+                            <div ng-show="editForm.name.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.name.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.supplierActivity.description">Description</label>
+                            <input type="text" class="form-control" name="description"
+                                   ng-model="supplierActivity.description">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.supplierActivity.beginDate">BeginDate</label>
+                            <input type="datetime-local" class="form-control" name="beginDate"
+                                   ng-model="supplierActivity.beginDate" ng-model-options="{timezone: 'UTC'}">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.supplierActivity.endDate">EndDate</label>
+                            <input type="datetime-local" class="form-control" name="endDate"
+                                   ng-model="supplierActivity.endDate" ng-model-options="{timezone: 'UTC'}">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.supplierActivity.enabled">Enabled</label>
+                            <input type="checkbox" class="form-control" name="enabled"
+                                   ng-model="supplierActivity.enabled">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.supplierActivity.createdTime">CreatedTime</label>
+                            <input type="datetime-local" class="form-control" name="createdTime"
+                                   ng-model="supplierActivity.createdTime" ng-model-options="{timezone: 'UTC'}">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.supplierActivity.modifiedTime">ModifiedTime</label>
+                            <input type="datetime-local" class="form-control" name="modifiedTime"
+                                   ng-model="supplierActivity.modifiedTime" ng-model-options="{timezone: 'UTC'}">
+
+                        </div>
+
+                        <div class="form-group">
+                            <label translate="sandboxApp.supplierActivity.supplier">supplier</label>
+                            <select class="form-control" name="supplier" ng-model="supplierActivity.supplier.id" ng-options="supplier.id as supplier.name for supplier in suppliers">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="editForm.$invalid" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteSupplierActivityConfirmation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="deleteForm" ng-submit="confirmDelete(supplierActivity.id)">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" translate="entity.delete.title">Confirm delete operation</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p translate="sandboxApp.supplierActivity.delete.question" translate-values="{id: '{{supplierActivity.id}}'}">Are you sure you want to delete this SupplierActivity?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="deleteForm.$invalid" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th translate="sandboxApp.supplierActivity.code">Code</th>
+                    <th translate="sandboxApp.supplierActivity.name">Name</th>
+                    <th translate="sandboxApp.supplierActivity.description">Description</th>
+                    <th translate="sandboxApp.supplierActivity.beginDate">BeginDate</th>
+                    <th translate="sandboxApp.supplierActivity.endDate">EndDate</th>
+                    <th translate="sandboxApp.supplierActivity.enabled">Enabled</th>
+                    <th translate="sandboxApp.supplierActivity.createdTime">CreatedTime</th>
+                    <th translate="sandboxApp.supplierActivity.modifiedTime">ModifiedTime</th>
+                    <th translate="sandboxApp.supplierActivity.supplier">supplier</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="supplierActivity in supplierActivitys">
+                    <td><a ui-sref="supplierActivityDetail({id:supplierActivity.id})">{{supplierActivity.id}}</a></td>
+                    <td>{{supplierActivity.code}}</td>
+                    <td>{{supplierActivity.name}}</td>
+                    <td>{{supplierActivity.description}}</td>
+                    <td>{{supplierActivity.beginDate}}</td>
+                    <td>{{supplierActivity.endDate}}</td>
+                    <td>{{supplierActivity.enabled}}</td>
+                    <td>{{supplierActivity.createdTime}}</td>
+                    <td>{{supplierActivity.modifiedTime}}</td>
+                    <td>{{supplierActivity.supplier.name}}</td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="supplierActivityDetail({id:supplierActivity.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="showUpdate(supplierActivity.id)"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="delete(supplierActivity.id)"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <nav>
+            <ul class="pager">
+                <li ng-show="links['first']" ng-click="loadPage(links['first'])"><a href="#">&lt;&lt;</a></li>
+                <li ng-show="links['prev']" ng-click="loadPage(links['prev'])"><a href="#">&lt;</a></li>
+                <li ng-show="links['next']" ng-click="loadPage(links['next'])"><a href="#">&gt;</a></li>
+                <li ng-show="links['last']" ng-click="loadPage(links['last'])"><a href="#">&gt;&gt;</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>

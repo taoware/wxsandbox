@@ -1,0 +1,103 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "supplier",
+            "relationshipNameCapitalized": "Supplier",
+            "relationshipFieldName": "supplier",
+            "otherEntityName": "supplier",
+            "relationshipType": "many-to-one",
+            "otherEntityNameCapitalized": "Supplier",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "code",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Code",
+            "fieldNameUnderscored": "code",
+            "fieldInJavaBeanMethod": "Code",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Name",
+            "fieldNameUnderscored": "name",
+            "fieldInJavaBeanMethod": "Name",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Description",
+            "fieldNameUnderscored": "description",
+            "fieldInJavaBeanMethod": "Description",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "beginDate",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "BeginDate",
+            "fieldNameUnderscored": "begin_date",
+            "fieldInJavaBeanMethod": "BeginDate",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "endDate",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "EndDate",
+            "fieldNameUnderscored": "end_date",
+            "fieldInJavaBeanMethod": "EndDate",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "enabled",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "Enabled",
+            "fieldNameUnderscored": "enabled",
+            "fieldInJavaBeanMethod": "Enabled",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 7,
+            "fieldName": "createdTime",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "CreatedTime",
+            "fieldNameUnderscored": "created_time",
+            "fieldInJavaBeanMethod": "CreatedTime",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 8,
+            "fieldName": "modifiedTime",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "ModifiedTime",
+            "fieldNameUnderscored": "modified_time",
+            "fieldInJavaBeanMethod": "ModifiedTime",
+            "fieldValidate": false
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOwnerOneToOne": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": true,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": true,
+    "fieldsContainDate": false,
+    "changelogDate": "20150827055810",
+    "dto": "no",
+    "pagination": "pager",
+    "validation": true
+}
