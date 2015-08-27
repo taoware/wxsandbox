@@ -357,6 +357,16 @@
             <artifactId>metrics-spark-reporter</artifactId>
             <version>${metrics-spark-reporter.version}</version>
         </dependency>
+        <dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.3.2</version>
+		</dependency>
+		<dependency>
+			<groupId>me.chanjar</groupId>
+			<artifactId>weixin-java-mp</artifactId>
+			<version>1.1.4</version>
+		</dependency>
     </dependencies>
     <build>
         <resources>
@@ -568,7 +578,7 @@
                     <defaultSchemaName></defaultSchemaName>
                     <username></username>
                     <password></password>
-                    <referenceUrl>hibernate:spring:com.irengine.sandbox.domain?dialect=</referenceUrl>
+                    <referenceUrl>hibernate:spring:com.irengine.campus.domain?dialect=</referenceUrl>
                     <verbose>true</verbose>
                     <logging>debug</logging>
                 </configuration>

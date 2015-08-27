@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +27,9 @@ public class AdminController {
 	@Autowired
 	UserService userService;
 	
+	@Autowired
+    private PasswordEncoder passwordEncoder;
+	
 	@RequestMapping(value = "/login", method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	public String login(HttpServletRequest request,
 			@RequestParam("username")String username,
@@ -34,7 +38,7 @@ public class AdminController {
 		logger.debug("管理员登录");
 		User admin=userService.findOneByLogin(username);
 		if(admin!=null){
-			if(admin.getPassword().equals(password)){
+			if(passwordEncoder.matches(password, admin.getPassword())){
 				/*登录成功,session绑定信息*/
 				HttpSession session=request.getSession();
 				session.setAttribute("username", username);
