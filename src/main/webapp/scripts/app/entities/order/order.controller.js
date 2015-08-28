@@ -29,7 +29,7 @@ angular.module('sandboxApp')
             },
             {
                 headerName: "#", width: 50,
-                cellRenderer: function(params) {
+                cellRenderer: function (params) {
                     return params.node.id + 1;
                 },
                 // we don't want to sort by the row index, this doesn't make sense as the point
@@ -39,7 +39,7 @@ angular.module('sandboxApp')
             },
             {headerName: "Id", field: "id", filter: 'number', filterParams: {newRowsAction: 'keep'}},
             {headerName: "MyString", field: "myString", filter: 'text', filterParams: {newRowsAction: 'keep'}},
-            {headerName: "MyInteger", field: "myInteger",filter: 'text', filterParams: {newRowsAction: 'keep'}},
+            {headerName: "MyInteger", field: "myInteger", filter: 'text', filterParams: {newRowsAction: 'keep'}},
             {headerName: "MyLong", field: "myLong"},
             {headerName: "MyFloat", field: "myFloat"},
             {headerName: "MyDouble", field: "myDouble"},
@@ -55,31 +55,31 @@ angular.module('sandboxApp')
             enableServerSideFilter: true,
             enableColResize: true,
             columnDefs: columnDefs,
-            ready: function(api) {
+            ready: function (api) {
                 console.log('Callback ready: api = ' + api);
                 console.log(api);
             },
             angularCompileRows: true
         };
 
-        $scope.loadAll = function() {
-            Order.query({page: $scope.page, per_page: $scope.pageSize}, function() {
+        $scope.loadAll = function () {
+            Order.query({page: $scope.page, per_page: $scope.pageSize}, function () {
                 createNewDatasource();
             });
         };
 
         $scope.loadAll();
 
-        $scope.view = function(id) {
+        $scope.view = function (id) {
             $state.go('order.detail', {id: id});
         }
 
-        $scope.edit = function(id) {
+        $scope.edit = function (id) {
             $state.go('order.edit', {id: id});
         };
 
         $scope.delete = function (id) {
-            Order.get({id: id}, function(result) {
+            Order.get({id: id}, function (result) {
                 $scope.order = result;
                 $('#deleteOrderConfirmation').modal('show');
             });
@@ -100,7 +100,19 @@ angular.module('sandboxApp')
         };
 
         $scope.clear = function () {
-            $scope.order = {myString: null, myInteger: null, myLong: null, myFloat: null, myDouble: null, myDecimal: null, myDate: null, myDateTime: null, myBoolean: null, myEnumeration: null, id: null};
+            $scope.order = {
+                myString: null,
+                myInteger: null,
+                myLong: null,
+                myFloat: null,
+                myDouble: null,
+                myDecimal: null,
+                myDate: null,
+                myDateTime: null,
+                myBoolean: null,
+                myEnumeration: null,
+                id: null
+            };
         };
 
         function createNewDatasource() {
@@ -121,12 +133,17 @@ angular.module('sandboxApp')
                     console.log(params);
                     console.log('asking for ' + params.startRow + ' to ' + params.endRow);
 
-                    Orders.query({page: page, per_page: $scope.pageSize, sort: params.sortModel, filter: params.filterModel}, function(result) {
+                    Orders.query({
+                        page: page,
+                        per_page: $scope.pageSize,
+                        sort: params.sortModel,
+                        filter: params.filterModel
+                    }, function (result) {
                         data = result.content;
                         total = result.totalElements;
                     });
 
-                    setTimeout( function() {
+                    setTimeout(function () {
                         params.successCallback(data, total);
                     }, 500);
                 }

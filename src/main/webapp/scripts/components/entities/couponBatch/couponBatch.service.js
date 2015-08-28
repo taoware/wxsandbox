@@ -13,6 +13,25 @@ angular.module('sandboxApp')
                     return data;
                 }
             },
-            'update': { method:'PUT' }
+            'update': {
+                method:'PUT',
+                transformRequest:function (data) {
+                    data.beginDate = DateUtils.convertLocaleDateToServer(data.beginDate);
+                    return angular.toJson(data);
+                }
+            },
+            'save': {
+                method:'POST',
+                transformRequest:function (data) {
+                    data.beginDate = DateUtils.convertLocaleDateToServer(data.beginDate);
+                    return angular.toJson(data);
+                }
+            }
+        });
+    })
+
+    .factory('CouponBatch',function($resource){
+        return $resource('api/orders/q',{},{
+            'query':{method:'GET'}
         });
     });
