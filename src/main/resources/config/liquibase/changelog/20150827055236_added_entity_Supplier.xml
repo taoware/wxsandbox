@@ -25,6 +25,9 @@
             <column name="address" type="varchar(255)"/>
             <column name="contact" type="varchar(255)"/>
         </createTable>
-        
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/supplier.csv"
+                  separator=";"
+                  tableName="SUPPLIER"/>
     </changeSet>
 </databaseChangeLog>

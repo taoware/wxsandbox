@@ -45,5 +45,10 @@
                                  referencedColumnNames="id"
                                  referencedTableName="SUPPLIER"/>
 
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/supplier_activity.csv"
+                  separator=";"
+                  tableName="SUPPLIERACTIVITY"/>
+                  
     </changeSet>
 </databaseChangeLog>

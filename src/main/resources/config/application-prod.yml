@@ -10,7 +10,7 @@ spring:
     datasource:
         dataSourceClassName: org.postgresql.ds.PGSimpleDataSource
         url: jdbc:postgresql://localhost:5432/sandbox
-        databaseName: sandbox
+        databaseName: wechat
         serverName: localhost
         username: sandbox
         password:
@@ -33,6 +33,8 @@ spring:
     thymeleaf:
         mode: XHTML
         cache: true
+        prefix: classpath:/views/
+        suffix: .html
 
 metrics:
     jmx.enabled: true
