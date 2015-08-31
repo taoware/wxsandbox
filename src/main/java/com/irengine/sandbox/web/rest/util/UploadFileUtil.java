@@ -69,7 +69,12 @@ public class UploadFileUtil {
 		// 得到压缩文件所在目录
 		String path = zipFile.getAbsolutePath();
 		logger.debug("---------path:" + path);
-		path = path.substring(0, path.lastIndexOf("/"));
+		if(path.lastIndexOf("/")>-1){
+			path = path.substring(0, path.lastIndexOf("/"));
+		}else{
+			path = path.substring(0, path.lastIndexOf("\\"));
+		}
+
 		@SuppressWarnings("resource")
 		ZipFile zip = new ZipFile(zipFile);
 		String name = "" + System.currentTimeMillis();
@@ -80,8 +85,13 @@ public class UploadFileUtil {
 		for (Enumeration entries = zip.entries(); entries.hasMoreElements();) {
 			ZipEntry entry = (ZipEntry) entries.nextElement();
 			String zipEntryName = entry.getName();
-			zipEntryName = name
-					+ zipEntryName.substring(zipEntryName.indexOf("/"));
+			if(zipEntryName.indexOf("/")>-1){
+				zipEntryName = name
+						+ zipEntryName.substring(zipEntryName.indexOf("/"));
+			}else{
+				zipEntryName = name
+						+ zipEntryName.substring(zipEntryName.indexOf("\\"));
+			}
 			InputStream in = zip.getInputStream(entry);
 			// outPath输出目录
 			String outPath = "";

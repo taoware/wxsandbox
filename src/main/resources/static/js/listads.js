@@ -28,7 +28,7 @@ var list = function (event) {
             Accept: "application/json; charset=utf-8"
         },
         type: "GET",
-        url: "http://vps1.taoware.com/activity?type=ad&offset=" + event + "&limit=5",
+        url: "/activity?type=ad&offset=" + event + "&limit=5",
         dataType: "json",
         async: false,
         success: function (data) {
@@ -109,7 +109,7 @@ var operate = function (event,event2) {
             shade: false //不显示遮罩
         }, function () {
             $.ajax({
-                url: 'http://vps1.taoware.com/activity/' + event + '/disable',
+                url: '/activity/' + event + '/disable',
                 type: 'GET',
                 success: function () {
                     onload=list(event2);
@@ -129,7 +129,7 @@ var check = function (event) {
 
     $("tr[id='" + event + "']").click(function () {
         $.ajax({
-            url: 'http://vps1.taoware.com/activity/' + event + '/wcUsers',
+            url: '/activity/' + event + '/wcUsers',
             type: 'GET',
             success: function () {
                 window.location.href = '/web/userads?activity_id=' + event;

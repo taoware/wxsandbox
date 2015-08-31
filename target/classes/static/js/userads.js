@@ -36,7 +36,7 @@ var list = function (event) {
         },
         type: "GET",
 
-        url: "http://vps1.taoware.com/activity/" + getQueryString("activity_id") + "/wcUsers?offset=" + event + "&limit=5",
+        url: "/activity/" + getQueryString("activity_id") + "/wcUsers?offset=" + event + "&limit=5",
         dataType: "json",
         success: function (data) {
 

@@ -10,6 +10,7 @@ import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,7 +25,12 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
+import org.springframework.cloud.cloudfoundry.com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.irengine.sandbox.domain.util.CustomDateTimeDeserializer;
@@ -81,7 +87,7 @@ public class Activity implements Serializable {
     @Column(name = "end_date")
     private DateTime endDate;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     @JoinTable(name = "ACTIVITY_WCUSERS",
                joinColumns = @JoinColumn(name="activitys_id", referencedColumnName="ID"),
@@ -108,7 +114,10 @@ public class Activity implements Serializable {
 	}
 	
 	public long getCount() {
-		return wcUserss.size();
+		if(wcUserss!=null){
+			return wcUserss.size();
+		}
+		return 0L;
 	}
 	
 	public String getStatusText(){
