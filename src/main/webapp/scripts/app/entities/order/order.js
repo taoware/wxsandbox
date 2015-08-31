@@ -42,8 +42,8 @@ angular.module('sandboxApp')
                         $translatePartialLoader.addPart('order');
                         return $translate.refresh();
                     }],
-                    entity: ['$stateParams', 'Order', function($stateParams, Order) {
-                        return Order.get({id : $stateParams.id});
+                    entity: ['$stateParams', 'Order', function ($stateParams, Order) {
+                        return Order.get({id: $stateParams.id});
                     }]
                 }
             })
@@ -53,21 +53,33 @@ angular.module('sandboxApp')
                 data: {
                     roles: ['ROLE_USER']
                 },
-                onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
+                onEnter: ['$stateParams', '$state', '$modal', function ($stateParams, $state, $modal) {
                     $modal.open({
                         templateUrl: 'scripts/app/entities/order/order-dialog.html',
                         controller: 'OrderDialogController',
                         size: 'lg',
                         resolve: {
                             entity: function () {
-                                return {myString: null, myInteger: null, myLong: null, myFloat: null, myDouble: null, myDecimal: null, myDate: null, myDateTime: null, myBoolean: null, myEnumeration: null, id: null};
+                                return {
+                                    myString: null,
+                                    myInteger: null,
+                                    myLong: null,
+                                    myFloat: null,
+                                    myDouble: null,
+                                    myDecimal: null,
+                                    myDate: null,
+                                    myDateTime: null,
+                                    myBoolean: null,
+                                    myEnumeration: null,
+                                    id: null
+                                };
                             }
                         }
-                    }).result.then(function(result) {
-                        $state.go('order', null, { reload: true });
-                    }, function() {
-                        $state.go('order');
-                    })
+                    }).result.then(function (result) {
+                            $state.go('order', null, {reload: true});
+                        }, function () {
+                            $state.go('order');
+                        })
                 }]
             })
             .state('order.edit', {
@@ -76,21 +88,21 @@ angular.module('sandboxApp')
                 data: {
                     roles: ['ROLE_USER']
                 },
-                onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
+                onEnter: ['$stateParams', '$state', '$modal', function ($stateParams, $state, $modal) {
                     $modal.open({
                         templateUrl: 'scripts/app/entities/order/order-dialog.html',
                         controller: 'OrderDialogController',
                         size: 'lg',
                         resolve: {
-                            entity: ['Order', function(Order) {
-                                return Order.get({id : $stateParams.id});
+                            entity: ['Order', function (Order) {
+                                return Order.get({id: $stateParams.id});
                             }]
                         }
-                    }).result.then(function(result) {
-                        $state.go('order', null, { reload: true });
-                    }, function() {
-                        $state.go('^');
-                    })
+                    }).result.then(function (result) {
+                            $state.go('order', null, {reload: true});
+                        }, function () {
+                            $state.go('^');
+                        })
                 }]
             });
     });

@@ -5,14 +5,14 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <button class="btn btn-primary" data-toggle="modal" data-target="#saveCouponBatchModal" ng-click="clear()">
+                <button class="btn btn-primary" ui-sref="couponBatch.new">
                     <span class="glyphicon glyphicon-flash"></span> <span translate="sandboxApp.couponBatch.home.createLabel">Create a new CouponBatch</span>
                 </button>
             </div>
         </div>
     </div>
 
-    <div class="modal fade" id="saveCouponBatchModal" tabindex="-1" role="dialog" aria-labelledby="myCouponBatchLabel"
+  <!--  <div class="modal fade" id="saveCouponBatchModal" tabindex="-1" role="dialog" aria-labelledby="myCouponBatchLabel"
          aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -21,14 +21,15 @@
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                                 ng-click="clear()">&times;</button>
-                        <h4 class="modal-title" id="myCouponBatchLabel" translate="sandboxApp.couponBatch.home.createOrEditLabel">Create or edit a CouponBatch</h4>
+                        <h4 class="modal-title" id="myCouponBatchLabel"
+                            translate="sandboxApp.couponBatch.home.createOrEditLabel">Create or edit a CouponBatch</h4>
                     </div>
                     <div class="modal-body">
-                       <!-- <div class="form-group">
-                            <label>ID</label>
-                            <input type="text" class="form-control" name="id"
-                                   ng-model="couponBatch.id" readonly>
-                        </div>-->
+                        &lt;!&ndash; <div class="form-group">
+                             <label>ID</label>
+                             <input type="text" class="form-control" name="id"
+                                    ng-model="couponBatch.id" readonly>
+                         </div>&ndash;&gt;
 
                         <div class="form-group">
                             <label translate="sandboxApp.couponBatch.code">Code</label>
@@ -46,6 +47,7 @@
                                    ng-show="editForm.size.$error.required" translate="entity.validation.required">
                                     This field is required.
                                 </p>
+
                                 <p class="help-block"
                                    ng-show="editForm.size.$error.number" translate="entity.validation.number">
                                     This field should be a number.
@@ -62,6 +64,7 @@
                                    ng-show="editForm.quantity.$error.required" translate="entity.validation.required">
                                     This field is required.
                                 </p>
+
                                 <p class="help-block"
                                    ng-show="editForm.quantity.$error.number" translate="entity.validation.number">
                                     This field should be a number.
@@ -78,8 +81,10 @@
                                    ng-show="editForm.beginDate.$error.required" translate="entity.validation.required">
                                     This field is required.
                                 </p>
+
                                 <p class="help-block"
-                                   ng-show="editForm.beginDate.$error.datetimelocal" translate="entity.validation.datetimelocal">
+                                   ng-show="editForm.beginDate.$error.datetimelocal"
+                                   translate="entity.validation.datetimelocal">
                                     This field should be a date and time.
                                 </p>
                             </div>
@@ -94,34 +99,39 @@
                                    ng-show="editForm.endDate.$error.required" translate="entity.validation.required">
                                     This field is required.
                                 </p>
+
                                 <p class="help-block"
-                                   ng-show="editForm.endDate.$error.datetimelocal" translate="entity.validation.datetimelocal">
+                                   ng-show="editForm.endDate.$error.datetimelocal"
+                                   translate="entity.validation.datetimelocal">
                                     This field should be a date and time.
                                 </p>
                             </div>
                         </div>
-                       <!-- <div class="form-group">
-                            <label translate="sandboxApp.couponBatch.enabled">Enabled</label>
-                            <input type="checkbox" class="form-control" name="enabled"
-                                   ng-model="couponBatch.enabled">
+                        &lt;!&ndash; <div class="form-group">
+                             <label translate="sandboxApp.couponBatch.enabled">Enabled</label>
+                             <input type="checkbox" class="form-control" name="enabled"
+                                    ng-model="couponBatch.enabled">
 
-                        </div>
-                        <div class="form-group">
-                            <label translate="sandboxApp.couponBatch.isGenerated">IsGenerated</label>
-                            <input type="checkbox" class="form-control" name="isGenerated"
-                                   ng-model="couponBatch.isGenerated">
+                         </div>
+                         <div class="form-group">
+                             <label translate="sandboxApp.couponBatch.isGenerated">IsGenerated</label>
+                             <input type="checkbox" class="form-control" name="isGenerated"
+                                    ng-model="couponBatch.isGenerated">
 
-                        </div>-->
+                         </div>&ndash;&gt;
 
                         <div class="form-group">
                             <label translate="sandboxApp.couponBatch.supplierActivity">supplierActivity</label>
-                            <select class="form-control" name="supplierActivity" ng-model="couponBatch.supplierActivity.id" ng-options="supplierActivity.id as supplierActivity.name for supplierActivity in supplieractivitys">
+                            <select class="form-control" name="supplierActivity"
+                                    ng-model="couponBatch.supplierActivity.id"
+                                    ng-options="supplierActivity.id as supplierActivity.name for supplierActivity in supplieractivitys">
                             </select>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
-                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span
+                                translate="entity.action.cancel">Cancel</span>
                         </button>
                         <button type="submit" ng-disabled="editForm.$invalid" class="btn btn-primary">
                             <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
@@ -130,7 +140,7 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div>-->
 
     <div class="modal fade" id="deleteCouponBatchConfirmation">
         <div class="modal-dialog">
@@ -142,14 +152,18 @@
                         <h4 class="modal-title" translate="entity.delete.title">Confirm delete operation</h4>
                     </div>
                     <div class="modal-body">
-                        <p translate="sandboxApp.couponBatch.delete.question" translate-values="{id: '{{couponBatch.id}}'}">Are you sure you want to delete this CouponBatch?</p>
+                        <p translate="sandboxApp.couponBatch.delete.question"
+                           translate-values="{id: '{{couponBatch.id}}'}">Are you sure you want to delete this
+                            CouponBatch?</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
-                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span
+                                translate="entity.action.cancel">Cancel</span>
                         </button>
                         <button type="submit" ng-disabled="deleteForm.$invalid" class="btn btn-danger">
-                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete">Delete</span>
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span
+                                translate="entity.action.delete">Delete</span>
                         </button>
                     </div>
                 </form>
@@ -157,7 +171,7 @@
         </div>
     </div>
 
-    <div class="table-responsive">
+   <!-- <div class="table-responsive">
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -212,5 +226,11 @@
                 <li ng-show="links['last']" ng-click="loadPage(links['last'])"><a href="#">&gt;&gt;</a></li>
             </ul>
         </nav>
+    </div>-->
+    
+    <div class="table-responsive">
+        <div ag-grid="gridOptions" class="ag-fresh" style="height: 670px; width: 100%;"></div>
     </div>
+
+
 </div>

@@ -23,9 +23,9 @@ angular.module('sandboxApp')
                     }]
                 }
             })
-            .state('couponBatchDetail', {
+            .state('couponBatch.detail', {
                 parent: 'entity',
-                url: '/couponBatch/:id',
+                url: '/couponBatch/{id}',
                 data: {
                     roles: ['ROLE_USER'],
                     pageTitle: 'sandboxApp.couponBatch.detail.title'
@@ -40,7 +40,65 @@ angular.module('sandboxApp')
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                         $translatePartialLoader.addPart('couponBatch');
                         return $translate.refresh();
+                    }],
+                    entity: ['$stateParams', 'CouponBatch', function ($stateParams, CouponBatch) {
+                        return CouponBatch.get({id: $stateParams.id});
                     }]
                 }
+            })
+            .state('couponBatch.new', {
+                parent: 'couponBatch',
+                url: '/new',
+                data: {
+                    roles: ['ROLE_USER']
+                },
+                onEnter: ['$stateParams', '$state', '$modal', function ($stateParams, $state, $modal) {
+                    $modal.open({
+                        templateUrl: 'scripts/app/entities/couponBatch/couponBatch-dialog.html',
+                        controller: 'CouponBatchDialogController',
+                        size: 'md',
+                        resolve: {
+                            entity: function () {
+                                return {
+                                    code: null,
+                                    size: null,
+                                    quantity: null,
+                                    beginDate: null,
+                                    endDate: null,
+                                    enabled: null,
+                                    isGenerated: null,
+                                    id: null
+                                };
+                            }
+                        }
+                    }).result.then(function (result) {
+                            $state.go('couponBatch', null, {reload: true});
+                        }, function () {
+                            $state.go('couponBatch');
+                        })
+                }]
+            })
+            .state('couponBatch.edit', {
+                parent: 'couponBatch',
+                url: '/{id}/edit',
+                data: {
+                    roles: ['ROLE_USER']
+                },
+                onEnter: ['$stateParams', '$state', '$modal', function ($stateParams, $state, $modal) {
+                    $modal.open({
+                        templateUrl: 'scripts/app/entities/couponBatch/couponBatch-dialog.html',
+                        controller: 'CouponBatchDialogController',
+                        size: 'md',
+                        resolve: {
+                            entity: ['CouponBatch', function (CouponBatch) {
+                                return CouponBatch.get({id: $stateParams.id});
+                            }]
+                        }
+                    }).result.then(function (result) {
+                            $state.go('couponBatch', null, {reload: true});
+                        }, function () {
+                            $state.go('^');
+                        })
+                }]
             });
     });

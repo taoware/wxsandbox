@@ -31,7 +31,7 @@ angular.module('sandboxApp')
     })
 
     .factory('CouponBatch',function($resource){
-        return $resource('api/orders/q',{},{
+        return $resource('api/couponBatchs/q',{},{
             'query':{method:'GET'}
         });
     });
