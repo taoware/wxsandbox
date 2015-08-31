@@ -48,5 +48,10 @@
                                  referencedColumnNames="id"
                                  referencedTableName="SUPPLIERACTIVITY"/>
 
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/coupon_batch.csv"
+                  separator=";"
+                  tableName="COUPONBATCH"/>
+                  
     </changeSet>
 </databaseChangeLog>
