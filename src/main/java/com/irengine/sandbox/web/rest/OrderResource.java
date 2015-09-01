@@ -141,6 +141,7 @@ public class OrderResource {
             ObjectMapper mapper = new ObjectMapper();
 
             try {
+            	//获得filter
                 filter = mapper.readValue(params.get(FILTERING).toString(), new TypeReference<Map<String, Map<String, String>>>(){});
                 log.debug(filter.toString());
             } catch (Exception e) {

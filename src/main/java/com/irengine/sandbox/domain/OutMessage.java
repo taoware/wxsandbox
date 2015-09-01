@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.irengine.sandbox.domain.util.CustomDateTimeDeserializer;
 import com.irengine.sandbox.domain.util.CustomDateTimeSerializer;
+
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Type;
@@ -11,7 +12,11 @@ import org.joda.time.DateTime;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
+
 import java.io.Serializable;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Objects;
@@ -66,13 +71,63 @@ public class OutMessage implements Serializable {
     @Column(name = "disable")
     private Boolean disable;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     @JoinTable(name = "OUTMESSAGE_WCUSERS",
                joinColumns = @JoinColumn(name="outmessages_id", referencedColumnName="ID"),
                inverseJoinColumns = @JoinColumn(name="wcuserss_id", referencedColumnName="ID"))
     private Set<WCUser> wcUserss = new HashSet<>();
 
+	public long getCount() {
+		return wcUserss.size();
+	}
+
+	public String getReturnContent(){
+		return getsubstring(content, 60);
+	}
+	
+	public String getStatusText(){
+		Date now = new Date();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(endDate.toDate());
+		calendar.add(Calendar.DATE, 1);// 把日期往后增加一天.整数往后推,负数往前移动
+		Date endDate2 = calendar.getTime();
+		if(disable==true){
+			if(now.after(endDate2)){
+				return "已结束";
+			}else{
+				return "已关闭";
+			}
+		}else{
+			if(now.before(startDate.toDate())){
+				return "未进行";
+			}else if(now.after(endDate2)){
+				return "已结束";
+			}else{
+				return "进行中";
+			}
+		}
+	}
+	
+	public OutMessage() {
+		super();
+	}
+
+	public OutMessage(String type, String content, String url, String picUrl,
+			String title, String menuName, DateTime startDate, DateTime endDate,
+			boolean disable) {
+		super();
+		this.type = type;
+		this.content = content;
+		this.url = url;
+		this.picUrl = picUrl;
+		this.title = title;
+		this.menuName = menuName;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.disable = disable;
+	}
+	
     public Long getId() {
         return id;
     }
@@ -197,4 +252,26 @@ public class OutMessage implements Serializable {
                 ", disable='" + disable + "'" +
                 '}';
     }
+    
+	/**处理文本消息字符串过长显示不美观问题*/
+	private String getsubstring(String content, int sublength) {
+		int length = content.getBytes().length;
+		if (sublength >= length) {
+			return content;
+		} else {
+				int i = 0;
+				int j = 0;
+				for (; i < length; i++) {
+					if (content.substring(0, i + 1).getBytes().length >= sublength) {
+						j = content.substring(0, i + 1).getBytes().length;
+						break;
+					}
+
+				}
+				String substring = j > sublength ? content.substring(0, i)
+						: content.substring(0, i + 1);
+				return substring+"...";
+		}
+	}
+	
 }

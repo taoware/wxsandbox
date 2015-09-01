@@ -9,11 +9,11 @@ spring:
         active: prod
     datasource:
         dataSourceClassName: org.postgresql.ds.PGSimpleDataSource
-        url: jdbc:postgresql://localhost:5432/sandbox
+        url: jdbc:postgresql://localhost:5432/wechat
         databaseName: wechat
         serverName: localhost
-        username: sandbox
-        password:
+        username: huang
+        password: 1qaz2wsx
 
     jpa:
         database-platform: org.hibernate.dialect.PostgreSQL82Dialect
