@@ -5,14 +5,14 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <button class="btn btn-primary" data-toggle="modal" data-target="#saveSupplierModal" ng-click="clear()">
+                <button class="btn btn-primary" ui-sref="supplier.new">
                     <span class="glyphicon glyphicon-flash"></span> <span translate="sandboxApp.supplier.home.createLabel">Create a new Supplier</span>
                 </button>
             </div>
         </div>
     </div>
 
-    <div class="modal fade" id="saveSupplierModal" tabindex="-1" role="dialog" aria-labelledby="mySupplierLabel"
+   <!-- <div class="modal fade" id="saveSupplierModal" tabindex="-1" role="dialog" aria-labelledby="mySupplierLabel"
          aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -73,7 +73,7 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div>-->
 
     <div class="modal fade" id="deleteSupplierConfirmation">
         <div class="modal-dialog">

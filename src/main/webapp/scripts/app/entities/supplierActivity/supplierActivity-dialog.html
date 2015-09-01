@@ -1,0 +1,84 @@
+<form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="mySupplierActivityLabel" translate="sandboxApp.supplierActivity.home.createOrEditLabel">Create or edit a SupplierActivity</h4>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label>ID</label>
+            <input type="text" class="form-control" name="id"
+                   ng-model="supplierActivity.id" readonly>
+        </div>
+
+        <div class="form-group">
+            <label translate="sandboxApp.supplierActivity.code">Code</label>
+            <input type="text" class="form-control" name="code"
+                   ng-model="supplierActivity.code">
+
+        </div>
+        <div class="form-group">
+            <label translate="sandboxApp.supplierActivity.name">Name</label>
+            <input type="text" class="form-control" name="name"
+                   ng-model="supplierActivity.name" required>
+
+            <div ng-show="editForm.name.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.name.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label translate="sandboxApp.supplierActivity.description">Description</label>
+            <input type="text" class="form-control" name="description"
+                   ng-model="supplierActivity.description">
+
+        </div>
+        <div class="form-group">
+            <label translate="sandboxApp.supplierActivity.beginDate">BeginDate</label>
+            <input type="datetime-local" class="form-control" name="beginDate"
+                   ng-model="supplierActivity.beginDate" ng-model-options="{timezone: 'UTC'}">
+
+        </div>
+        <div class="form-group">
+            <label translate="sandboxApp.supplierActivity.endDate">EndDate</label>
+            <input type="datetime-local" class="form-control" name="endDate"
+                   ng-model="supplierActivity.endDate" ng-model-options="{timezone: 'UTC'}">
+
+        </div>
+        <div class="form-group">
+            <label translate="sandboxApp.supplierActivity.enabled">Enabled</label>
+            <input type="checkbox" class="form-control" name="enabled"
+                   ng-model="supplierActivity.enabled">
+
+        </div>
+        <div class="form-group">
+            <label translate="sandboxApp.supplierActivity.createdTime">CreatedTime</label>
+            <input type="datetime-local" class="form-control" name="createdTime"
+                   ng-model="supplierActivity.createdTime" ng-model-options="{timezone: 'UTC'}">
+
+        </div>
+        <div class="form-group">
+            <label translate="sandboxApp.supplierActivity.modifiedTime">ModifiedTime</label>
+            <input type="datetime-local" class="form-control" name="modifiedTime"
+                   ng-model="supplierActivity.modifiedTime" ng-model-options="{timezone: 'UTC'}">
+
+        </div>
+
+        <div class="form-group">
+            <label translate="sandboxApp.supplierActivity.supplier">supplier</label>
+            <select class="form-control" name="supplier" ng-model="supplierActivity.supplier.id" ng-options="supplier.id as supplier.name for supplier in suppliers">
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
