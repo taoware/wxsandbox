@@ -13,6 +13,27 @@ angular.module('sandboxApp')
                     return data;
                 }
             },
-            'update': { method:'PUT' }
+            'update': {
+                method:'PUT' ,
+                transformRequest: function(data) {
+                    data.createdTime = DateUtils.convertDateTimeFromServer(data.createdTime);
+                    data.modifedTime = DateUtils.convertDateTimeFromServer(data.modifedTime);
+                    return angular.toJson(data);
+                }
+            },
+            'save':{
+                method:'POST',
+                transformRequest:function(data) {
+                    data.createdTime = DateUtils.convertDateTimeFromServer(data.createdTime);
+                    data.modifedTime = DateUtils.convertDateTimeFromServer(data.modifedTime);
+                    return angular.toJson(data);
+                }
+            }
+        });
+    })
+
+    .factory('NCoupons',function($resource){
+        return $resource('api/orders/q',{},{
+            'query':{method:'GET'}
         });
     });
