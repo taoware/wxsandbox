@@ -25,15 +25,27 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.irengine.sandbox.SmsHelper;
 import com.irengine.sandbox.WeChatConnector;
 import com.irengine.sandbox.commons.MessageUtil;
+import com.irengine.sandbox.domain.Activity;
+import com.irengine.sandbox.domain.CUser;
+import com.irengine.sandbox.domain.Coupon;
 import com.irengine.sandbox.domain.OutMessage;
+import com.irengine.sandbox.domain.WCUser;
+import com.irengine.sandbox.service.ActivityService;
+import com.irengine.sandbox.service.CUserService;
 import com.irengine.sandbox.service.OutMessageService;
+import com.irengine.sandbox.service.WCUserService;
 
 @Controller
+//@RequestMapping("/api/wechat")
 public class EndPointController {
 
 	private static Logger logger = LoggerFactory
@@ -42,15 +54,23 @@ public class EndPointController {
 	@Autowired
 	private OutMessageService outMessageService;
 
+	@Autowired
+	private CUserService cUserService;
+	
+	@Autowired
+	private ActivityService activityService;
+	
+	@Autowired
+	private WCUserService wcUserService;
 	/*
 	 * http://wenku.baidu.com/link?url=Z6AsEXjrbIRt-5V6wurFBXdSgQOCTRXtaR09HLdnwjTZ
 	 * -WQH4GMq-_9fhS7abwGFYX2XwfXnIbupNxbrJa7KwB6_UUkgefR43Lnh5kr6YPa
 	 */
 	/** 此逻辑为了确定请求来自微信服务器 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/api/wechat", method = RequestMethod.GET)
 	public void service(HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
-
+		logger.debug("验证是否来自微信请求");
 		response.setContentType("text/html;charset=utf-8");
 		response.setStatus(HttpServletResponse.SC_OK);
 
@@ -159,14 +179,14 @@ public class EndPointController {
 		response.getWriter().close();
 	}
 
-	@RequestMapping(value = "/", method = RequestMethod.POST)
+	@RequestMapping(value = "/api/wechat/", method = RequestMethod.POST)
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException, DocumentException,
 			WxErrorException {
 		// 将请求、响应的编码均设置为UTF-8（防止中文乱码）
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-
+		logger.debug("点击按钮");
 		Map<String, String> requestMap = MessageUtil.parseXml(request);
 		String toUserName = requestMap.get("FromUserName");
 		String fromUserName = requestMap.get("ToUserName");
@@ -222,5 +242,139 @@ public class EndPointController {
 				}
 			}
 		}
+	}
+	
+	/** 得到提货码 */
+	@RequestMapping("/coupon")
+	public String getCoupon(HttpServletRequest request, Model model)
+			throws Exception {
+
+		String openId = request.getParameter("openid");
+		logger.debug("获取提货码 openId:" + openId);
+		/* 判断是否已被注册 */
+		CUser user = cUserService.findOneByOpenId(openId);
+		if (user != null) {
+			/* 已被注册 */
+			logger.debug("------userId:" + user.getId());
+			model.addAttribute("msg", "您已领取过提货码:");
+			model.addAttribute("coupon", user.getCoupons().get(0).getCode());
+			return "1436858491142/success";
+		} else {
+			/* 没被注册,绑定一个提货码 */
+			Coupon coupon = cUserService.registerActivity(
+					"" + System.currentTimeMillis(), openId);
+			logger.debug("------coupon:" + coupon.getCode());
+			model.addAttribute("msg", "恭喜，您获得一枚提取码:");
+			model.addAttribute("coupon", coupon.getCode());
+			return "1436858491142/success";
+		}
+	}
+
+	/** 输入用户信息得到提货码 */
+	@RequestMapping("/register")
+	public String register(HttpServletRequest request, Model model)
+			throws Exception {
+
+		String mobile = request.getParameter("username");
+		String openId = request.getParameter("openid");
+
+		logger.info("mobile: " + mobile + " openId: " + openId);
+		/* 判断是否已被注册 */
+		if (!cUserService.verfiyMobileAndOpenId(mobile, openId))
+			/* 已被注册 */
+			return "fail";
+		else {
+			/* 没被注册,绑定一个提货码 */
+			Coupon coupon = cUserService.registerActivity(mobile, openId);
+			model.addAttribute("coupon", coupon.getCode());
+			return "succeed";
+		}
+	}
+
+	/**
+	 * 查询赠卷? (查询赠卷按钮连接的url)
+	 */
+	@RequestMapping("/query")
+	public String query(HttpServletRequest request, Model model)
+			throws Exception {
+		/* 通过code得到登录用户信息 */
+		String code = request.getParameter("code");
+
+		WxMpOAuth2AccessToken wxMpOAuth2AccessToken = WeChatConnector
+				.getMpService().oauth2getAccessToken(code);
+		WxMpUser wxMpUser = WeChatConnector.getMpService().oauth2getUserInfo(
+				wxMpOAuth2AccessToken, null);
+
+		String openId = wxMpUser.getOpenId();
+
+		Coupon coupon = cUserService.queryActivity(openId);
+		if (null == coupon)
+			return "fail";
+		else {
+			model.addAttribute("coupon", coupon.getCode());
+			return "succeed";
+		}
+	}
+
+	/**
+	 * 短信验证 从前端得到正确的验证码和手机号,并向该手机发送验证短信
+	 */
+	@RequestMapping("/notify")
+	public void notify(@RequestParam("mobile") String mobile,
+			@RequestParam("message") String message,
+			HttpServletResponse response) throws IOException {
+
+		response.setContentType("text/html;charset=utf-8");
+		response.setStatus(HttpServletResponse.SC_OK);
+		// 发送验证短信
+		String result = SmsHelper.send(mobile, message);
+
+		response.getWriter().println(result);
+	}
+
+	@RequestMapping("/today/{id}")
+	public void today(@PathVariable("id") Long id, HttpServletRequest request,
+			HttpServletResponse response) throws IOException, WxErrorException {
+		logger.debug("跳转活动,活动id=" + id);
+		/* 用code能取得accesstoken,然后用accesstoken得到登录用户信息? */
+		String code = request.getParameter("code");
+		// AccessToken:用户的访问令牌
+		WxMpOAuth2AccessToken wxMpOAuth2AccessToken = WeChatConnector
+				.getMpService().oauth2getAccessToken(code);
+		// WxMpUser:微信用户信息
+		WxMpUser wxMpUser = WeChatConnector.getMpService().oauth2getUserInfo(
+				wxMpOAuth2AccessToken, null);
+		Activity activity = activityService.findOneById(id);
+		if (activity != null) {
+			/* 保存wcUser并且不重复记录 */
+			WCUser user = wcUserService.findOneByOpenId(wxMpUser.getOpenId());
+			if (user == null) {
+				WCUser wcUser = new WCUser(wxMpUser.getOpenId(),
+						wxMpUser.getNickname(), wxMpUser.getSex(),
+						wxMpUser.getCity(), wxMpUser.getProvince(),
+						wxMpUser.getCountry(), wxMpUser.getUnionId());
+				user = wcUserService.save(wcUser);
+			}
+			/* 检测该用户是否参加过该活动 */
+			boolean j = true;
+			if (activity.getWcUserss().size() > 0) {
+				for (WCUser wcUser1 : activity.getWcUserss()) {
+					if (wcUser1.getId() == user.getId()) {
+						logger.debug("该用户已经浏览过该活动");
+						j = false;
+						break;
+					}
+				}
+			}
+			if (j == true) {
+				logger.debug("该活动人数加1");
+				activity.getWcUserss().add(user);
+				activityService.save(activity);
+			}
+			response.sendRedirect("http://bovps1.taoware.com/web/"+activity.getFolderName()+"/send");
+		} else {
+			logger.debug("该活动不存在");
+		}
+
 	}
 }

@@ -9,9 +9,9 @@ spring:
         active: prod
     datasource:
         dataSourceClassName: org.postgresql.ds.PGSimpleDataSource
-        url: jdbc:postgresql://localhost:5432/wechat
-        databaseName: wechat
-        serverName: localhost
+        url: jdbc:postgresql://localhost/wechat
+        databaseName:
+        serverName:
         username: huang
         password: 1qaz2wsx
 

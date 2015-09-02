@@ -1,18 +1,16 @@
 package com.irengine.sandbox.web.rest;
 
-import com.codahale.metrics.annotation.Timed;
-import com.irengine.sandbox.SmsHelper;
-import com.irengine.sandbox.WeChatConnector;
-import com.irengine.sandbox.domain.Activity;
-import com.irengine.sandbox.domain.CUser;
-import com.irengine.sandbox.domain.Coupon;
-import com.irengine.sandbox.domain.WCUser;
-import com.irengine.sandbox.repository.ActivityRepository;
-import com.irengine.sandbox.repository.CUserRepository;
-import com.irengine.sandbox.service.ActivityService;
-import com.irengine.sandbox.service.CUserService;
-import com.irengine.sandbox.service.WCUserService;
-import com.irengine.sandbox.web.rest.util.PaginationUtil;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.List;
+import java.util.Optional;
+
+import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.mp.bean.result.WxMpOAuth2AccessToken;
@@ -26,18 +24,25 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.validation.Valid;
-
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.List;
-import java.util.Optional;
+import com.codahale.metrics.annotation.Timed;
+import com.irengine.sandbox.SmsHelper;
+import com.irengine.sandbox.WeChatConnector;
+import com.irengine.sandbox.domain.Activity;
+import com.irengine.sandbox.domain.CUser;
+import com.irengine.sandbox.domain.Coupon;
+import com.irengine.sandbox.domain.WCUser;
+import com.irengine.sandbox.repository.ActivityRepository;
+import com.irengine.sandbox.service.ActivityService;
+import com.irengine.sandbox.service.CUserService;
+import com.irengine.sandbox.service.WCUserService;
+import com.irengine.sandbox.web.rest.util.PaginationUtil;
 
 /**
  * REST controller for managing Activity.
@@ -72,6 +77,12 @@ public class ActivityResource {
             return ResponseEntity.badRequest().header("Failure", "A new activity cannot already have an ID").build();
         }
         activityRepository.save(activity);
+//		try {
+//			activityService.updateMenu();
+//		} catch (UnsupportedEncodingException e) {
+//			log.debug("更新菜单出错");
+//			e.printStackTrace();
+//		}
         return ResponseEntity.created(new URI("/api/activitys/" + activity.getId())).build();
     }
 

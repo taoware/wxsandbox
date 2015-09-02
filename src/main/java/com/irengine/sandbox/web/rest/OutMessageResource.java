@@ -3,7 +3,9 @@ package com.irengine.sandbox.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import com.irengine.sandbox.domain.OutMessage;
 import com.irengine.sandbox.repository.OutMessageRepository;
+import com.irengine.sandbox.service.ActivityService;
 import com.irengine.sandbox.web.rest.util.PaginationUtil;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -15,6 +17,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
+
+import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -32,6 +36,9 @@ public class OutMessageResource {
     @Inject
     private OutMessageRepository outMessageRepository;
 
+    @Inject
+    private ActivityService activityService;
+    
     /**
      * POST  /outMessages -> Create a new outMessage.
      */
@@ -61,6 +68,12 @@ public class OutMessageResource {
             return create(outMessage);
         }
         outMessageRepository.save(outMessage);
+//		try {
+//			activityService.updateMenu();
+//		} catch (UnsupportedEncodingException e) {
+//			log.debug("更新菜单出错");
+//			e.printStackTrace();
+//		}
         return ResponseEntity.ok().build();
     }
 

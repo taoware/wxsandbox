@@ -33,7 +33,7 @@ public class DealWithMenuJson {
 					/*本地上传活动*/
 					activityMenu += "{\"type\":\"view\",\"name\":\""
 							+ activity.getName()
-							+ "\",\"url\":\"https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxa1c8a107ae33becc&redirect_uri=http%3A%2F%2Fvps1.taoware.com%2Ftoday%2F"
+							+ "\",\"url\":\"https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxa1c8a107ae33becc&redirect_uri=http%3A%2F%2Fbovps1.taoware.com%2Ftoday%2F"
 							+ activity.getId()
 							+ "%2F&response_type=code&scope=snsapi_userinfo#wechat_redirect\"},";
 				}
