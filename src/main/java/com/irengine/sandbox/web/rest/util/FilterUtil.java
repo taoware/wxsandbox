@@ -45,6 +45,12 @@ public class FilterUtil {
                             case LTE:
                                 predicates.add(builder.lessThanOrEqualTo(expression, (Comparable) filter.getValue()));
                                 break;
+                            case SW:
+                                predicates.add(builder.like(expression, filter.getValue() + "%"));
+                                break;
+                            case EW:
+                                predicates.add(builder.like(expression, "%" + filter.getValue()));
+                                break;
                         }
                     }
 

@@ -8,7 +8,10 @@ import com.irengine.sandbox.repository.OrderRepository;
 import com.irengine.sandbox.web.rest.util.Filter;
 import com.irengine.sandbox.web.rest.util.FilterUtil;
 import com.irengine.sandbox.web.rest.util.HeaderUtil;
+import com.irengine.sandbox.web.rest.util.OperatorUtil;
 import com.irengine.sandbox.web.rest.util.PaginationUtil;
+
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -21,11 +24,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.*;
-
-
+import java.util.Map.Entry;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -152,7 +155,19 @@ public class OrderResource {
             log.debug("request with filtering");
 
             List<Filter> filters = new ArrayList<>();
-            filters.add(new Filter("id", Filter.Operator.EQ, "2"));
+            for(Entry<String, Map<String, String>> filterParam:filter.entrySet()){
+            	String[] numberType=new String[]{"id","myInteger","myLong","myFloat","myDouble","myDecimal","myDate"};
+            	String[] textType=new String[]{"myString"};
+            	if(contains(filterParam.getKey(), numberType)){
+            		log.debug("判断为number类型");
+            		filters.add(new Filter(filterParam.getKey(), OperatorUtil.getNumberFilter(filterParam.getValue().get("type")), filterParam.getValue().get("filter")));
+            	}
+            	if(contains(filterParam.getKey(), textType)){
+            		log.debug("判断为text类型");
+            		filters.add(new Filter(filterParam.getKey(), OperatorUtil.getTextFilter(filterParam.getValue().get("type")), filterParam.getValue().get("filter")));
+            	}
+            }
+            //filters.add(new Filter("id", Filter.Operator.EQ, "2"));
             //filters.add(filter);
             Specification<Order> specification = FilterUtil.generateSpecifications(filters, Order.class);
 
@@ -220,4 +235,12 @@ public class OrderResource {
     		return str;
     	}
 
+    private boolean contains(String str,String[] strs){
+    	for(String str2:strs){
+    		if(StringUtils.equals(str, str2)){
+    			return true;
+    		}
+    	}
+    	return false;
+    }
 }
