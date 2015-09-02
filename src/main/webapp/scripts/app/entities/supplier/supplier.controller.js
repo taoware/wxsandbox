@@ -4,7 +4,7 @@ angular.module('sandboxApp')
     .controller('SupplierController', function ($scope, Supplier,Suppliers,ParseLinks) {
         $scope.suppliers = [];
         $scope.page = 1;
-        $scope.pageSize = 20;
+        $scope.pageSize = 20;s
 
         var columnDefs = [
             {
@@ -35,11 +35,11 @@ angular.module('sandboxApp')
                 suppressSorting:true,
                 suppressMenu:true
             },
-            {headerName:"Id",field:"id"},//code: null, name: null, address: null, contact: null,
-            {headeName:"Code",field:"code"},
-            {headeName:"Name",field:"name"},
-            {headeName:"Address",field:"address"},
-            {headeName:"Contact",field:"contact"}
+            {headerName:"Id",field:"id"},
+            {headerName:"Code",field:"code"},
+            {headerName:"Name",field:"name"},
+            {headerName:"Address",field:"address"},
+            {headerName:"Contact",field:"contact"}
         ];
 
         $scope.gridOptions = {
@@ -104,7 +104,7 @@ angular.module('sandboxApp')
                     var total = 0;
                     var page = Math.floor(params.startRow / $scope.pageSize) + 1;
 
-                    Supplier.query({
+                    Suppliers.query({
                         page:page,
                         per_page:$scope.pageSize,
                         sort:params.filterModel

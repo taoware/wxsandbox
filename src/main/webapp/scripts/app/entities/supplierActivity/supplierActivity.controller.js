@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('sandboxApp')
-    .controller('SupplierActivityController', function ($scope, SupplierActivity, SupplierActivitys,Supplier) {
+    .controller('SupplierActivityController', function ($scope, SupplierActivity, SupplierActivitys, Supplier) {
         $scope.supplierActivitys = [];
         $scope.page = 1;
         $scope.pageSize = 20;
@@ -51,6 +51,10 @@ angular.module('sandboxApp')
             enableServerSideFilter: true,
             enableColResize:true,
             columnDefs:columnDefs,
+            ready:function(api) {
+                console.log('Callback ready: api =' + api);
+                console.log(api);
+            },
             angularCompileRows:true
         };
 

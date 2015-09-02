@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('sandboxApp')
-    .controller('CouponBatchController', function ($scope, CouponBatch, SupplierActivity, ParseLinks) {
+    .controller('CouponBatchController', function ($scope, CouponBatch,CouponBatchs, SupplierActivity, ParseLinks) {
         $scope.couponBatchs = [];
         $scope.supplieractivitys = SupplierActivity.query();
         $scope.page = 1;
@@ -115,7 +115,8 @@ angular.module('sandboxApp')
                     var page = Math.floor(params.startRow / $scope.pageSize) + 1;
                     console.log(params);
                     console.log('asking for' + params.startRow + 'to' + params.endRow);
-                    couponBatchs.query({
+
+                    CouponBatchs.query({
                         page:page,
                         per_page:$scope.pageSize,
                         sort:params.sortModel,

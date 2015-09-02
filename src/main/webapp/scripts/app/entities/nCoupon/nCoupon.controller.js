@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('sandboxApp')
-    .controller('NCouponController', function ($scope, NCoupon, CouponBatch, ParseLinks) {
+    .controller('NCouponController', function ($scope, NCoupon,NCoupons, CouponBatch, ParseLinks) {
         $scope.nCoupons = [];
         $scope.page = 1;
         $scope.pageSize = 20;
@@ -102,7 +102,7 @@ angular.module('sandboxApp')
                     var data = [];
                     var total = 0;
                     var page = Math.floor(params.startRow / $scope.pageSize) + 1;
-                    NCoupon.query({
+                    NCoupons.query({
                         page: page,
                         per_page: $scope.pageSize,
                         sort: params.sortModel,
