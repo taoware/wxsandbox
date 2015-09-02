@@ -152,7 +152,7 @@ public class OrderResource {
             log.debug("request with filtering");
 
             List<Filter> filters = new ArrayList<>();
-            filters.add(new Filter("id", Filter.Operator.EQ, "1"));
+            filters.add(new Filter("id", Filter.Operator.EQ, "2"));
             //filters.add(filter);
             Specification<Order> specification = FilterUtil.generateSpecifications(filters, Order.class);
 
