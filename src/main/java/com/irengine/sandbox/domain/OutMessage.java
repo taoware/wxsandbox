@@ -29,7 +29,9 @@ import java.util.Objects;
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class OutMessage implements Serializable {
 
-    @Id
+	private static final long serialVersionUID = 2971642595523378313L;
+
+	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 

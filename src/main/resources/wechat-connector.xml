@@ -6,5 +6,5 @@
     <accessToken></accessToken>
     <expiresTime>7200</expiresTime>
     <openId>某个加你公众号的用户的openId</openId>
-    <oauth2redirectUri>http://vps1.taoware.com/oauth2/</oauth2redirectUri>
+    <oauth2redirectUri>http://bovps1.taoware.com/oauth2/</oauth2redirectUri>
 </xml>
