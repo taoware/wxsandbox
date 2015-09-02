@@ -3,7 +3,7 @@ package com.irengine.sandbox.web.rest.util;
 public class Filter {
 
     public enum Operator {
-        EQ, LIKE, GT, LT, GTE, LTE
+		EQ, LIKE, GT, LT, GTE, LTE, SW, EW
     }
 
     private String field;
