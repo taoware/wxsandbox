@@ -47,6 +47,10 @@ angular.module('sandboxApp')
             enableServerSideFilter: true,
             enableColResize: true,
             columnDefs: columnDefs,
+            ready: function (api) {
+                console.log('Callback ready:api = ' + api);
+                console.log(api);
+            },
             angularCompileRows: true
         };
 

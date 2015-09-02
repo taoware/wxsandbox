@@ -11,6 +11,25 @@ angular.module('sandboxApp')
                     return data;
                 }
             },
-            'update': { method:'PUT' }
+            'update': {
+                method:'PUT',
+                transformResponse: function (data) {
+                    data = angular.fromJson(data);
+                    return data;
+                }
+            },
+            'save':{
+                method:'POST',
+                transformResponse: function (data) {
+                    data = angular.fromJson(data);
+                    return data;
+                }
+            }
+        });
+    })
+
+    .factory('Suppliers',function($resource){
+        return $resource('api/suppliers/q',{},{
+            'query':{method:'GET'}
         });
     });

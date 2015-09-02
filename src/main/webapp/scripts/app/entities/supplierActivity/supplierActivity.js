@@ -5,7 +5,7 @@ angular.module('sandboxApp')
         $stateProvider
             .state('supplierActivity', {
                 parent: 'entity',
-                url: '/supplierActivity',
+                url: '/supplierActivitys',
                 data: {
                     roles: ['ROLE_USER'],
                     pageTitle: 'sandboxApp.supplierActivity.home.title'
@@ -54,7 +54,7 @@ angular.module('sandboxApp')
                 },
                 onEnter: ['$stateParams', '$state', '$modal', function ($stateParams, $state, $modal) {
                     $modal.open({
-                        templateUrl: 'scripts/app/entities/supplierActivity-dialog.html',
+                        templateUrl: 'scripts/app/entities/supplierActivity/supplierActivity-dialog.html',
                         controller: 'SupplierActivityDialogController',
                         size: 'md',
                         resolve: {
