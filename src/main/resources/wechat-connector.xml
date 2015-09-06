@@ -1,8 +1,8 @@
 <xml>
-    <appId>wxa1c8a107ae33becc</appId>
-    <secret>8382cbbb42089144acf2a10994d1358b</secret>
+    <appId>wx24a039ac596c8ad8</appId>
+    <secret>0bedce4ced05734f5be7249a20c7c5a8</secret>
     <token>weixin</token>
-    <aesKey>zyNSJDIBoUivOb5nbzWqFLGOnhiWYLcOo4ZK3r3kGvj</aesKey>
+    <aesKey>ZnYXOgfLcqgyGBePh3GIJlMpjC7BqDKwCmwzUE15oe5</aesKey>
     <accessToken></accessToken>
     <expiresTime>7200</expiresTime>
     <openId>某个加你公众号的用户的openId</openId>

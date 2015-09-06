@@ -10,7 +10,8 @@ import com.irengine.sandbox.domain.OutMessage;
 
 public class DealWithMenuJson {
 
-	private static String initMenu = "{\"menu\":{\"button\":[{\"name\":\"今日活动\",\"sub_button\":[add-activity]},{\"name\":\"推送信息\",\"sub_button\":[add-push]}]}}";
+//	private static String initMenu = "{\"menu\":{\"button\":[{\"name\":\"今日活动\",\"sub_button\":[add-activity]},{\"name\":\"推送信息\",\"sub_button\":[add-push]}]}}";
+	private static String initMenu = "{\"menu\":{\"button\":[{\"name\":\"发财/活动\",\"sub_button\":[add-activity,add-push]},{\"name\":\"车享笑派卡\",\"sub_button\":[{\"type\":\"view\",\"name\":\"个人中心\",\"url\":\"http://180.166.29.246:8089/mediawap/\"},{\"type\":\"view\",\"name\":\"网店查询\",\"url\":\"https://www.baidu.com/\"}]}]}}";
 
 	private static Logger logger = LoggerFactory
 			.getLogger(DealWithMenuJson.class);
@@ -40,7 +41,7 @@ public class DealWithMenuJson {
 			}
 			activityMenu = activityMenu.substring(0, activityMenu.length() - 1);
 		}else{
-			activityMenu="{\"type\":\"click\",\"name\":\"无\",\"key\":\"null\"}";
+			activityMenu="{\"type\":\"click\",\"name\":\"无活动\",\"key\":\"null\"}";
 		}
 		menu = menu.replaceAll("add-activity", activityMenu);
 		/* 添加推送菜单 */
@@ -54,7 +55,7 @@ public class DealWithMenuJson {
 			pushMenu = pushMenu.substring(0, pushMenu.length() - 1);
 			
 		}else{
-			pushMenu="{\"type\":\"click\",\"name\":\"无\",\"key\":\"null\"}";
+			pushMenu="{\"type\":\"click\",\"name\":\"无推送\",\"key\":\"null\"}";
 		}
 		menu = menu.replaceAll("add-push", pushMenu);
 		logger.debug("----------menu:"+menu);

@@ -35,15 +35,12 @@ angular.module('sandboxApp')
                 suppressSorting:true,
                 suppressMenu:true
             },
-            {headerName:"Id",field:"id"},
-            {headerName:"Code",field:"code"},
-            {headerName:"Name",field:"name"},
+            {headerName:"Id",field:"id", filter: 'number', filterParams: {newRowsAction: 'keep'}},
+            {headerName:"Code",field:"code", filter: 'text', filterParams: {newRowsAction: 'keep'}},
+            {headerName:"Name",field:"name", filter: 'text', filterParams: {newRowsAction: 'keep'}},
             {headerName:"BeginDate",field:"beginDate"},
             {headerName:"EndDate",field:"endDate"},
-            {headerName:"Enabled",field:"enabled"},
-            {headerName:"CreateTime",field:"createTime"},
-            {headerName:"ModifiedTime",field:"modifiedTime"},
-            {headerName:"Supplier",field:"supplier.name"}
+            {headerName:"Enabled",field:"enabled"}
         ];
 
         $scope.gridOptions = {

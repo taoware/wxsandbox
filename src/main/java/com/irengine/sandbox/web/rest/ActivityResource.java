@@ -1,7 +1,6 @@
 package com.irengine.sandbox.web.rest;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;

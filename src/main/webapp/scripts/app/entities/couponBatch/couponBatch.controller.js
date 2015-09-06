@@ -38,13 +38,12 @@ angular.module('sandboxApp')
             },
             {headerName: "Id", field: "id", filter: 'number', filterParams: {newRowsAction: 'keep'}},
             {headerName: "Code", field: "code", filter: 'number', filterParams: {newRowsAction: 'keep'}},
-            {headerName: "Size", field: "size"},
-            {headerName: "Quantity", field: "quantity"},
+            {headerName: "Size", field: "size", filter: 'number', filterParams: {newRowsAction: 'keep'}},
+            {headerName: "Quantity", field: "quantity", filter: 'number', filterParams: {newRowsAction: 'keep'}},
             {headerName: "BeginDate", field: "beginDate"},
             {headerName: "EndDate", field: "endDate"},
             {headerName: "Enable", field: "enable"},
-            {headerName: "IsGenerated", field: "isgenerated"},
-            {headerName: "SupplierActivity", field: "supplierActivity"}
+            {headerName: "IsGenerated", field: "isgenerated"}
         ];
 
         $scope.gridOptions = {
@@ -115,7 +114,10 @@ angular.module('sandboxApp')
                     var page = Math.floor(params.startRow / $scope.pageSize) + 1;
                     console.log(params);
                     console.log('asking for' + params.startRow + 'to' + params.endRow);
+<<<<<<< HEAD
 
+=======
+>>>>>>> \q接口
                     CouponBatchs.query({
                         page:page,
                         per_page:$scope.pageSize,

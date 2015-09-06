@@ -1,13 +1,13 @@
 package com.irengine.sandbox.repository;
 
-import com.irengine.sandbox.domain.SupplierActivity;
-import org.springframework.data.jpa.repository.*;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-import java.util.List;
+import com.irengine.sandbox.domain.SupplierActivity;
 
 /**
  * Spring Data JPA repository for the SupplierActivity entity.
  */
-public interface SupplierActivityRepository extends JpaRepository<SupplierActivity,Long> {
+public interface SupplierActivityRepository extends JpaRepository<SupplierActivity,Long>,JpaSpecificationExecutor<SupplierActivity>  {
 
 }
