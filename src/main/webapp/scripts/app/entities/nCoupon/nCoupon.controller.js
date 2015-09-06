@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('sandboxApp')
-    .controller('NCouponController', function ($scope, NCoupon,NCoupons, CouponBatch, ParseLinks) {
+    .controller('NCouponController', function ($scope, $state, NCoupon,NCoupons, CouponBatch, ParseLinks) {
         $scope.nCoupons = [];
         $scope.page = 1;
         $scope.pageSize = 20;

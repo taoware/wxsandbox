@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('sandboxApp')
-    .controller('CouponBatchDetailController', function ($scope,$rootScope, $stateParams,entity, CouponBatch, SupplierActivity) {
+    .controller('CouponBatchDetailController', function ($scope,$rootScope, $stateParams,entity, CouponBatch, NCoupon,SupplierActivity) {
         $scope.couponBatch = entity;
         $scope.load = function (id) {
             CouponBatch.get({id: id}, function(result) {

@@ -107,7 +107,8 @@ angular.module('sandboxApp')
                     Suppliers.query({
                         page:page,
                         per_page:$scope.pageSize,
-                        sort:params.filterModel
+                        sort:params.sortModel,
+                        filter:params.filterModel
                     },function(result){
                         data = result.content;
                         total = result.totalElements;

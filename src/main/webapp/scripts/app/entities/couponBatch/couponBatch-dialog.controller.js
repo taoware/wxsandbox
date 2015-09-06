@@ -1,9 +1,10 @@
 'use strict';
 
 angular.module('sandboxApp')
-    .controller('CouponBatchDialogController', ['$scope', '$stateParams', '$modalInstance', 'entity', 'CouponBatch',
-        function ($scope, $stateParams, $modalInstance, entity, CouponBatch) {
+    .controller('CouponBatchDialogController', ['$scope', '$stateParams', '$modalInstance', 'entity', 'CouponBatch','NCoupon',
+        function ($scope, $stateParams, $modalInstance, entity, CouponBatch,NCoupon) {
             $scope.couponBatch = entity;
+            $scope.nCoupons = NCoupon.query();
             $scope.load = function (id) {
                 CouponBatch.get({id: id}, function (result) {
                     $scope.couponBatch = result;
@@ -14,7 +15,7 @@ angular.module('sandboxApp')
                 $modalInstance.close(result);
             };
             $scope.save = function () {
-                if ($scope.order.id != null) {
+                if ($scope.couponBatch.id != null) {
                     CouponBatch.update($scope.couponBatch, onSaveFinished);
                 } else {
                     CouponBatch.save($scope.couponBatch, onSaveFinished);

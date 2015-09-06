@@ -30,7 +30,7 @@ angular.module('sandboxApp')
         });
     })
 
-    .factory('CouponBatch',function($resource){
+    .factory('CouponBatchs',function($resource){
         return $resource('api/couponBatchs/q',{},{
             'query':{method:'GET'}
         });

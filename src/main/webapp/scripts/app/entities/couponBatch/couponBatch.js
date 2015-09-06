@@ -5,7 +5,7 @@ angular.module('sandboxApp')
         $stateProvider
             .state('couponBatch', {
                 parent: 'entity',
-                url: '/couponBatch',
+                url: '/couponBatchs',
                 data: {
                     roles: ['ROLE_USER'],
                     pageTitle: 'sandboxApp.couponBatch.home.title'
@@ -19,6 +19,7 @@ angular.module('sandboxApp')
                 resolve: {
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                         $translatePartialLoader.addPart('couponBatch');
+                        $translatePartialLoader.addPart('global');
                         return $translate.refresh();
                     }]
                 }

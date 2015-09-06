@@ -33,7 +33,7 @@ angular.module('sandboxApp')
     })
 
     .factory('NCoupons',function($resource){
-        return $resource('api/orders/q',{},{
+        return $resource('api/nCoupons/q',{},{
             'query':{method:'GET'}
         });
     });

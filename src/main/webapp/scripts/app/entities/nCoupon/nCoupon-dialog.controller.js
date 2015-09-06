@@ -1,9 +1,10 @@
 'use strict';
 
 angular.module('sandboxApp').controller('NCouponDialogController',
-    ['$scope','$stateParams','$modalInstance','entity','NCoupon',
-        function($scope,$stateParams,$modalInstance,entity,NCoupon) {
+    ['$scope','$stateParams','$modalInstance','entity','NCoupon','CouponBatch',
+        function($scope,$stateParams,$modalInstance,entity,NCoupon,CouponBatch) {
             $scope.nCoupon = entity;
+            $scope.couponBatchs = CouponBatch.query();
             $scope.load = function(id) {
                 NCoupon.get({id:id},function(result){
                     $scope.nCoupon = result;
