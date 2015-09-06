@@ -114,7 +114,6 @@ angular.module('sandboxApp')
                     var page = Math.floor(params.startRow / $scope.pageSize) + 1;
                     console.log(params);
                     console.log('asking for' + params.startRow + 'to' + params.endRow);
-
                     CouponBatchs.query({
                         page:page,
                         per_page:$scope.pageSize,
