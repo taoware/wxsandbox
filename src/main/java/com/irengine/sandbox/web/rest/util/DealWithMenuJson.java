@@ -11,7 +11,7 @@ import com.irengine.sandbox.domain.OutMessage;
 public class DealWithMenuJson {
 
 //	private static String initMenu = "{\"menu\":{\"button\":[{\"name\":\"今日活动\",\"sub_button\":[add-activity]},{\"name\":\"推送信息\",\"sub_button\":[add-push]}]}}";
-	private static String initMenu = "{\"menu\":{\"button\":[{\"name\":\"发财/活动\",\"sub_button\":[add-activity,add-push]},{\"name\":\"车享笑派卡\",\"sub_button\":[{\"type\":\"view\",\"name\":\"个人中心\",\"url\":\"http://180.166.29.246:8089/mediawap/\"},{\"type\":\"view\",\"name\":\"网店查询\",\"url\":\"https://www.baidu.com/\"}]}]}}";
+	private static String initMenu = "{\"menu\":{\"button\":[{\"name\":\"发财/活动\",\"sub_button\":[add-activity,add-push]},{\"name\":\"车享笑派卡\",\"sub_button\":[{\"type\":\"view\",\"name\":\"个人中心\",\"url\":\"http://180.166.29.246:8089/mediawap/\"},{\"type\":\"view\",\"name\":\"网点查询\",\"url\":\"http://bovps1.taoware.com/storecat/app/index.html\"}]}]}}";
 
 	private static Logger logger = LoggerFactory
 			.getLogger(DealWithMenuJson.class);

@@ -24,11 +24,11 @@ public class NCouponService {
 		HSSFWorkbook workbook = new HSSFWorkbook();
 		HSSFSheet sheet = workbook.createSheet("提货码");
 		//行宽
-		sheet.setColumnWidth(0, 6000);
+		sheet.setColumnWidth(0, 2000);
 		sheet.setColumnWidth(1, 6000);
-		sheet.setColumnWidth(2, 6000);
-		sheet.setColumnWidth(3, 6000);
-		sheet.setColumnWidth(4, 6000);
+		sheet.setColumnWidth(2, 5000);
+		sheet.setColumnWidth(3, 10000);
+		sheet.setColumnWidth(4, 10000);
 		/*表格样式*/
 		HSSFCellStyle normalStyle = workbook.createCellStyle();
 		normalStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER);
@@ -53,19 +53,19 @@ public class NCouponService {
 			for(int i=0;i<fields.length;i++){
 				HSSFCell cen_i = rowN.createCell(i);
 				switch (i) {
-				case 1:
+				case 0:
 					cen_i.setCellValue(nCoupon.getId());
 					break;
-				case 2:
+				case 1:
 					cen_i.setCellValue(nCoupon.getCode());
 					break;
-				case 3:
+				case 2:
 					cen_i.setCellValue(nCoupon.getStatus().toString());
 					break;
-				case 4:
+				case 3:
 					cen_i.setCellValue(nCoupon.getCreatedTime().toString());
 					break;
-				case 5:
+				case 4:
 					cen_i.setCellValue(nCoupon.getModifedTime().toString());
 					break;
 				default:

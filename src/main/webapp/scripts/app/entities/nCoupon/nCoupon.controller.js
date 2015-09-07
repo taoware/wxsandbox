@@ -38,7 +38,7 @@ angular.module('sandboxApp')
             {headerName: "Id", field: "id", filter: 'number', filterParams: {newRowsAction: 'keep'}},
             {headerName: "Code", field: "code", filter: 'text', filterParams: {newRowsAction: 'keep'}},
             {headerName: "Status", field: "status", filter: 'text', filterParams: {newRowsAction: 'keep'}},
-            {headerName: "CreateTime", field: "createTime"},
+            {headerName: "CreatedTime", field: "createdTime"},
             {headerName: "ModifedTime", field: "modifedTime"}
         ];
 
