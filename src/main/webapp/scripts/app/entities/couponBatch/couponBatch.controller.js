@@ -42,8 +42,8 @@ angular.module('sandboxApp')
             {headerName: "Quantity", field: "quantity", filter: 'number', filterParams: {newRowsAction: 'keep'}},
             {headerName: "BeginDate", field: "beginDate"},
             {headerName: "EndDate", field: "endDate"},
-            {headerName: "Enable", field: "enable"},
-            {headerName: "IsGenerated", field: "isgenerated"}
+            {headerName: "Enable", field: "enabled"},
+            {headerName: "IsGenerated", field: "isGenerated"}
         ];
 
         $scope.gridOptions = {

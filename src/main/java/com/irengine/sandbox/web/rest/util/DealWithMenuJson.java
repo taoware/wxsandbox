@@ -22,27 +22,29 @@ public class DealWithMenuJson {
 		logger.debug("生成菜单");
 		String activityMenu = "";
 		String menu = initMenu;
-		if (activitys.size() > 0) {
-			for (Activity activity : activitys) {
-				/*判断活动是跳转url还是本地活动*/
-				if(activity.getType().equals("url")){
-					/*url活动*/
-					activityMenu += "{\"type\":\"view\",\"name\":\""
-							+ activity.getName()
-							+ "\",\"url\":\""+activity.getUrl()+"\"},";
-				}else{
-					/*本地上传活动*/
-					activityMenu += "{\"type\":\"view\",\"name\":\""
-							+ activity.getName()
-							+ "\",\"url\":\"https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxa1c8a107ae33becc&redirect_uri=http%3A%2F%2Fbovps1.taoware.com%2Ftoday%2F"
-							+ activity.getId()
-							+ "%2F&response_type=code&scope=snsapi_userinfo#wechat_redirect\"},";
-				}
-			}
-			activityMenu = activityMenu.substring(0, activityMenu.length() - 1);
-		}else{
-			activityMenu="{\"type\":\"click\",\"name\":\"无活动\",\"key\":\"null\"}";
-		}
+//		if (activitys.size() > 0) {
+//			for (Activity activity : activitys) {
+//				/*判断活动是跳转url还是本地活动*/
+//				if(activity.getType().equals("url")){
+//					/*url活动*/
+//					activityMenu += "{\"type\":\"view\",\"name\":\""
+//							+ activity.getName()
+//							+ "\",\"url\":\""+activity.getUrl()+"\"},";
+//				}else{
+//					/*本地上传活动*/
+//					activityMenu += "{\"type\":\"view\",\"name\":\""
+//							+ activity.getName()
+//							+ "\",\"url\":\"https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxa1c8a107ae33becc&redirect_uri=http%3A%2F%2Fbovps1.taoware.com%2Ftoday%2F"
+//							+ activity.getId()
+//							+ "%2F&response_type=code&scope=snsapi_userinfo#wechat_redirect\"},";
+//				}
+//			}
+//			activityMenu = activityMenu.substring(0, activityMenu.length() - 1);
+//		}else{
+//			activityMenu="{\"type\":\"click\",\"name\":\"无活动\",\"key\":\"null\"}";
+//		}
+		/*推送带有活动链接的图文*/
+		activityMenu="{\"type\":\"click\",\"name\":\"活动\",\"key\":\"activitys\"}";
 		menu = menu.replaceAll("add-activity", activityMenu);
 		/* 添加推送菜单 */
 		String pushMenu = "";
