@@ -38,7 +38,7 @@ angular.module('sandboxApp')
             {headerName: "Id", field: "id"},
             {headerName: "Code", field: "code"},
             {headerName: "Status", field: "status"},
-            {headerName: "CreateTime", field: "createTime"},
+            {headerName: "CreatedTime", field: "createdTime"},
             {headerName: "ModifedTime", field: "modifedTime"}
         ];
 
