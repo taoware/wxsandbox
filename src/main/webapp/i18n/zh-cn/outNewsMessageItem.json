@@ -1,0 +1,20 @@
+{
+    "sandboxApp": {
+        "outNewsMessageItem" : {
+            "home": {
+                "title": "OutNewsMessageItems",
+                "createLabel": "Create a new OutNewsMessageItem",
+                "createOrEditLabel": "Create or edit a OutNewsMessageItem"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete OutNewsMessageItem {{ id }}?"
+            },
+            "detail": {
+                "title": "OutNewsMessageItem"
+            },
+            "picUrl": "PicUrl",
+            "url": "Url",
+            "content": "Content"
+        }
+    }
+}

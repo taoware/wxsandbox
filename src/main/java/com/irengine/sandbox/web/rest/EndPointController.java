@@ -2,6 +2,7 @@ package com.irengine.sandbox.web.rest;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -38,7 +39,10 @@ import com.irengine.sandbox.domain.Activity;
 import com.irengine.sandbox.domain.CUser;
 import com.irengine.sandbox.domain.Coupon;
 import com.irengine.sandbox.domain.OutMessage;
+import com.irengine.sandbox.domain.OutNewsMessage;
+import com.irengine.sandbox.domain.OutNewsMessageItem;
 import com.irengine.sandbox.domain.WCUser;
+import com.irengine.sandbox.repository.OutNewsMessageRepository;
 import com.irengine.sandbox.service.ActivityService;
 import com.irengine.sandbox.service.CUserService;
 import com.irengine.sandbox.service.OutMessageService;
@@ -62,6 +66,10 @@ public class EndPointController {
 	
 	@Autowired
 	private WCUserService wcUserService;
+	
+	@Autowired
+	private OutNewsMessageRepository outNewsMessageRepository;
+	
 	/*
 	 * http://wenku.baidu.com/link?url=Z6AsEXjrbIRt-5V6wurFBXdSgQOCTRXtaR09HLdnwjTZ
 	 * -WQH4GMq-_9fhS7abwGFYX2XwfXnIbupNxbrJa7KwB6_UUkgefR43Lnh5kr6YPa
@@ -212,6 +220,31 @@ public class EndPointController {
 				
 				 response.getWriter().write(m.toXml());
 				 response.getWriter().close();
+				 }
+				 if(org.apache.commons.lang3.StringUtils.equals(eventKey, "activitys")){
+					logger.debug("推送长图文消息");
+					List<OutNewsMessage> outNewsMessages=outNewsMessageRepository.findAll();
+					WxMpXmlOutNewsMessage m = WxMpXmlOutMessage.NEWS()
+							.fromUser(fromUserName).toUser(toUserName).build();
+					if(outNewsMessages!=null&&outNewsMessages.size()>0){
+						logger.debug("子图文size:"+outNewsMessages.get(0).getOutNewsMessageItems().size());
+						logger.debug("遍历添加子图文");
+						for(OutNewsMessageItem outNewsMessageItem:outNewsMessages.get(0).getOutNewsMessageItems()){
+							WxMpXmlOutNewsMessage.Item item = new WxMpXmlOutNewsMessage.Item();
+							item.setUrl(outNewsMessageItem.getUrl());
+							item.setPicUrl(outNewsMessageItem.getPicUrl());
+							item.setDescription(outNewsMessageItem.getContent());
+							item.setTitle("最新活动");
+							m.addArticle(item);
+						}
+//						WxMpXmlOutNewsMessage m = WxMpXmlOutMessage.NEWS()
+//								.fromUser(fromUserName).toUser(toUserName)
+//								.addArticle(item).build();
+						logger.info(m.toXml());
+						response.getWriter().write(m.toXml());
+						response.getWriter().close();
+					}
+					return;
 				 }
 				OutMessage message = outMessageService.findOneById(Long
 						.parseLong(eventKey));

@@ -1,0 +1,46 @@
+
+<div>
+    <h2><span translate="sandboxApp.outNewsMessageItem.detail.title">OutNewsMessageItem</span> {{outNewsMessageItem.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="entity.detail.field">Field</th>
+                    <th translate="entity.detail.value">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.outNewsMessageItem.picUrl">PicUrl</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{outNewsMessageItem.picUrl}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.outNewsMessageItem.url">Url</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{outNewsMessageItem.url}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.outNewsMessageItem.content">Content</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{outNewsMessageItem.content}}" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            ui-sref="outNewsMessageItem"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

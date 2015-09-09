@@ -164,14 +164,14 @@ public class ActivityWebContorller {
 			return "error";
 		}
 		/* 调用更新菜单接口 */
-		try {
-			activityService.updateMenu();
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-			model.addAttribute("msg", "更新菜单失败");
-			return "error";
-		}
-		model.addAttribute("msg", "i got it!");
+//		try {
+//			activityService.updateMenu();
+//		} catch (UnsupportedEncodingException e) {
+//			e.printStackTrace();
+//			model.addAttribute("msg", "更新菜单失败");
+//			return "error";
+//		}
+//		model.addAttribute("msg", "i got it!");
 		return "listads";
 	}
 

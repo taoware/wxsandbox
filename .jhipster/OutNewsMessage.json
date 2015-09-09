@@ -1,0 +1,63 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "outNewsMessageItem",
+            "relationshipNameCapitalized": "OutNewsMessageItem",
+            "relationshipFieldName": "outNewsMessageItem",
+            "otherEntityName": "outNewsMessageItem",
+            "relationshipType": "many-to-many",
+            "otherEntityNameCapitalized": "OutNewsMessageItem",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "menuName",
+            "fieldType": "String",
+            "fieldNameCapitalized": "MenuName",
+            "fieldNameUnderscored": "menu_name",
+            "fieldInJavaBeanMethod": "MenuName",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "startDate",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "StartDate",
+            "fieldNameUnderscored": "start_date",
+            "fieldInJavaBeanMethod": "StartDate",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "endDate",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "EndDate",
+            "fieldNameUnderscored": "end_date",
+            "fieldInJavaBeanMethod": "EndDate",
+            "fieldValidate": true,
+            "fieldValidateRules": []
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOwnerOneToOne": false,
+    "fieldsContainOneToMany": true,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": true,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": true,
+    "fieldsContainDate": false,
+    "changelogDate": "20150908100438",
+    "dto": "no",
+    "pagination": "pager",
+    "validation": true
+}

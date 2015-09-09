@@ -1,0 +1,22 @@
+{
+    "sandboxApp": {
+        "outNewsMessage" : {
+            "home": {
+                "title": "OutNewsMessages",
+                "createLabel": "Créer un nouveau OutNewsMessage",
+                "createOrEditLabel": "Créer ou éditer un OutNewsMessage"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le OutNewsMessage {{ id }} ?"
+            },
+            "detail": {
+                "title": "OutNewsMessage"
+            },
+            "menuName": "MenuName",
+            "startDate": "StartDate",
+            "endDate": "EndDate",
+            "outNewsMessageItem": "outNewsMessageItem"
+        }
+    }
+}
+
