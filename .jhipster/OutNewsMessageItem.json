@@ -1,0 +1,56 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "picUrl",
+            "fieldType": "String",
+            "fieldNameCapitalized": "PicUrl",
+            "fieldNameUnderscored": "pic_url",
+            "fieldInJavaBeanMethod": "PicUrl",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "1000"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "url",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Url",
+            "fieldNameUnderscored": "url",
+            "fieldInJavaBeanMethod": "Url",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "1000"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "content",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Content",
+            "fieldNameUnderscored": "content",
+            "fieldInJavaBeanMethod": "Content",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "1000"
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOwnerOneToOne": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": false,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": false,
+    "fieldsContainDate": false,
+    "changelogDate": "20150908095813",
+    "dto": "no",
+    "pagination": "pager",
+    "validation": true
+}

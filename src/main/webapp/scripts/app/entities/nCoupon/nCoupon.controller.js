@@ -35,9 +35,15 @@ angular.module('sandboxApp')
                 suppressSorting: true,
                 suppressMenu: true
             },
+<<<<<<< HEAD
             {headerName: "Id", field: "id"},
             {headerName: "Code", field: "code"},
             {headerName: "Status", field: "status"},
+=======
+            {headerName: "Id", field: "id", filter: 'number', filterParams: {newRowsAction: 'keep'}},
+            {headerName: "Code", field: "code", filter: 'text', filterParams: {newRowsAction: 'keep'}},
+            {headerName: "Status", field: "status", filter: 'text', filterParams: {newRowsAction: 'keep'}},
+>>>>>>> 1abd83e1f291879c8354b307180dbf5534a0480f
             {headerName: "CreatedTime", field: "createdTime"},
             {headerName: "ModifedTime", field: "modifedTime"}
         ];

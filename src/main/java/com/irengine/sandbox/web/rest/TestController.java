@@ -1,21 +1,30 @@
 package com.irengine.sandbox.web.rest;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import me.chanjar.weixin.common.exception.WxErrorException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.codahale.metrics.annotation.Timed;
+import com.irengine.sandbox.domain.OutNewsMessage;
 import com.irengine.sandbox.service.ActivityService;
 
 @Controller
@@ -79,4 +88,13 @@ public class TestController {
 		response.getWriter().println("立即刷新菜单菜单");
 	}
 	
+    @RequestMapping(value = "/testJson",
+            method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<?> create(@Valid @RequestBody OutNewsMessage outNewsMessage) throws URISyntaxException {
+        logger.debug("测试传json");
+        return new ResponseEntity<>("创建菜单\""+outNewsMessage.getMenuName()+"\"成功",HttpStatus.OK);
+    }
+    
 }

@@ -1,0 +1,830 @@
+[
+  {
+    "age": 0,
+    "id": "1",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海大学",
+    "snippet": "宝山上大乒乓球馆"
+  },
+  {
+    "age": 1,
+    "id": "2",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海大学",
+    "snippet": "宝山上大体育中心"
+  },
+  {
+    "age": 2,
+    "id": "3",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海大学",
+    "snippet": "宝山上大教学楼A楼"
+  },
+  {
+    "age": 3,
+    "id": "4",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海大学",
+    "snippet": "宝山上大教学楼C楼"
+  },
+  {
+    "age": 4,
+    "id": "5",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海大学",
+    "snippet": "宝山上大生命学院楼"
+  },
+  {
+    "age": 5,
+    "id": "6",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海大学",
+    "snippet": "宝山上大计算机学院楼"
+  },
+  {
+    "age": 6,
+    "id": "7",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海大学",
+    "snippet": "宝山上大环化学院楼"
+  },
+  {
+    "age": 7,
+    "id": "8",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海大学",
+    "snippet": "宝山上大游泳馆（男）"
+  },
+  {
+    "age": 8,
+    "id": "9",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海大学",
+    "snippet": "宝山上大游泳馆（女）"
+  },
+  {
+    "age": 9,
+    "id": "10",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海第二工业大学",
+    "snippet": "浦东二工大国际交流中心"
+  },
+  {
+    "age": 10,
+    "id": "11",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海第二工业大学",
+    "snippet": "浦东二工大实训楼"
+  },
+  {
+    "age": 11,
+    "id": "12",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海第二工业大学",
+    "snippet": "浦东二工大金工实训基地"
+  },
+  {
+    "age": 12,
+    "id": "13",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海第二工业大学",
+    "snippet": "浦东二工大人文楼"
+  },
+  {
+    "age": 13,
+    "id": "14",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海第二工业大学",
+    "snippet": "浦东二工大河南男宿9号楼"
+  },
+  {
+    "age": 14,
+    "id": "15",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海第二工业大学",
+    "snippet": "浦东二工大河南男宿10号楼"
+  },
+  {
+    "age": 15,
+    "id": "16",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海外国语大学",
+    "snippet": "松江上外女宿35号楼"
+  },
+  {
+    "age": 16,
+    "id": "17",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海外国语大学",
+    "snippet": "松江上外男宿37号楼"
+  },
+  {
+    "age": 17,
+    "id": "18",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海外国语大学",
+    "snippet": "松江上外男宿42号楼"
+  },
+  {
+    "age": 18,
+    "id": "19",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海外国语大学",
+    "snippet": "松江上外女宿33号楼"
+  },
+  {
+    "age": 19,
+    "id": "20",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海外国语大学",
+    "snippet": "松江上外女宿39号楼"
+  },
+  {
+    "age": 20,
+    "id": "21",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海外国语大学",
+    "snippet": "松江上外男宿41号楼"
+  },
+  {
+    "age": 21,
+    "id": "22",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海外国语大学",
+    "snippet": "松江上外女宿34号楼"
+  },
+  {
+    "age": 22,
+    "id": "23",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海外国语大学",
+    "snippet": "松江上外女宿36号楼"
+  },
+  {
+    "age": 23,
+    "id": "24",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海外国语大学",
+    "snippet": "浦东二工大河南男宿10号楼"
+  },
+  {
+    "age": 24,
+    "id": "25",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海外国语大学",
+    "snippet": "松江上外女宿38号楼"
+  },
+  {
+    "age": 25,
+    "id": "26",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海外国语大学",
+    "snippet": "松江上外女宿40号楼"
+  },
+  {
+    "age": 26,
+    "id": "27",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海外国语大学",
+    "snippet": "松江上外女宿23号楼"
+  },
+  {
+    "age": 27,
+    "id": "28",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海外国语大学",
+    "snippet": "松江上外女宿26号楼"
+  },
+  {
+    "age": 28,
+    "id": "29",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海外国语大学",
+    "snippet": "松江上外女宿29号楼"
+  },
+  {
+    "age": 29,
+    "id": "30",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "华东师范大学",
+    "snippet": "普陀华师大理科楼一楼"
+  },
+  {
+    "age": 30,
+    "id": "31",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "华东师范大学",
+    "snippet": "普陀华师大理科楼二楼"
+  },
+  {
+    "age": 31,
+    "id": "32",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "华东师范大学",
+    "snippet": "普陀华师大理科楼三楼"
+  },
+  {
+    "age": 32,
+    "id": "33",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "华东师范大学",
+    "snippet": "闵行华师大男宿7号楼"
+  },
+  {
+    "age": 33,
+    "id": "34",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "华东师范大学",
+    "snippet": "闵行华师大女宿8号楼"
+  },
+  {
+    "age": 34,
+    "id": "35",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "华东师范大学",
+    "snippet": "闵行华师大女宿9号楼"
+  },
+  {
+    "age": 35,
+    "id": "36",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "华东师范大学",
+    "snippet": "闵行华师大男宿16号楼"
+  },
+  {
+    "age": 36,
+    "id": "37",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "华东师范大学",
+    "snippet": "闵行华师大女宿11号楼"
+  },
+  {
+    "age": 37,
+    "id": "38",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "华东师范大学",
+    "snippet": "闵行华师大女宿12号楼"
+  },
+  {
+    "age": 38,
+    "id": "39",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "华东师范大学",
+    "snippet": "闵行华师大实验楼A楼"
+  },
+  {
+    "age": 39,
+    "id": "40",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海开放大学",
+    "snippet": "杨浦开放大学文体教学馆"
+  },
+  {
+    "age": 40,
+    "id": "41",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海开放大学",
+    "snippet": "杨浦开放大学1号学习楼"
+  },
+  {
+    "age": 41,
+    "id": "42",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海开放大学",
+    "snippet": "杨浦开放大学宾馆"
+  },
+  {
+    "age": 42,
+    "id": "43",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海开放大学",
+    "snippet": "杨浦开放大学主楼"
+  },
+  {
+    "age": 43,
+    "id": "44",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海开放大学",
+    "snippet": "杨浦开放大学办公楼"
+  },
+  {
+    "age": 44,
+    "id": "45",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海开放大学",
+    "snippet": "杨浦财大绿园餐厅"
+  },
+  {
+    "age": 45,
+    "id": "46",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海大学",
+    "snippet": "嘉定上大男宿A"
+  },
+  {
+    "age": 46,
+    "id": "47",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海大学",
+    "snippet": "嘉定上大男宿B"
+  },
+  {
+    "age": 47,
+    "id": "48",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海大学",
+    "snippet": "嘉定上大第一教学楼A"
+  },
+  {
+    "age": 48,
+    "id": "49",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海大学",
+    "snippet": "嘉定上大第一教学楼B"
+  },
+  {
+    "age": 49,
+    "id": "50",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "同济大学",
+    "snippet": "嘉定同济安楼一楼"
+  },
+  {
+    "age": 50,
+    "id": "51",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "同济大学",
+    "snippet": "嘉定同济安楼三楼"
+  },
+  {
+    "age": 51,
+    "id": "52",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "同济大学",
+    "snippet": "嘉定同济博楼一楼"
+  },
+  {
+    "age": 52,
+    "id": "53",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "同济大学",
+    "snippet": "嘉定同济博楼二楼"
+  },
+  {
+    "age": 53,
+    "id": "54",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "同济大学",
+    "snippet": "嘉定同济博楼四楼"
+  },
+  {
+    "age": 54,
+    "id": "55",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "同济大学",
+    "snippet": "嘉定同济德楼"
+  },
+  {
+    "age": 55,
+    "id": "56",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "同济大学",
+    "snippet": "嘉定同济材料科学工程学院楼"
+  },
+  {
+    "age": 56,
+    "id": "57",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "同济大学",
+    "snippet": "嘉定同济复楼"
+  },
+  {
+    "age": 57,
+    "id": "58",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "同济大学",
+    "snippet": "嘉定同济图书馆"
+  },
+  {
+    "age": 58,
+    "id": "59",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "交通大学",
+    "snippet": "闵行交大东中院A"
+  },
+  {
+    "age": 59,
+    "id": "60",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "交通大学",
+    "snippet": "闵行交大东中院B"
+  },
+  {
+    "age": 60,
+    "id": "61",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "交通大学",
+    "snippet": "闵行交大东下院B"
+  },
+  {
+    "age": 61,
+    "id": "62",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "交通大学",
+    "snippet": "闵行交大陈瑞球楼A"
+  },
+  {
+    "age": 62,
+    "id": "63",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "东华大学",
+    "snippet": "松江东华女宿27号"
+  },
+  {
+    "age": 63,
+    "id": "64",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "东华大学",
+    "snippet": "松江东华女宿28号"
+  },
+  {
+    "age": 64,
+    "id": "65",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "东华大学",
+    "snippet": "松江东华男宿30号"
+  },
+  {
+    "age": 65,
+    "id": "66",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "东华大学",
+    "snippet": "松江东华男宿31号"
+  },
+  {
+    "age": 66,
+    "id": "67",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海工程技术大学",
+    "snippet": "松江工技大师生活动中心A"
+  },
+  {
+    "age": 67,
+    "id": "68",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海工程技术大学",
+    "snippet": "松江工技大男宿10号"
+  },
+  {
+    "age": 68,
+    "id": "69",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海工程技术大学",
+    "snippet": "松江工技大男宿11号"
+  },
+  {
+    "age": 69,
+    "id": "70",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海大学",
+    "snippet": "宝山上大女宿U2楼"
+  },
+  {
+    "age": 70,
+    "id": "71",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海大学",
+    "snippet": "宝山上大女宿Y2楼"
+  },
+  {
+    "age": 71,
+    "id": "72",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海大学",
+    "snippet": "宝山上大男宿R楼"
+  },
+  {
+    "age": 72,
+    "id": "73",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海大学",
+    "snippet": "宝山上大女宿T2楼"
+  },
+  {
+    "age": 73,
+    "id": "74",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海大学",
+    "snippet": "宝山上大女宿T1楼"
+  },
+  {
+    "age": 74,
+    "id": "75",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海工程技术大学",
+    "snippet": "松江工技大三期男宿17号"
+  },
+  {
+    "age": 75,
+    "id": "76",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海工程技术大学",
+    "snippet": "松江工技大三期男宿17号"
+  },
+
+  {
+    "age": 76,
+    "id": "77",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海工程技术大学",
+    "snippet": "松江工技大三期男宿16号"
+  },
+  {
+    "age": 77,
+    "id": "78",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海工程技术大学",
+    "snippet": "松江工技大三期男宿24号"
+  },
+  {
+    "age": 78,
+    "id": "79",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海工程技术大学",
+    "snippet": "松江工技大三期男宿39号"
+  },
+  {
+    "age": 79,
+    "id": "80",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海工程技术大学",
+    "snippet": "松江工技大三期男宿12号"
+  },
+  {
+    "age": 80,
+    "id": "81",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海工程技术大学",
+    "snippet": "松江工技大三期男宿22号"
+  },
+  {
+    "age": 81,
+    "id": "82",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海工程技术大学",
+    "snippet": "松江工技大三期男宿23号"
+  },
+  {
+    "age": 82,
+    "id": "83",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海工程技术大学",
+    "snippet": "松江工技大三期男宿15号"
+  },
+  {
+    "age": 83,
+    "id": "84",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海工程技术大学",
+    "snippet": "松江工技大三期男宿25号"
+  },
+  {
+    "age": 84,
+    "id": "85",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海工程技术大学",
+    "snippet": "松江工技大三期男宿33号"
+  },
+  {
+    "age": 85,
+    "id": "86",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海工程技术大学",
+    "snippet": "松江工技大三期男宿34号"
+  },
+  {
+    "age": 86,
+    "id": "87",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海工程技术大学",
+    "snippet": "松江工技大三期男宿35号"
+  },
+  {
+    "age": 87,
+    "id": "88",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海工程技术大学",
+    "snippet": "松江工技大三期男宿36号"
+  },
+  {
+    "age": 88,
+    "id": "89",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海工程技术大学",
+    "snippet": "松江工技大三期男宿40号"
+  },
+  {
+    "age": 89,
+    "id": "90",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海工程技术大学",
+    "snippet": "松江工技大三期男宿41号"
+  },
+  {
+    "age": 90,
+    "id": "91",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海工程技术大学",
+    "snippet": "松江工技大三期男宿42号"
+  },
+  {
+    "age": 91,
+    "id": "92",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海工程技术大学",
+    "snippet": "松江工技大三期男宿20号"
+  },
+  {
+    "age": 92,
+    "id": "93",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海工程技术大学",
+    "snippet": "松江工技大三期男宿21号"
+  },
+  {
+    "age": 93,
+    "id": "94",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海工程技术大学",
+    "snippet": "松江工技大三期男宿23号"
+  },
+  {
+    "age": 94,
+    "id": "95",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海工程技术大学",
+    "snippet": "松江工技大三期女宿24号"
+  },
+  {
+    "age": 95,
+    "id": "96",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海工程技术大学",
+    "snippet": "松江工技大三期女宿27号"
+  },
+  {
+    "age": 96,
+    "id": "97",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海工程技术大学",
+    "snippet": "松江工技大三期女宿28号"
+  },
+  {
+    "age": 97,
+    "id": "98",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海工程技术大学",
+    "snippet": "松江工技大三期女宿29号"
+  },
+  {
+    "age": 98,
+    "id": "99",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海工程技术大学",
+    "snippet": "松江工技大三期女宿30号"
+  },
+  {
+    "age": 99,
+    "id": "100",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海大学嘉定校区",
+    "snippet": "嘉定上大男宿5号"
+  },
+  {
+    "age": 100,
+    "id": "101",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海大学嘉定校区",
+    "snippet": "嘉定上大男宿6号"
+  },
+  {
+    "age": 101,
+    "id": "102",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海大学嘉定校区",
+    "snippet": "嘉定上大男宿7号"
+  },
+  {
+    "age": 102,
+    "id": "103",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海大学嘉定校区",
+    "snippet": "嘉定上大男宿8号"
+  },
+  {
+    "age": 103,
+    "id": "104",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海大学嘉定校区",
+    "snippet": "嘉定上大女宿9号"
+  },
+  {
+    "age": 104,
+    "id": "105",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海交通大学",
+    "snippet": "闵行交大东上院中"
+  },
+  {
+    "age": 105,
+    "id": "106",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海交通大学",
+    "snippet": "闵行交大东下院"
+  },
+  {
+    "age": 106,
+    "id": "107",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海交通大学",
+    "snippet": "闵行交大东中院4号楼"
+  },
+  {
+    "age": 107,
+    "id": "108",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海交通大学",
+    "snippet": "闵行交大东中院2-101A"
+  },
+  {
+    "age": 108,
+    "id": "109",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海交通大学",
+    "snippet": "闵行交大东中院2-101B"
+  },
+  {
+    "age": 109,
+    "id": "110",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海交通大学医学院",
+    "snippet": "黄浦医学院西第二教学楼"
+  },
+  {
+    "age": 110,
+    "id": "111",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海交通大学医学院",
+    "snippet": "黄浦医学院一号教学楼"
+  },
+  {
+    "age": 111,
+    "id": "112",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海交通大学",
+    "snippet": "闵行交大密根学院"
+  },
+  {
+    "age": 112,
+    "id": "113",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海交通大学",
+    "snippet": "闵行交大智能电网中央大厅"
+  },
+  {
+    "age": 113,
+    "id": "114",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海工程技术大学",
+    "snippet": "松江工技大三期教26号"
+  },
+  {
+    "age": 114,
+    "id": "115",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海科技大学",
+    "snippet": "浦东科大1宿大厅B"
+  },
+  {
+    "age": 115,
+    "id": "116",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海科技大学",
+    "snippet": "浦东科大1宿大厅"
+  },
+  {
+    "age": 116,
+    "id": "117",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海科技大学",
+    "snippet": "浦东科大2宿大厅"
+  },
+  {
+    "age": 117,
+    "id": "118",
+    "imageUrl": "img/stores/store.jpg",
+    "name": "上海科技大学",
+    "snippet": "浦东科大12宿大厅B"
+  }
+]
+

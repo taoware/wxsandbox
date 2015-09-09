@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -86,6 +87,11 @@ public class WebController {
 	@RequestMapping("/text")
 	public String text(){
 		return "text";
+	}
+	
+	@RequestMapping("/v")
+	public ResponseEntity<Void> verifyMobile(@RequestParam("url") String url){
+		return null;
 	}
 	
 }

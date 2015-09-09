@@ -19,6 +19,8 @@
         "supplierActivity": "SupplierActivity",
         "couponBatch": "CouponBatch",
         "nCoupon": "NCoupon",
+        "outNewsMessageItem": "OutNewsMessageItem",
+        "outNewsMessage": "OutNewsMessage",
         "additionalEntity": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
