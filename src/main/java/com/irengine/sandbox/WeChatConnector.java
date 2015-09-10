@@ -32,7 +32,6 @@ public class WeChatConnector {
 	  public static void init() throws IOException {
 		    InputStream is = new ClassPathResource("wechat-connector.xml").getInputStream();
 		    WeChatConnectorInMemoryConfigStorage config = WeChatConnectorInMemoryConfigStorage.fromXml(is);
-
 		    wxMpConfigStorage = config;
 		    wxMpService = new WxMpServiceImpl();
 		    wxMpService.setWxMpConfigStorage(config);
