@@ -14,7 +14,8 @@
             },
             "picUrl": "PicUrl",
             "url": "Url",
-            "content": "Content"
+            "content": "Content",
+            "userInfo": "userInfo"
         }
     }
 }

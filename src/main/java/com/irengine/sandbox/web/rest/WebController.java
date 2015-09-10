@@ -1,14 +1,26 @@
 package com.irengine.sandbox.web.rest;
 
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.codahale.metrics.annotation.Timed;
+import com.irengine.sandbox.domain.OutNewsMessageItem;
 
 @Controller
 @RequestMapping("/web")
@@ -89,9 +101,25 @@ public class WebController {
 		return "text";
 	}
 	
-	@RequestMapping("/v")
-	public ResponseEntity<Void> verifyMobile(@RequestParam("url") String url){
-		return null;
+//	@RequestMapping("/verify")
+//	public ResponseEntity<Void> verifyMobile(@RequestParam("url") String url) throws URISyntaxException{
+//		logger.debug("验证该用户是否绑定手机号");
+//		logger.debug("url:"+url);
+//		return ResponseEntity.created(new URI(url)).build();
+//	}
+	
+	/**\
+	 *验证是否绑定手机号接口
+	 * @param url
+	 * @param response
+	 * @throws IOException
+	 */
+	@RequestMapping("/verify")
+	public void verifyMobile(@RequestParam("url") String url,HttpServletResponse response) throws IOException{
+		logger.debug("验证该用户是否绑定手机号");
+		logger.debug("url:"+url);
+		
+		response.sendRedirect(url);
 	}
 	
 }

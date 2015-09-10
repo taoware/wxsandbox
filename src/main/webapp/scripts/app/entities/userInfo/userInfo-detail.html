@@ -1,0 +1,110 @@
+
+<div>
+    <h2><span translate="sandboxApp.userInfo.detail.title">UserInfo</span> {{userInfo.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="entity.detail.field">Field</th>
+                    <th translate="entity.detail.value">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.userInfo.openId">OpenId</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{userInfo.openId}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.userInfo.nickname">Nickname</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{userInfo.nickname}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.userInfo.country">Country</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{userInfo.country}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.userInfo.city">City</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{userInfo.city}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.userInfo.province">Province</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{userInfo.province}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.userInfo.mobile">Mobile</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{userInfo.mobile}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.userInfo.name">Name</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{userInfo.name}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.userInfo.college">College</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{userInfo.college}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.userInfo.specialty">Specialty</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{userInfo.specialty}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.userInfo.th">Th</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{userInfo.th}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.userInfo.gender">Gender</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{userInfo.gender}}" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            ui-sref="userInfo"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

@@ -1,8 +1,9 @@
 'use strict';
 
 angular.module('sandboxApp')
-    .controller('OutNewsMessageItemController', function ($scope, OutNewsMessageItem, ParseLinks) {
+    .controller('OutNewsMessageItemController', function ($scope, OutNewsMessageItem, UserInfo, ParseLinks) {
         $scope.outNewsMessageItems = [];
+        $scope.userinfos = UserInfo.query();
         $scope.page = 1;
         $scope.loadAll = function() {
             OutNewsMessageItem.query({page: $scope.page, per_page: 20}, function(result, headers) {

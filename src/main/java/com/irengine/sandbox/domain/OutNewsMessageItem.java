@@ -6,6 +6,8 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -31,6 +33,13 @@ public class OutNewsMessageItem implements Serializable {
     @Size(max = 1000)
     @Column(name = "content", length = 1000)
     private String content;
+
+    @ManyToMany
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @JoinTable(name = "OUTNEWSMESSAGEITEM_USERINFO",
+               joinColumns = @JoinColumn(name="outnewsmessageitems_id", referencedColumnName="ID"),
+               inverseJoinColumns = @JoinColumn(name="userinfos_id", referencedColumnName="ID"))
+    private Set<UserInfo> userInfos = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -62,6 +71,14 @@ public class OutNewsMessageItem implements Serializable {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Set<UserInfo> getUserInfos() {
+        return userInfos;
+    }
+
+    public void setUserInfos(Set<UserInfo> userInfos) {
+        this.userInfos = userInfos;
     }
 
     @Override

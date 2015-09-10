@@ -1,0 +1,28 @@
+{
+    "sandboxApp": {
+        "userInfo" : {
+            "home": {
+                "title": "UserInfos",
+                "createLabel": "Create a new UserInfo",
+                "createOrEditLabel": "Create or edit a UserInfo"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete UserInfo {{ id }}?"
+            },
+            "detail": {
+                "title": "UserInfo"
+            },
+            "openId": "OpenId",
+            "nickname": "Nickname",
+            "country": "Country",
+            "city": "City",
+            "province": "Province",
+            "mobile": "Mobile",
+            "name": "Name",
+            "college": "College",
+            "specialty": "Specialty",
+            "th": "Th",
+            "gender": "Gender"
+        }
+    }
+}
