@@ -1,0 +1,207 @@
+<div>
+
+    <h2 translate="sandboxApp.userInfo.home.title">UserInfos</h2>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#saveUserInfoModal" ng-click="clear()">
+                    <span class="glyphicon glyphicon-flash"></span> <span translate="sandboxApp.userInfo.home.createLabel">Create a new UserInfo</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="saveUserInfoModal" tabindex="-1" role="dialog" aria-labelledby="myUserInfoLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" id="myUserInfoLabel" translate="sandboxApp.userInfo.home.createOrEditLabel">Create or edit a UserInfo</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>ID</label>
+                            <input type="text" class="form-control" name="id"
+                                   ng-model="userInfo.id" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label translate="sandboxApp.userInfo.openId">OpenId</label>
+                            <input type="text" class="form-control" name="openId"
+                                   ng-model="userInfo.openId" required>
+
+                            <div ng-show="editForm.openId.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.openId.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.userInfo.nickname">Nickname</label>
+                            <input type="text" class="form-control" name="nickname"
+                                   ng-model="userInfo.nickname">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.userInfo.country">Country</label>
+                            <input type="text" class="form-control" name="country"
+                                   ng-model="userInfo.country">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.userInfo.city">City</label>
+                            <input type="text" class="form-control" name="city"
+                                   ng-model="userInfo.city">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.userInfo.province">Province</label>
+                            <input type="text" class="form-control" name="province"
+                                   ng-model="userInfo.province">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.userInfo.mobile">Mobile</label>
+                            <input type="text" class="form-control" name="mobile"
+                                   ng-model="userInfo.mobile">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.userInfo.name">Name</label>
+                            <input type="text" class="form-control" name="name"
+                                   ng-model="userInfo.name">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.userInfo.college">College</label>
+                            <input type="text" class="form-control" name="college"
+                                   ng-model="userInfo.college">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.userInfo.specialty">Specialty</label>
+                            <input type="text" class="form-control" name="specialty"
+                                   ng-model="userInfo.specialty">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.userInfo.th">Th</label>
+                            <input type="number" class="form-control" name="th"
+                                   ng-model="userInfo.th">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="sandboxApp.userInfo.gender">Gender</label>
+                            <input type="number" class="form-control" name="gender"
+                                   ng-model="userInfo.gender">
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="editForm.$invalid" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteUserInfoConfirmation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="deleteForm" ng-submit="confirmDelete(userInfo.id)">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" translate="entity.delete.title">Confirm delete operation</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p translate="sandboxApp.userInfo.delete.question" translate-values="{id: '{{userInfo.id}}'}">Are you sure you want to delete this UserInfo?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="deleteForm.$invalid" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th translate="sandboxApp.userInfo.openId">OpenId</th>
+                    <th translate="sandboxApp.userInfo.nickname">Nickname</th>
+                    <th translate="sandboxApp.userInfo.country">Country</th>
+                    <th translate="sandboxApp.userInfo.city">City</th>
+                    <th translate="sandboxApp.userInfo.province">Province</th>
+                    <th translate="sandboxApp.userInfo.mobile">Mobile</th>
+                    <th translate="sandboxApp.userInfo.name">Name</th>
+                    <th translate="sandboxApp.userInfo.college">College</th>
+                    <th translate="sandboxApp.userInfo.specialty">Specialty</th>
+                    <th translate="sandboxApp.userInfo.th">Th</th>
+                    <th translate="sandboxApp.userInfo.gender">Gender</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="userInfo in userInfos">
+                    <td><a ui-sref="userInfoDetail({id:userInfo.id})">{{userInfo.id}}</a></td>
+                    <td>{{userInfo.openId}}</td>
+                    <td>{{userInfo.nickname}}</td>
+                    <td>{{userInfo.country}}</td>
+                    <td>{{userInfo.city}}</td>
+                    <td>{{userInfo.province}}</td>
+                    <td>{{userInfo.mobile}}</td>
+                    <td>{{userInfo.name}}</td>
+                    <td>{{userInfo.college}}</td>
+                    <td>{{userInfo.specialty}}</td>
+                    <td>{{userInfo.th}}</td>
+                    <td>{{userInfo.gender}}</td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="userInfoDetail({id:userInfo.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="showUpdate(userInfo.id)"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="delete(userInfo.id)"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <nav>
+            <ul class="pager">
+                <li ng-show="links['first']" ng-click="loadPage(links['first'])"><a href="#">&lt;&lt;</a></li>
+                <li ng-show="links['prev']" ng-click="loadPage(links['prev'])"><a href="#">&lt;</a></li>
+                <li ng-show="links['next']" ng-click="loadPage(links['next'])"><a href="#">&gt;</a></li>
+                <li ng-show="links['last']" ng-click="loadPage(links['last'])"><a href="#">&gt;&gt;</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>

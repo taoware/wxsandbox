@@ -1,0 +1,119 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "openId",
+            "fieldType": "String",
+            "fieldNameCapitalized": "OpenId",
+            "fieldNameUnderscored": "open_id",
+            "fieldInJavaBeanMethod": "OpenId",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "nickname",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Nickname",
+            "fieldNameUnderscored": "nickname",
+            "fieldInJavaBeanMethod": "Nickname",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "country",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Country",
+            "fieldNameUnderscored": "country",
+            "fieldInJavaBeanMethod": "Country",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "city",
+            "fieldType": "String",
+            "fieldNameCapitalized": "City",
+            "fieldNameUnderscored": "city",
+            "fieldInJavaBeanMethod": "City",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "province",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Province",
+            "fieldNameUnderscored": "province",
+            "fieldInJavaBeanMethod": "Province",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "mobile",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Mobile",
+            "fieldNameUnderscored": "mobile",
+            "fieldInJavaBeanMethod": "Mobile",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 7,
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Name",
+            "fieldNameUnderscored": "name",
+            "fieldInJavaBeanMethod": "Name",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 8,
+            "fieldName": "college",
+            "fieldType": "String",
+            "fieldNameCapitalized": "College",
+            "fieldNameUnderscored": "college",
+            "fieldInJavaBeanMethod": "College",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 9,
+            "fieldName": "specialty",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Specialty",
+            "fieldNameUnderscored": "specialty",
+            "fieldInJavaBeanMethod": "Specialty",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 10,
+            "fieldName": "th",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Th",
+            "fieldNameUnderscored": "th",
+            "fieldInJavaBeanMethod": "Th",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 11,
+            "fieldName": "gender",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Gender",
+            "fieldNameUnderscored": "gender",
+            "fieldInJavaBeanMethod": "Gender",
+            "fieldValidate": false
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOwnerOneToOne": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": false,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": false,
+    "fieldsContainDate": false,
+    "changelogDate": "20150910054310",
+    "dto": "no",
+    "pagination": "pager",
+    "validation": true
+}

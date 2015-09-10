@@ -22,9 +22,32 @@
             <column name="url" type="varchar(1000)"/>
             <column name="content" type="varchar(1000)"/>
         </createTable>
+        
+        <createTable tableName="OUTNEWSMESSAGEITEM_USERINFO">
+            <column name="userinfos_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="outnewsmessageitems_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="outnewsmessageitems_id, userinfos_id" tableName="OUTNEWSMESSAGEITEM_USERINFO"/>
+
+        <addForeignKeyConstraint baseColumnNames="outnewsmessageitems_id"
+                                 baseTableName="OUTNEWSMESSAGEITEM_USERINFO"
+                                 constraintName="fk_outnewsmessageitem_userinfo_userinfo_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="OUTNEWSMESSAGEITEM"/>
+
+        <addForeignKeyConstraint baseColumnNames="userinfos_id"
+                                 baseTableName="OUTNEWSMESSAGEITEM_USERINFO"
+                                 constraintName="fk_userinfo_userinfo_outnewsmessageitem_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="USERINFO"/>
 
 	<loadData encoding="UTF-8" file="config/liquibase/OutNewsMessageItem.csv"
 		separator=";" tableName="OUTNEWSMESSAGEITEM" />
-		
+                  
     </changeSet>
 </databaseChangeLog>

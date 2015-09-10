@@ -1,5 +1,17 @@
 {
-    "relationships": [],
+        "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "userInfo",
+            "relationshipNameCapitalized": "UserInfo",
+            "relationshipFieldName": "userInfo",
+            "otherEntityName": "userInfo",
+            "relationshipType": "many-to-many",
+            "otherEntityNameCapitalized": "UserInfo",
+            "otherEntityField": "nickname",
+            "ownerSide": true
+        }
+    ],
     "fields": [
         {
             "fieldId": 1,

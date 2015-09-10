@@ -21,6 +21,7 @@
         "nCoupon": "NCoupon",
         "outNewsMessageItem": "OutNewsMessageItem",
         "outNewsMessage": "OutNewsMessage",
+        "userInfo": "UserInfo",
         "additionalEntity": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

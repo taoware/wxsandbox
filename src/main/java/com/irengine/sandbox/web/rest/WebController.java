@@ -108,6 +108,12 @@ public class WebController {
 //		return ResponseEntity.created(new URI(url)).build();
 //	}
 	
+	/**\
+	 *验证是否绑定手机号接口
+	 * @param url
+	 * @param response
+	 * @throws IOException
+	 */
 	@RequestMapping("/verify")
 	public void verifyMobile(@RequestParam("url") String url,HttpServletResponse response) throws IOException{
 		logger.debug("验证该用户是否绑定手机号");
