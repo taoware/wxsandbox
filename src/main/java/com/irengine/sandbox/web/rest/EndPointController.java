@@ -34,6 +34,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.irengine.sandbox.SmsHelper;
 import com.irengine.sandbox.WeChatConnector;
+import com.irengine.sandbox.commons.Constant;
 import com.irengine.sandbox.commons.MessageUtil;
 import com.irengine.sandbox.domain.Activity;
 import com.irengine.sandbox.domain.CUser;
@@ -187,6 +188,7 @@ public class EndPointController {
 		response.getWriter().close();
 	}
 
+	private String apiUrl="/web/verify?url=";
 	@RequestMapping(value = "/api/wechat/", method = RequestMethod.POST)
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException, DocumentException,
@@ -231,10 +233,10 @@ public class EndPointController {
 						logger.debug("遍历添加子图文");
 						for(OutNewsMessageItem outNewsMessageItem:outNewsMessages.get(0).getOutNewsMessageItems()){
 							WxMpXmlOutNewsMessage.Item item = new WxMpXmlOutNewsMessage.Item();
-							item.setUrl(outNewsMessageItem.getUrl());
+							item.setUrl(Constant.url+apiUrl+outNewsMessageItem.getUrl());
 							item.setPicUrl(outNewsMessageItem.getPicUrl());
 							item.setDescription(outNewsMessageItem.getContent());
-							item.setTitle("最新活动");
+							item.setTitle(outNewsMessageItem.getContent());
 							m.addArticle(item);
 						}
 //						WxMpXmlOutNewsMessage m = WxMpXmlOutMessage.NEWS()

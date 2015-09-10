@@ -72,6 +72,15 @@
             "fieldNameUnderscored": "mobile",
             "fieldInJavaBeanMethod": "Mobile",
             "fieldValidate": false
+        },
+        {
+            "fieldId": 8,
+            "fieldName": "mobile",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Mobile",
+            "fieldNameUnderscored": "mobile",
+            "fieldInJavaBeanMethod": "Mobile",
+            "fieldValidate": false
         }
     ],
     "fieldsContainOwnerManyToMany": false,
