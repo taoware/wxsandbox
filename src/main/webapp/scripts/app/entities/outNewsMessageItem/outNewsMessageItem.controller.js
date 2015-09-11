@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('sandboxApp')
-    .controller('OutNewsMessageItemController', function ($scope, $state,OutNewsMessageItem,OutNewsMessageItems, UserInfo, ParseLinks) {
+    .controller('OutNewsMessageItemController', function ($scope,$state, OutNewsMessageItem,OutNewsMessageItems, UserInfo) {
         $scope.outNewsMessageItems = [];
         $scope.userinfos = UserInfo.query();
         $scope.page = 1;
@@ -9,8 +9,8 @@ angular.module('sandboxApp')
 
         var columnDefs = [
             {
-                headerName:"Action",
-                cellRenderer:function(params) {
+                headerName: "Action",
+                cellRenderer: function (params) {
                     return '<button type="submit"' +
                         ' ng-click=view(' + params.data.id + ')' +
                         ' class="btn btn-primary btn-xs btn-entity">' +
@@ -29,21 +29,21 @@ angular.module('sandboxApp')
                 }
             },
             {
-                headerName:"#",width:50,
-                cellRenderer:function(params) {
+                headerName: "#", width: 50,
+                cellRenderer: function (params) {
                     return params.node.id + 1;
                 },
-                suppressSorting:true,
-                suppressMenu:true
+                suppressSorting: true,
+                suppressMenu: true
             },
-            {headerName:"Id",filter:'id'},
-            {headerName:"PicUrl",filter:'picUrl'},
-            {headerName:"Url",filter:'url'},
-            {headerName:"Content",filter:'content'}
+            {headerName:"Id",filted:"id"},
+            {headerName:"PicUrl",filted:"picUrl"},
+            {headerName:"Url",filted:"url"},
+            {headerName:"Content",filted:"content"}
         ];
 
         $scope.gridOptions = {
-            enbaleServerSideSorting:true,
+            enableServerSideSorting: true,
             enableServerSideFilter: true,
             enableColResize: true,
             columnDefs: columnDefs,
@@ -53,6 +53,7 @@ angular.module('sandboxApp')
             },
             angularCompileRows: true
         };
+
         $scope.loadAll = function () {
             OutNewsMessageItem.query({
                 page: $scope.page, per_page: $scope.pageSize
@@ -61,12 +62,13 @@ angular.module('sandboxApp')
             });
         };
         $scope.loadAll();
+
         $scope.view = function(id) {
             $state.go('outNewsMessageItem.detail',{id:id});
         };
 
         $scope.edit = function(id) {
-            $state.go('outNewsMessageItem.edit',{id:id});
+            $state.go('outNewsMessageItemh.edit',{id:id});
         };
 
         $scope.delete = function(id) {
@@ -92,7 +94,7 @@ angular.module('sandboxApp')
             };
         };
 
-        function createNewDatasource() {
+        function createNewDatasource(){
             var dataSource = {
                 pageSize:$scope.pageSize,
                 getRows:function(params){
@@ -117,65 +119,4 @@ angular.module('sandboxApp')
             };
             $scope.gridOptions.api.setDatasource(dataSource);
         }
-
-       /* $scope.loadAll = function() {
-            OutNewsMessageItem.query({page: $scope.page, per_page: 20}, function(result, headers) {
-                $scope.links = ParseLinks.parse(headers('link'));
-                $scope.outNewsMessageItems = result;
-            });
-        };
-        $scope.loadPage = function(page) {
-            $scope.page = page;
-            $scope.loadAll();
-        };
-        $scope.loadAll();
-
-        $scope.showUpdate = function (id) {
-            OutNewsMessageItem.get({id: id}, function(result) {
-                $scope.outNewsMessageItem = result;
-                $('#saveOutNewsMessageItemModal').modal('show');
-            });
-        };
-
-        $scope.save = function () {
-            if ($scope.outNewsMessageItem.id != null) {
-                OutNewsMessageItem.update($scope.outNewsMessageItem,
-                    function () {
-                        $scope.refresh();
-                    });
-            } else {
-                OutNewsMessageItem.save($scope.outNewsMessageItem,
-                    function () {
-                        $scope.refresh();
-                    });
-            }
-        };
-
-        $scope.delete = function (id) {
-            OutNewsMessageItem.get({id: id}, function(result) {
-                $scope.outNewsMessageItem = result;
-                $('#deleteOutNewsMessageItemConfirmation').modal('show');
-            });
-        };
-
-        $scope.confirmDelete = function (id) {
-            OutNewsMessageItem.delete({id: id},
-                function () {
-                    $scope.loadAll();
-                    $('#deleteOutNewsMessageItemConfirmation').modal('hide');
-                    $scope.clear();
-                });
-        };
-
-        $scope.refresh = function () {
-            $scope.loadAll();
-            $('#saveOutNewsMessageItemModal').modal('hide');
-            $scope.clear();
-        };
-
-        $scope.clear = function () {
-            $scope.outNewsMessageItem = {picUrl: null, url: null, content: null, id: null};
-            $scope.editForm.$setPristine();
-            $scope.editForm.$setUntouched();
-        };*/
     });

@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('sandboxApp')
-    .controller('OutNewsMessageItemDialogController', ['$scope', '$stateParams', '$modalInstance', 'entity', 'OutNewsMessageItem','OutNewsMessage',
-        function ($scope, $stateParams, $modalInstance, entity, OutNewsMessageItem,OutNewsMessage) {
+    .controller('OutNewsMessageItemDialogController', ['$scope', '$stateParams', '$modalInstance', 'entity', 'OutNewsMessageItem', 'OutNewsMessage',
+        function ($scope, $stateParams, $modalInstance, entity, OutNewsMessageItem, OutNewsMessage) {
             $scope.outNewsMessageItem = entity;
             $scope.outNewsMessages = OutNewsMessage.query();
             $scope.load = function (id) {

@@ -3,6 +3,7 @@
 angular.module('sandboxApp')
     .controller('NCouponController', function ($scope, $state, NCoupon,NCoupons, CouponBatch, ParseLinks) {
         $scope.nCoupons = [];
+        $scope.couponbatchs = CouponBatch.query();
         $scope.page = 1;
         $scope.pageSize = 20;
 

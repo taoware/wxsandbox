@@ -5,7 +5,7 @@ angular.module('sandboxApp')
         $stateProvider
             .state('nCoupon', {
                 parent: 'entity',
-                url: '/nCoupon',
+                url: '/nCoupons',
                 data: {
                     roles: ['ROLE_USER'],
                     pageTitle: 'sandboxApp.nCoupon.home.title'
