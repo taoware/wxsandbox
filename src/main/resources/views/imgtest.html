@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>微信活动</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="icon" href="img/favicon.ico">
+</head>
+<body>
+<div class="header">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">微信活动</a>
+            </div>
+
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+</div>
+
+<div class="wrap">
+
+    <div class="container">
+
+        <div class="main_side col-md-2">
+            <div class="side_title">
+                <span class="glyphicon glyphicon-inbox"></span>&nbsp;<span>活动管理</span>
+            </div>
+            <ul>
+                <li><a href="index.html">创建活动</a></li>
+                <li><a href="listads.html">活动列表</a></li>
+            </ul>
+
+            <div class="side_title">
+                <span class="glyphicon glyphicon-qrcode"></span>&nbsp;<span>图文管理</span>
+            </div>
+            <ul>
+                <li><a class="selected" href="#">创建图文</a></li>
+                <li><a href="text.html">创建文本</a></li>
+                <li><a href="listimgtext.html">推送列表</a></li>
+            </ul>
+        </div>
+
+
+        <div class="main_content col-md-10">
+            <div>
+                <div class="con_title">
+                   创建图文
+                </div>
+                <div class="con_body">
+                    <div class="set_con">
+                        图文基本设置
+                    </div>
+
+                 <!--   <form class="form-horizontal submit_form" id="imgtext-form" method="post" action="http://vps1.taoware.com/message" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">图文标题</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control ac_title" id="activity_title" name="title" placeholder="" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">图文摘要</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control img_type" id="img_type" name="type" value="news" style="display:none;" />
+                                <textarea type="text" class="form-control img_con" id="img_con" name="content" placeholder="不超过120字"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">内容链接</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control text_url" id="text_url" name="url" placeholder="" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">题图链接</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control img_url" id="img_url" name="picUrl" placeholder="" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">微信菜单</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control menu_title" id="menu_title" name="menuName" placeholder="不超过10个字" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">设置时间</label>
+                            <div class="col-sm-8">
+                                <input type="date" id="date-start" name="startDate" />
+                                <label>到</label>
+                                <input type="date" id="date-end" name="endDate" />
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" id="img-sb"class="btn btn-default">发布</button>
+                            </div>
+                        </div>
+
+                    </form>-->
+                    <form class="form-horizontal submit_form" id="imgtext-form0" enctype="multipart/form-data">
+                       <!-- <div class="form-group">
+                            <label class="col-sm-2 control-label">图文标题</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control ac_title" id="activity_title" name="title" placeholder="" value="123"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">图文摘要</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control img_type" id="img_type" name="type" value="news" style="display:none;" />
+                                <textarea type="text" class="form-control img_con" id="img_con" name="content" placeholder="不超过120字"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">内容链接</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control text_url" id="text_url" name="url" placeholder="" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">题图链接</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control img_url" id="img_url" name="picUrl" placeholder="" />
+                            </div>
+                        </div>-->
+                        <input type="text" name="id" value="1" style="display: none"/>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">微信菜单</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control menu_title" id="menu_title" name="menuName" placeholder="不超过10个字" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">设置时间</label>
+                            <div class="col-sm-8">
+                                <input type="date" id="date-start" name="startDate" />
+                                <label>到</label>
+                                <input type="date" id="date-end" name="endDate" />
+                            </div>
+
+                        </div>
+
+
+                    </form>
+
+                    <form class="form-horizontal submit_form" id="imgtext-form1" enctype="multipart/form-data">
+                        <input type="text" name="id" value="2" style="display: none"/>
+                        <!--<div class="form-group">
+                            <label class="col-sm-2 control-label">图文标题</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control ac_title" id="activity_title" name="title" placeholder="" value="123"/>
+                            </div>
+                        </div>-->
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">图文摘要</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control img_type" id="img_type" name="type" value="news" style="display:none;" />
+                                <textarea type="text" class="form-control img_con" id="img_con" name="content" placeholder="不超过120字"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">内容链接</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control text_url" id="text_url" name="url" placeholder="" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">题图链接</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control img_url" id="img_url" name="picUrl" placeholder="" />
+                            </div>
+                        </div>
+                        <!--<div class="form-group">
+                            <label class="col-sm-2 control-label">微信菜单</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control menu_title" id="menu_title" name="menuName" placeholder="不超过10个字" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">设置时间</label>
+                            <div class="col-sm-8">
+                                <input type="date" id="date-start" name="startDate" />
+                                <label>到</label>
+                                <input type="date" id="date-end" name="endDate" />
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" id="img-sb"class="btn btn-default">发布</button>
+                            </div>
+                        </div>-->
+
+                    </form>
+                    <form class="form-horizontal submit_form" id="imgtext-form2" enctype="multipart/form-data">
+                        <input type="text" name="id" value="3" style="display: none"/>
+                        <!--<div class="form-group">
+                            <label class="col-sm-2 control-label">图文标题</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control ac_title" id="activity_title" name="title" placeholder="" value="123"/>
+                            </div>
+                        </div>-->
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">图文摘要</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control img_type" id="img_type" name="type" value="news" style="display:none;" />
+                                <textarea type="text" class="form-control img_con" id="img_con" name="content" placeholder="不超过120字"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">内容链接</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control text_url" id="text_url" name="url" placeholder="" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">题图链接</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control img_url" id="img_url" name="picUrl" placeholder="" />
+                            </div>
+                        </div>
+                       <!-- <div class="form-group">
+                            <label class="col-sm-2 control-label">微信菜单</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control menu_title" id="menu_title" name="menuName" placeholder="不超过10个字" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">设置时间</label>
+                            <div class="col-sm-8">
+                                <input type="date" id="date-start" name="startDate" />
+                                <label>到</label>
+                                <input type="date" id="date-end" name="endDate" />
+                            </div>
+
+                        </div>-->
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" id="img-sb"class="btn btn-default">发布</button>
+                            </div>
+                        </div>
+
+                    </form>
+
+                    <button type="submit" id="img-sb1"class="btn btn-default">发布</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!--javascript-->
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/bootstrapValidator.js"></script>
+<script type="text/javascript" src="/js/file_input.js"></script>
+<script type="text/javascript" src="/js/validator.js"></script>
+<script type="text/javascript" src="/js/formjson.js"></script>
+
+</body>
+</html>

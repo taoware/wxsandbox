@@ -5,7 +5,7 @@ angular.module('sandboxApp')
         $stateProvider
             .state('outNewsMessageItem', {
                 parent: 'entity',
-                url: '/outNewsMessageItem',
+                url: '/outNewsMessageItems',
                 data: {
                     roles: ['ROLE_USER'],
                     pageTitle: 'sandboxApp.outNewsMessageItem.home.title'
@@ -23,9 +23,9 @@ angular.module('sandboxApp')
                     }]
                 }
             })
-            .state('outNewsMessageItemDetail', {
+            .state('outNewsMessageItem.detail', {
                 parent: 'entity',
-                url: '/outNewsMessageItem/:id',
+                url: '/outNewsMessageItem/{id}',
                 data: {
                     roles: ['ROLE_USER'],
                     pageTitle: 'sandboxApp.outNewsMessageItem.detail.title'
@@ -40,7 +40,58 @@ angular.module('sandboxApp')
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                         $translatePartialLoader.addPart('outNewsMessageItem');
                         return $translate.refresh();
+                    }],
+                    entity: ['$stateParams', 'OutNewsMessageItem', function ($stateParams, OutNewsMessageItem) {
+                        return OutNewsMessageItem.get({id: $stateParams.id});
                     }]
                 }
+            })
+            .state('outNewsMessageItem.new', {
+                parent: 'outNewsMessageItem',
+                url: '/new',
+                data: {
+                    roles: ['ROLE_USER']
+                },
+                onEnter: ['$stateParams', '$state', '$modal', function ($stateParams, $state, $modal) {
+                    $modal.open({
+                        templateUrl: 'scripts/app/entities/outNewsMessageItem/outNewsMessageItem-dialog.html',
+                        controller: 'OutNewsMessageItemDialogController',
+                        size: 'md',
+                        resolve: {
+                            entity: function () {
+                                return {
+                                    picUrl: null, url: null, content: null, id: null
+                                };
+                            }
+                        }
+                    }).result.then(function (result) {
+                            $state.go('outNewsMessageItem', null, {reload: true});
+                        }, function () {
+                            $state.go('outNewsMessageItem');
+                        })
+                }]
+            })
+            .state('outNewsMessageItem.edit', {
+                parent: 'outNewsMessageItem',
+                url: '/{id}/edit',
+                data: {
+                    roles: ['ROLE_USER']
+                },
+                onEnter: ['$stateParams', '$state', '$modal', function ($stateParams, $state, $modal) {
+                    $modal.open({
+                        templateUrl: 'scripts/app/entities/outNewsMessageItem/outNewsMessageItem-dialog.html',
+                        controllerr: 'OutNewsMessageItemDialogController',
+                        size: 'md',
+                        resolve: {
+                            entity: ['OutNewsMessageItem', function (OutNewsMessageItem) {
+                                return OutNewsMessageItem.get({id: $stateParams.id});
+                            }]
+                        }
+                    }).result.then(function (result) {
+                            $state.go('outNewsMessageItem', null, {reload: true});
+                        }, function () {
+                            $state.go('^');
+                        })
+                }]
             });
     });
