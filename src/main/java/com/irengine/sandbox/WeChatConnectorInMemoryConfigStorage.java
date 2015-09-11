@@ -8,7 +8,8 @@ import me.chanjar.weixin.mp.api.WxMpInMemoryConfigStorage;
 import java.io.InputStream;
 
 @XStreamAlias("xml")
-class WeChatConnectorInMemoryConfigStorage extends WxMpInMemoryConfigStorage {
+public class WeChatConnectorInMemoryConfigStorage extends
+		WxMpInMemoryConfigStorage {
 
   @Override
   public String toString() {

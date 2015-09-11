@@ -197,32 +197,24 @@ public class EndPointController {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		logger.debug("点击按钮");
+
 		Map<String, String> requestMap = MessageUtil.parseXml(request);
 		String toUserName = requestMap.get("FromUserName");
 		String fromUserName = requestMap.get("ToUserName");
 		String msgType = requestMap.get("MsgType");
+		logger.debug("msgType:"+msgType);
+		logger.debug("ToUserName"+fromUserName);
+		logger.debug("FromUserName"+toUserName);
+		logger.debug("Event:"+requestMap.get("Event"));
+		logger.debug("OrderId:"+requestMap.get("OrderId"));
+		logger.debug("OrderStatus:"+requestMap.get("OrderStatus"));
+		logger.debug("ProductId:"+requestMap.get("ProductId"));
+		logger.debug("SkuInfo:"+requestMap.get("SkuInfo"));
 		if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_EVENT)) {
 			String eventType = requestMap.get("Event");
 			if (eventType.equals(MessageUtil.EVENT_TYPE_CLICK)) {
 				// 事件KEY值，与创建自定义菜单时指定的KEY值对应
 				String eventKey = requestMap.get("EventKey");
-				 if (eventKey.equals("1")) {
-				 WxMpXmlOutNewsMessage.Item item = new
-				 WxMpXmlOutNewsMessage.Item();
-				 item.setUrl("http://mp.weixin.qq.com/s?__biz=MzAxNTExNzYwOQ==&mid=210883625&idx=1&sn=1cedaeff317a9289e85443699bcb6b06#rd");
-				 item.setPicUrl("http://mmbiz.qpic.cn/mmbiz/iaYUVZTQrW9BqjvI93vJQiaEtia2TPefjol5IBI0feqgSrTdfcxkLIKM7qT0AaRDatvd7iaYDg0b8JtA8bkPL1EV7Q/640?wx_fmt=jpeg&tp=webp&wxfrom=5");
-				 item.setDescription("诚邀大学生创业团队参展,优秀创业团队免收摊位费.");
-				 item.setTitle("首届全国高校校园商贸（教育超市）联合采购展览洽谈会大学生志愿者报名须知");
-				
-				 WxMpXmlOutNewsMessage m = WxMpXmlOutMessage.NEWS()
-				 .fromUser(fromUserName).toUser(toUserName)
-				 .addArticle(item).build();
-				
-				 logger.info(m.toXml());
-				
-				 response.getWriter().write(m.toXml());
-				 response.getWriter().close();
-				 }
 				 if(org.apache.commons.lang3.StringUtils.equals(eventKey, "activitys")){
 					logger.debug("推送长图文消息");
 					List<OutNewsMessage> outNewsMessages=outNewsMessageRepository.findAll();
