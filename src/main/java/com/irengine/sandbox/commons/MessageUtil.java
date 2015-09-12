@@ -16,8 +16,7 @@ public class MessageUtil {
 	
 	public static final String RESP_MESSAGE_TYPE_NEWS = "news";
 	public static final String EVENT_TYPE_CLICK = "CLICK";
-	public static final Object REQ_MESSAGE_TYPE_EVENT = "event";
-	
+	public static final String REQ_MESSAGE_TYPE_EVENT = "event";
     @SuppressWarnings("unchecked")
 	public static Map<String, String> parseXml(HttpServletRequest request) throws IOException, DocumentException{  
         // 将解析结果存储在HashMap中  

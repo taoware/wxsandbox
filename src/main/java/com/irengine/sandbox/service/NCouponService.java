@@ -3,6 +3,7 @@ package com.irengine.sandbox.service;
 import java.io.IOException;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
@@ -13,13 +14,18 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.irengine.sandbox.domain.CouponBatch;
 import com.irengine.sandbox.domain.NCoupon;
+import com.irengine.sandbox.domain.NCoupon.COUPONSTATUS;
+import com.irengine.sandbox.repository.NCouponRepository;
 import com.irengine.sandbox.web.rest.util.ExcelUtil;
 
 @Service
 @Transactional
 public class NCouponService {
 
+	@Inject
+	private NCouponRepository nCouponRepository;
 	public void createExcel(List<NCoupon> nCoupons, HttpServletResponse response) throws IOException {
 		HSSFWorkbook workbook = new HSSFWorkbook();
 		HSSFSheet sheet = workbook.createSheet("提货码");
@@ -76,6 +82,11 @@ public class NCouponService {
 			num++;
 		}
 		ExcelUtil.downloadExcel("提货码", workbook, response);
+	}
+
+	public List<NCoupon> getOneUnusedNCoupon(CouponBatch couponBatch, COUPONSTATUS status) {
+		List<NCoupon> nCoupons=nCouponRepository.findAllByCouponBatchAndStatus(couponBatch.getId(),status);
+		return nCoupons;
 	}
 
 }

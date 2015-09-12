@@ -1,0 +1,46 @@
+
+<div>
+    <h2><span translate="sandboxApp.userExpandInfo.detail.title">UserExpandInfo</span> {{userExpandInfo.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="entity.detail.field">Field</th>
+                    <th translate="entity.detail.value">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.userExpandInfo.key">Key</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{userExpandInfo.key}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.userExpandInfo.value">Value</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{userExpandInfo.value}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="sandboxApp.userExpandInfo.userBasicInfo">userBasicInfo</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{userExpandInfo.userBasicInfo.id}}" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            ui-sref="userExpandInfo"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

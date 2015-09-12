@@ -1,0 +1,22 @@
+{
+  "menu":{
+    "button":[
+      {"name":"发财/活动",
+               "sub_button":[
+	                 {"type":"click",
+	                 "name":"测试多级图文",
+	                 "key":"activitys:1236"},
+	                 {"type":"click",
+	                  "name":"多级图文",
+	                  "key":"activitys:1237"},
+	                  {"type":"view","name":"大师赛购票",
+                 	   "url":"http://mp.weixin.qq.com/bizmall/mallshelf?id=&t=mall/list&biz=MzI3MzAzMjU3OQ==&shelf_id=1&showwxpaytitle=1#wechat_redirect"},
+                    ]},
+                 {"name":"车享笑派卡",
+                 "sub_button":[
+                 {"type":"view",
+                 "name":"个人中心",
+                 "url":"http://180.166.29.246:8089/mediawap/"},
+                 {"type":"view",
+                 "name":"网点查询",
+                 "url":"http://bovps1.taoware.com/storecat/app/index.html"}]}]}}

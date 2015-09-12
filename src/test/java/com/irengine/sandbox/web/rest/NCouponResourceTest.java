@@ -69,6 +69,14 @@ public class NCouponResourceTest {
 
     private NCoupon nCoupon;
 
+    @Test
+    @Transactional
+    public void testFindAllByCouponBatchAndStatus(){
+    	List<NCoupon> nCoupons=nCouponRepository.findAllByCouponBatchAndStatus(1L, COUPONSTATUS.UNUSED);
+    	//System.out.println(nCoupons.get(0));
+    	System.out.println(nCoupons.size());
+    }
+    
     @PostConstruct
     public void setup() {
         MockitoAnnotations.initMocks(this);

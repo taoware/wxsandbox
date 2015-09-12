@@ -201,6 +201,7 @@ public class NCouponResource {
 		DateTime sysTime = new DateTime();
 		for (String str : serialNum) {
 			NCoupon nCoupon2 = new NCoupon();
+			nCoupon2.setCouponBatch(couponBatch);
 			nCoupon2.setCode(couponBatchCode + size + str + checkNum);
 			nCoupon2.setCreatedTime(sysTime);
 			nCoupon2.setModifedTime(sysTime);

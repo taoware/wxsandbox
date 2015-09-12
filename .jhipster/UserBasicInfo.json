@@ -1,0 +1,50 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "openId",
+            "fieldType": "String",
+            "fieldNameCapitalized": "OpenId",
+            "fieldNameUnderscored": "open_id",
+            "fieldInJavaBeanMethod": "OpenId",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "mobile",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Mobile",
+            "fieldNameUnderscored": "mobile",
+            "fieldInJavaBeanMethod": "Mobile",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "status",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Status",
+            "fieldNameUnderscored": "status",
+            "fieldInJavaBeanMethod": "Status",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOwnerOneToOne": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": false,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": false,
+    "fieldsContainDate": false,
+    "changelogDate": "20150912075925",
+    "dto": "no",
+    "pagination": "pager",
+    "validation": true
+}

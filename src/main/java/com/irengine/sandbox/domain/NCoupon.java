@@ -103,7 +103,7 @@ public class NCoupon implements Serializable {
         this.couponBatch = couponBatch;
     }
 
-    @Override
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

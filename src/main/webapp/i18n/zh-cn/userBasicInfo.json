@@ -1,0 +1,20 @@
+{
+    "sandboxApp": {
+        "userBasicInfo" : {
+            "home": {
+                "title": "UserBasicInfos",
+                "createLabel": "Create a new UserBasicInfo",
+                "createOrEditLabel": "Create or edit a UserBasicInfo"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete UserBasicInfo {{ id }}?"
+            },
+            "detail": {
+                "title": "UserBasicInfo"
+            },
+            "openId": "OpenId",
+            "mobile": "Mobile",
+            "status": "Status"
+        }
+    }
+}
