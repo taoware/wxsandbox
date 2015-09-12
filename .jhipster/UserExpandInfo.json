@@ -1,0 +1,49 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "userBasicInfo",
+            "relationshipNameCapitalized": "UserBasicInfo",
+            "relationshipFieldName": "userBasicInfo",
+            "otherEntityName": "userBasicInfo",
+            "relationshipType": "many-to-one",
+            "otherEntityNameCapitalized": "UserBasicInfo",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "key",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Key",
+            "fieldNameUnderscored": "key",
+            "fieldInJavaBeanMethod": "Key",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "value",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Value",
+            "fieldNameUnderscored": "value",
+            "fieldInJavaBeanMethod": "Value",
+            "fieldValidate": false
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOwnerOneToOne": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": false,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": false,
+    "fieldsContainDate": false,
+    "changelogDate": "20150912081056",
+    "dto": "no",
+    "pagination": "pager",
+    "validation": true
+}

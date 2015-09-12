@@ -1,0 +1,20 @@
+{
+    "sandboxApp": {
+        "userExpandInfo" : {
+            "home": {
+                "title": "UserExpandInfos",
+                "createLabel": "Create a new UserExpandInfo",
+                "createOrEditLabel": "Create or edit a UserExpandInfo"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete UserExpandInfo {{ id }}?"
+            },
+            "detail": {
+                "title": "UserExpandInfo"
+            },
+            "key": "Key",
+            "value": "Value",
+            "userBasicInfo": "userBasicInfo"
+        }
+    }
+}

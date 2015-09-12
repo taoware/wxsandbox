@@ -1,0 +1,19 @@
+{
+    "sandboxApp": {
+        "goods" : {
+            "home": {
+                "title": "Goodss",
+                "createLabel": "Create a new Goods",
+                "createOrEditLabel": "Create or edit a Goods"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Goods {{ id }}?"
+            },
+            "detail": {
+                "title": "Goods"
+            },
+            "name": "Name",
+            "couponBatch": "couponBatch"
+        }
+    }
+}

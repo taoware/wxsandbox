@@ -39,18 +39,24 @@ import com.irengine.sandbox.commons.MessageUtil;
 import com.irengine.sandbox.domain.Activity;
 import com.irengine.sandbox.domain.CUser;
 import com.irengine.sandbox.domain.Coupon;
+import com.irengine.sandbox.domain.Goods;
+import com.irengine.sandbox.domain.NCoupon;
+import com.irengine.sandbox.domain.NCoupon.COUPONSTATUS;
 import com.irengine.sandbox.domain.OutMessage;
 import com.irengine.sandbox.domain.OutNewsMessage;
 import com.irengine.sandbox.domain.OutNewsMessageItem;
 import com.irengine.sandbox.domain.WCUser;
+import com.irengine.sandbox.repository.GoodsRepository;
 import com.irengine.sandbox.repository.OutNewsMessageRepository;
 import com.irengine.sandbox.service.ActivityService;
 import com.irengine.sandbox.service.CUserService;
+import com.irengine.sandbox.service.NCouponService;
 import com.irengine.sandbox.service.OutMessageService;
 import com.irengine.sandbox.service.WCUserService;
+import com.irengine.sandbox.web.rest.util.RestTemplateUtil;
 
 @Controller
-//@RequestMapping("/api/wechat")
+// @RequestMapping("/api/wechat")
 public class EndPointController {
 
 	private static Logger logger = LoggerFactory
@@ -61,16 +67,21 @@ public class EndPointController {
 
 	@Autowired
 	private CUserService cUserService;
-	
+
 	@Autowired
 	private ActivityService activityService;
-	
+
 	@Autowired
 	private WCUserService wcUserService;
-	
+
 	@Autowired
 	private OutNewsMessageRepository outNewsMessageRepository;
+
+	@Autowired
+	private GoodsRepository goodsRepository;
 	
+	@Autowired
+	private NCouponService nCouponService;
 	/*
 	 * http://wenku.baidu.com/link?url=Z6AsEXjrbIRt-5V6wurFBXdSgQOCTRXtaR09HLdnwjTZ
 	 * -WQH4GMq-_9fhS7abwGFYX2XwfXnIbupNxbrJa7KwB6_UUkgefR43Lnh5kr6YPa
@@ -188,7 +199,8 @@ public class EndPointController {
 		response.getWriter().close();
 	}
 
-	private String apiUrl="/web/verify?url=";
+	private String apiUrl = "/web/verify?url=";
+
 	@RequestMapping(value = "/api/wechat/", method = RequestMethod.POST)
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException, DocumentException,
@@ -197,80 +209,128 @@ public class EndPointController {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		logger.debug("点击按钮");
-
+		/* 获取openId */
+		// String code = request.getParameter("code");
+		// WxMpOAuth2AccessToken wxMpOAuth2AccessToken = WeChatConnector
+		// .getMpService().oauth2getAccessToken(code);
+		// WxMpUser wxMpUser = WeChatConnector.getMpService()
+		// .oauth2getUserInfo(wxMpOAuth2AccessToken, null);
+		// logger.debug("openId"+wxMpUser.getOpenId());
 		Map<String, String> requestMap = MessageUtil.parseXml(request);
+		logger.debug(requestMap.toString());
 		String toUserName = requestMap.get("FromUserName");
 		String fromUserName = requestMap.get("ToUserName");
 		String msgType = requestMap.get("MsgType");
-		logger.debug("msgType:"+msgType);
-		logger.debug("ToUserName"+fromUserName);
-		logger.debug("FromUserName"+toUserName);
-		logger.debug("Event:"+requestMap.get("Event"));
-		logger.debug("OrderId:"+requestMap.get("OrderId"));
-		logger.debug("OrderStatus:"+requestMap.get("OrderStatus"));
-		logger.debug("ProductId:"+requestMap.get("ProductId"));
-		logger.debug("SkuInfo:"+requestMap.get("SkuInfo"));
+		// logger.debug("msgType:"+msgType);
+		// logger.debug("ToUserName"+fromUserName);
+		// logger.debug("FromUserName"+toUserName);
+		// logger.debug("Event:"+requestMap.get("Event"));
+		// logger.debug("OrderId:"+requestMap.get("OrderId"));
+		// logger.debug("OrderStatus:"+requestMap.get("OrderStatus"));
+		// logger.debug("ProductId:"+requestMap.get("ProductId"));
+		// logger.debug("SkuInfo:"+requestMap.get("SkuInfo"));
 		if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_EVENT)) {
 			String eventType = requestMap.get("Event");
 			if (eventType.equals(MessageUtil.EVENT_TYPE_CLICK)) {
 				// 事件KEY值，与创建自定义菜单时指定的KEY值对应
 				String eventKey = requestMap.get("EventKey");
-				 if(org.apache.commons.lang3.StringUtils.equals(eventKey, "activitys")){
+				if (eventKey.matches("activitys:\\d+")) {
 					logger.debug("推送长图文消息");
-					List<OutNewsMessage> outNewsMessages=outNewsMessageRepository.findAll();
+					Long outNewsMessageId = Long
+							.parseLong(eventKey.split(":")[1]);
+					OutNewsMessage outNewsMessage = outNewsMessageRepository
+							.findOne(outNewsMessageId);
 					WxMpXmlOutNewsMessage m = WxMpXmlOutMessage.NEWS()
 							.fromUser(fromUserName).toUser(toUserName).build();
-					if(outNewsMessages!=null&&outNewsMessages.size()>0){
-						logger.debug("子图文size:"+outNewsMessages.get(0).getOutNewsMessageItems().size());
+					if (outNewsMessage != null) {
+						logger.debug("子图文size:"
+								+ outNewsMessage.getOutNewsMessageItems()
+										.size());
 						logger.debug("遍历添加子图文");
-						for(OutNewsMessageItem outNewsMessageItem:outNewsMessages.get(0).getOutNewsMessageItems()){
+						for (OutNewsMessageItem outNewsMessageItem : outNewsMessage
+								.getOutNewsMessageItems()) {
 							WxMpXmlOutNewsMessage.Item item = new WxMpXmlOutNewsMessage.Item();
-							item.setUrl(Constant.url+apiUrl+outNewsMessageItem.getUrl());
+							item.setUrl(Constant.url + apiUrl
+									+ outNewsMessageItem.getUrl());
 							item.setPicUrl(outNewsMessageItem.getPicUrl());
 							item.setDescription(outNewsMessageItem.getContent());
 							item.setTitle(outNewsMessageItem.getContent());
 							m.addArticle(item);
 						}
-//						WxMpXmlOutNewsMessage m = WxMpXmlOutMessage.NEWS()
-//								.fromUser(fromUserName).toUser(toUserName)
-//								.addArticle(item).build();
+						// WxMpXmlOutNewsMessage m = WxMpXmlOutMessage.NEWS()
+						// .fromUser(fromUserName).toUser(toUserName)
+						// .addArticle(item).build();
 						logger.info(m.toXml());
 						response.getWriter().write(m.toXml());
 						response.getWriter().close();
 					}
 					return;
-				 }
-				OutMessage message = outMessageService.findOneById(Long
-						.parseLong(eventKey));
-				if(message==null){
+				}else{
+					
+					OutMessage message = outMessageService.findOneById(Long
+							.parseLong(eventKey));
+					if (message == null) {
+						return;
+					}
+					if ("news".equals(message.getType())) {
+						logger.debug("推送图文消息");
+						WxMpXmlOutNewsMessage.Item item = new WxMpXmlOutNewsMessage.Item();
+						item.setUrl(message.getUrl());
+						item.setPicUrl(message.getPicUrl());
+						item.setDescription(message.getContent());
+						item.setTitle(message.getTitle());
+						WxMpXmlOutNewsMessage m = WxMpXmlOutMessage.NEWS()
+								.fromUser(fromUserName).toUser(toUserName)
+								.addArticle(item).build();
+						logger.info(m.toXml());
+						response.getWriter().write(m.toXml());
+						response.getWriter().close();
+					}
+					if ("text".equals(message.getType())) {
+						logger.debug("推送文本消息");
+						WxMpXmlOutTextMessage text = WxMpXmlOutMessage.TEXT()
+								.fromUser(fromUserName).toUser(toUserName)
+								.content(message.getContent()).build();
+						response.getWriter().write(text.toXml());
+						response.getWriter().close();
+					}
+				}
+			}else if(eventType.equals("merchant_order")){
+				/*捕获微小店付款事件*/
+				logger.debug("微小店付款");
+				/*得到订单号*/
+				String orderId=requestMap.get("OrderId");
+				/*查看商品详情,得到商品名和商品数量*/
+				Map<String,Object> orderInfo=RestTemplateUtil.getOrderInfo(orderId);
+				Integer product_count=(Integer) orderInfo.get("product_count");
+				String product_name=(String) orderInfo.get("product_name");
+				Integer order_total_price=(Integer) orderInfo.get("order_total_price");
+				String returnOrderPrice=""+(order_total_price*1.0/100)+"元";
+				/*根据商品名确定是发哪个供应商的提货码,并且发同等数量*/
+				Goods goods=goodsRepository.findOneByName(product_name);
+				if(goods==null){
+					logger.debug("商品:"+product_name+",未在管理台绑定对应的批次号");
 					return;
 				}
-				if ("news".equals(message.getType())) {
-					logger.debug("推送图文消息");
-					WxMpXmlOutNewsMessage.Item item = new WxMpXmlOutNewsMessage.Item();
-					item.setUrl(message.getUrl());
-					item.setPicUrl(message.getPicUrl());
-					item.setDescription(message.getContent());
-					item.setTitle(message.getTitle());
-					WxMpXmlOutNewsMessage m = WxMpXmlOutMessage.NEWS()
-							.fromUser(fromUserName).toUser(toUserName)
-							.addArticle(item).build();
-					logger.info(m.toXml());
-					response.getWriter().write(m.toXml());
-					response.getWriter().close();
+				List<NCoupon> nCoupons=nCouponService.getOneUnusedNCoupon(goods.getCouponBatch(),COUPONSTATUS.UNUSED);
+				if(nCoupons==null||nCoupons.size()<product_count){
+					logger.debug("提货码不足");
+					return;
 				}
-				if ("text".equals(message.getType())) {
-					logger.debug("推送文本消息");
-					WxMpXmlOutTextMessage text = WxMpXmlOutMessage
-							.TEXT().fromUser(fromUserName).toUser(toUserName)
-							.content(message.getContent()).build();
-					response.getWriter().write(text.toXml());
-					response.getWriter().close();
+				String couponsInfo="";
+				for(int i=0;i<product_count;i++){
+					NCoupon nCoupon=nCoupons.get(i);
+					couponsInfo+=nCoupon.getCode()+",";
 				}
+				couponsInfo = couponsInfo.substring(0, couponsInfo.length() - 1);
+				logger.debug("couponsInfo:"+couponsInfo);
+				RestTemplateUtil.sendTemplateInfo(toUserName, "https://www.baidu.com/", returnOrderPrice, couponsInfo);
+			}else{
+				logger.debug("eventType:"+eventType);
 			}
 		}
 	}
-	
+
 	/** 得到提货码 */
 	@RequestMapping("/coupon")
 	public String getCoupon(HttpServletRequest request, Model model)
@@ -398,7 +458,8 @@ public class EndPointController {
 				activity.getWcUserss().add(user);
 				activityService.save(activity);
 			}
-			response.sendRedirect("http://bovps1.taoware.com/web/"+activity.getFolderName()+"/send");
+			response.sendRedirect("http://bovps1.taoware.com/web/"
+					+ activity.getFolderName() + "/send");
 		} else {
 			logger.debug("该活动不存在");
 		}

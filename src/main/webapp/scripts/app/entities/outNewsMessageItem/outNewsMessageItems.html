@@ -5,14 +5,14 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <button class="btn btn-primary" ui-sref="outNewsMessageItem.new">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#saveOutNewsMessageItemModal" ng-click="clear()">
                     <span class="glyphicon glyphicon-flash"></span> <span translate="sandboxApp.outNewsMessageItem.home.createLabel">Create a new OutNewsMessageItem</span>
                 </button>
             </div>
         </div>
     </div>
 
-   <!-- <div class="modal fade" id="saveOutNewsMessageItemModal" tabindex="-1" role="dialog" aria-labelledby="myOutNewsMessageItemLabel"
+    <div class="modal fade" id="saveOutNewsMessageItemModal" tabindex="-1" role="dialog" aria-labelledby="myOutNewsMessageItemLabel"
          aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -84,7 +84,7 @@
                 </form>
             </div>
         </div>
-    </div>-->
+    </div>
 
     <div class="modal fade" id="deleteOutNewsMessageItemConfirmation">
         <div class="modal-dialog">
@@ -111,7 +111,7 @@
         </div>
     </div>
 
-   <!-- <div class="table-responsive">
+    <div class="table-responsive">
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -156,10 +156,5 @@
                 <li ng-show="links['last']" ng-click="loadPage(links['last'])"><a href="#">&gt;&gt;</a></li>
             </ul>
         </nav>
-    </div>-->
-
-    <div class="table-responsive">
-        <div ag-grid="gridOptions" class="ag-fresh" style="height: 670px; width: 100%;"></div>
     </div>
-
 </div>

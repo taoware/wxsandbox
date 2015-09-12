@@ -23,7 +23,9 @@ import org.springframework.transaction.annotation.Transactional;
 import com.irengine.sandbox.WeChatConnector;
 import com.irengine.sandbox.domain.Activity;
 import com.irengine.sandbox.domain.OutMessage;
+import com.irengine.sandbox.domain.OutNewsMessage;
 import com.irengine.sandbox.repository.ActivityRepository;
+import com.irengine.sandbox.repository.OutNewsMessageRepository;
 import com.irengine.sandbox.web.rest.util.DealWithMenuJson;
 
 @Service
@@ -39,6 +41,9 @@ public class ActivityService {
 	@Autowired
 	private OutMessageService outMessageService;
 
+	@Autowired
+	private OutNewsMessageRepository outNewsMessageRepository;
+	
 	public Activity save(Activity activity) {
 		Activity returnActivity = activityRepository.save(activity);
 		return returnActivity;
@@ -59,6 +64,7 @@ public class ActivityService {
 		/* 检测所有活动 */
 		List<Activity> activitys = findAll();
 		List<OutMessage> messages = outMessageService.findAll();
+		List<OutNewsMessage> outNewsMessages=outNewsMessageRepository.findAll();
 		/* 时间符合即更新到第一个以及菜单按钮 */
 		Date now = new Date();
 		// 待添加的活动
@@ -103,7 +109,7 @@ public class ActivityService {
 		}
 		/* 生成菜单文件 */
 		String menuJson = DealWithMenuJson.setActivity(addActivitys,
-				addMessages);
+				addMessages,outNewsMessages);
 		/* 更新菜单 */
 		InputStream isMenu = new ByteArrayInputStream(
 				menuJson.getBytes("UTF-8"));

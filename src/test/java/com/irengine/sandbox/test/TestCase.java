@@ -15,4 +15,17 @@ public class TestCase {
 		System.out.println(str);
 	}
 	
+	@Test
+	public void test02(){
+		System.out.println("activitys:1236".matches("activity:\\d+"));
+	}
+	
+	@Test
+	public void test03(){
+		Double num=3.0;
+		System.out.println(num/100);
+		Integer num2=3;
+		System.out.println(num2*1.0/100);
+	}
+	
 }

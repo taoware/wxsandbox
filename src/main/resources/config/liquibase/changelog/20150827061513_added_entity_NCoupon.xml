@@ -34,13 +34,12 @@
 
         <dropDefaultValue tableName="NCOUPON" columnName="modifed_time" columnDataType="datetime"/>
 
-        
         <addForeignKeyConstraint baseColumnNames="couponbatch_id"
                                  baseTableName="NCOUPON"
                                  constraintName="fk_ncoupon_couponbatch_id"
                                  referencedColumnNames="id"
                                  referencedTableName="COUPONBATCH"/>
-
+                                 
         <!-- <loadData encoding="UTF-8"
                   file="config/liquibase/ncoupon.csv"
                   separator=";"
