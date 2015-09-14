@@ -1,0 +1,48 @@
+/* line 9, ../../sass/sass/main.scss */
+body {
+  background: #fafafa;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+/* line 15, ../../sass/sass/main.scss */
+.login-container {
+  margin-top: 50px;
+}
+
+/* line 19, ../../sass/sass/main.scss */
+.icon-error {
+  color: #cc2127;
+}
+
+/* line 24, ../../sass/sass/main.scss */
+.storelist-row h4 {
+  color: #2c2c2c;
+}
+
+/* line 30, ../../sass/sass/main.scss */
+.error-container {
+  margin-top: 100px;
+}
+
+/* line 34, ../../sass/sass/main.scss */
+.school-info {
+  float: right;
+  margin-top: 13px;
+}
+
+/* line 39, ../../sass/sass/main.scss */
+.codebox {
+  border-right: 1px dashed #ddd;
+  margin-right: 10px;
+}
+
+/* line 44, ../../sass/sass/main.scss */
+.codeunused {
+  color: #FF4A55;
+}
+
+/* line 47, ../../sass/sass/main.scss */
+.codeused {
+  color: #87CB16;
+}

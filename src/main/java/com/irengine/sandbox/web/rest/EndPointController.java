@@ -199,8 +199,7 @@ public class EndPointController {
 		response.getWriter().close();
 	}
 
-	private String apiUrl = "/web/verify?url=";
-
+	private String apiUrl="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx24a039ac596c8ad8&redirect_uri=http%3A%2F%2Fbovps1.taoware.com%2Fweb%2Fverify%2F{outNewsMessageItem.id}%2Fsend%2F&response_type=code&scope=snsapi_userinfo#wechat_redirect";
 	@RequestMapping(value = "/api/wechat/", method = RequestMethod.POST)
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException, DocumentException,
@@ -250,8 +249,12 @@ public class EndPointController {
 						for (OutNewsMessageItem outNewsMessageItem : outNewsMessage
 								.getOutNewsMessageItems()) {
 							WxMpXmlOutNewsMessage.Item item = new WxMpXmlOutNewsMessage.Item();
-							item.setUrl(Constant.url + apiUrl
-									+ outNewsMessageItem.getUrl());
+//							String url=outNewsMessageItem.getUrl();
+//							url=url.replace("/", "%2F");
+//							url=url.replace(":", "%3A");
+//							apiUrl=apiUrl.replace("{url}", url);
+							item.setUrl(apiUrl.replace("{outNewsMessageItem.id}", ""+outNewsMessageItem.getId()));
+							logger.debug("apiUrl:"+apiUrl);
 							item.setPicUrl(outNewsMessageItem.getPicUrl());
 							item.setDescription(outNewsMessageItem.getContent());
 							item.setTitle(outNewsMessageItem.getContent());
@@ -320,6 +323,8 @@ public class EndPointController {
 				String couponsInfo="";
 				for(int i=0;i<product_count;i++){
 					NCoupon nCoupon=nCoupons.get(i);
+					nCoupon.setStatus(COUPONSTATUS.SENT);
+					nCouponService.save(nCoupon);
 					couponsInfo+=nCoupon.getCode()+",";
 				}
 				couponsInfo = couponsInfo.substring(0, couponsInfo.length() - 1);

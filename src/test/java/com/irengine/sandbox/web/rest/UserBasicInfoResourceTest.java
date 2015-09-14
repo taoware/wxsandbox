@@ -2,12 +2,16 @@ package com.irengine.sandbox.web.rest;
 
 import com.irengine.sandbox.Application;
 import com.irengine.sandbox.domain.UserBasicInfo;
+import com.irengine.sandbox.domain.UserBasicInfo.USERSTATUS;
 import com.irengine.sandbox.repository.UserBasicInfoRepository;
+import com.irengine.sandbox.service.UserBasicInfoService;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
 import static org.hamcrest.Matchers.hasItem;
+
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
@@ -21,6 +25,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -47,6 +52,9 @@ public class UserBasicInfoResourceTest {
 
     @Inject
     private UserBasicInfoRepository userBasicInfoRepository;
+    
+    @Inject
+    private UserBasicInfoService userBasicInfoService;
 
     private MockMvc restUserBasicInfoMockMvc;
 
@@ -65,9 +73,16 @@ public class UserBasicInfoResourceTest {
         userBasicInfo = new UserBasicInfo();
         userBasicInfo.setOpenId(DEFAULT_OPEN_ID);
         userBasicInfo.setMobile(DEFAULT_MOBILE);
-        userBasicInfo.setStatus(DEFAULT_STATUS);
+        userBasicInfo.setStatus(USERSTATUS.unregistered);
     }
 
+    @Test
+    @Transactional
+    public void testFindOneByOpenId(){
+    	UserBasicInfo userBasicInfo=userBasicInfoRepository.findOneByOpenId("11");
+    	System.out.println(userBasicInfo);
+    }
+    
     @Test
     @Transactional
     public void createUserBasicInfo() throws Exception {
@@ -177,7 +192,7 @@ public class UserBasicInfoResourceTest {
         // Update the userBasicInfo
         userBasicInfo.setOpenId(UPDATED_OPEN_ID);
         userBasicInfo.setMobile(UPDATED_MOBILE);
-        userBasicInfo.setStatus(UPDATED_STATUS);
+        userBasicInfo.setStatus(USERSTATUS.unregistered);
         restUserBasicInfoMockMvc.perform(put("/api/userBasicInfos")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
                 .content(TestUtil.convertObjectToJsonBytes(userBasicInfo)))

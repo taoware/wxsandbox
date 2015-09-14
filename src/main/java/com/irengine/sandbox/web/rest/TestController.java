@@ -37,6 +37,11 @@ public class TestController {
 	@Autowired
 	private ActivityService activityService; 
 	
+	@RequestMapping("/send9")
+	public void testSend9(HttpServletResponse response) throws IOException{
+		response.sendRedirect("/Nphone/app/index.html?id="+1);
+	}
+	
 	@RequestMapping("/send8")
 	public String testSend(@RequestParam("url") String url, HttpServletRequest request) throws WxErrorException {
 		return url;

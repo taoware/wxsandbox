@@ -1,0 +1,12 @@
+{
+  "name": "nphone",
+  "private": true,
+  "dependencies": {
+    "modernizr": "~2.8.3"
+  },
+  "devDependencies": {
+    "chai": "~3.2.0",
+    "frozenui": "*",
+    "mocha": "~2.3.2"
+  }
+}

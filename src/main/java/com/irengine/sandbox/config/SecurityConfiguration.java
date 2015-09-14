@@ -87,8 +87,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/api/account/reset_password/finish").permitAll()
             .antMatchers("/api/logs/**").hasAuthority(AuthoritiesConstants.ADMIN)
             .antMatchers("/api/audits/**").hasAuthority(AuthoritiesConstants.ADMIN)
-            .antMatchers("/api/nCoupons/e").permitAll()
-            .antMatchers("/api/wechat/**").permitAll()
+            .antMatchers("/api/nCoupons/e").permitAll()//导出提货码接口
+            .antMatchers("/api/wechat/**").permitAll()//微信验证接口
+            .antMatchers("/api/notify/**").permitAll()//发送短信接口
+            .antMatchers("/api/userBasicInfos/c/**").permitAll()//绑定手机接口
             .antMatchers("/api/**").authenticated()
             .antMatchers("/webjars/**").permitAll()
             .antMatchers("/metrics/**").hasAuthority(AuthoritiesConstants.ADMIN)

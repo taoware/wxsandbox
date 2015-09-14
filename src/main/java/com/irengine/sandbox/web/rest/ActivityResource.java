@@ -227,7 +227,7 @@ public class ActivityResource {
 		response.setContentType("text/html;charset=utf-8");
 		response.setStatus(HttpServletResponse.SC_OK);
 		// 发送验证短信
-		String result = SmsHelper.send(mobile, message);
+		String result = SmsHelper.send(mobile, "您的短信验证码为:"+message);
 
 		response.getWriter().println(result);
 	}

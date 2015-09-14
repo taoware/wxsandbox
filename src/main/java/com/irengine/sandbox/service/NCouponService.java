@@ -89,4 +89,8 @@ public class NCouponService {
 		return nCoupons;
 	}
 
+	public NCoupon save(NCoupon nCoupon) {
+		return nCouponRepository.save(nCoupon);
+	}
+
 }

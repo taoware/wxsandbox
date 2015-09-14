@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('sandboxApp')
-    .controller('CouponBatchController', function ($scope,$state, CouponBatch,CouponBatchs, SupplierActivity) {
+    .controller('CouponBatchController', function ($scope,$state, CouponBatch,CouponBatchs, SupplierActivity,ParseLinks) {
         $scope.couponBatchs = [];
-        $scope.supplieractivitys = SupplierActivity.query();
+        //$scope.supplieractivitys = SupplierActivity.query();
         $scope.page = 1;
         $scope.pageSize = 20;
 

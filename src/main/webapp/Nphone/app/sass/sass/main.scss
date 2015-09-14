@@ -1,0 +1,49 @@
+
+// bower:scss
+// endbower
+
+$danger:#cc2127;
+$text-muted:#2c2c2c;
+$text-success:#87CB16;
+$text-warning:#FF4A55;
+body {
+  background: #fafafa;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+.login-container {
+  margin-top: 50px;
+}
+
+.icon-error {
+  color:$danger;
+}
+
+.storelist-row {
+  h4 {
+    color: $text-muted;
+
+  }
+}
+
+.error-container {
+  margin-top: 100px;
+}
+
+.school-info {
+  float: right;
+  margin-top: 13px;
+}
+
+.codebox {
+  border-right: 1px dashed #ddd;
+  margin-right: 10px;
+}
+
+.codeunused {
+  color: $text-warning;
+}
+.codeused {
+  color: $text-success;
+}

@@ -5,6 +5,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
+
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -21,15 +22,31 @@ public class UserBasicInfo implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "open_id", nullable = false)
+    @Column(name = "open_id", nullable = false , unique=true)
     private String openId;
 
     @Column(name = "mobile")
     private String mobile;
 
+    public enum USERSTATUS{unregistered,registered};
+    
+    public UserBasicInfo() {
+		super();
+	}
+
+	public UserBasicInfo(Long id, String openId, String mobile,
+			USERSTATUS status) {
+		super();
+		this.id = id;
+		this.openId = openId;
+		this.mobile = mobile;
+		this.status = status;
+	}
+
+	@Enumerated(EnumType.STRING)
     @NotNull
     @Column(name = "status", nullable = false)
-    private String status;
+    private USERSTATUS status;
 
     public Long getId() {
         return id;
@@ -55,15 +72,15 @@ public class UserBasicInfo implements Serializable {
         this.mobile = mobile;
     }
 
-    public String getStatus() {
-        return status;
-    }
+    public USERSTATUS getStatus() {
+		return status;
+	}
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
+	public void setStatus(USERSTATUS status) {
+		this.status = status;
+	}
 
-    @Override
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

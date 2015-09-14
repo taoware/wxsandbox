@@ -28,4 +28,12 @@ public class TestCase {
 		System.out.println(num2*1.0/100);
 	}
 	
+	@Test
+	public void test04(){
+		String url="https://www.baidu.com/";
+		url=url.replace("/", "%2F");
+		url=url.replace(":", "%3A");
+		System.out.println(url);
+	}
+	
 }
