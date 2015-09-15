@@ -1,9 +1,11 @@
 'use strict';
 
 angular.module('sandboxApp')
-    .controller('SupplierActivityDialogController', ['$scope', '$stateParams', '$modalInstance', 'entity', 'SupplierActivity',
-        function ($scope, $stateParams, $modalInstance, entity, SupplierActivity) {
+    .controller('SupplierActivityDialogController', ['$scope', '$stateParams', '$modalInstance', 'entity', 'SupplierActivity','Supplier','CouponBatch',
+        function ($scope, $stateParams, $modalInstance, entity, SupplierActivity,Supplier,CouponBatch) {
             $scope.supplierActivity = entity;
+            $scope.suppliers = Supplier.query();
+            $scope.couponBatchs = CouponBatch.query();
             $scope.load = function (id) {
                 SupplierActivity.get({id: id}, function (result) {
                     $scope.supplierActivity = result;
