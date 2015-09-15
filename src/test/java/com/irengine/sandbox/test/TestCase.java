@@ -1,9 +1,19 @@
 package com.irengine.sandbox.test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.junit.Test;
 
 public class TestCase {
 
+	@Test
+	public void test05(){
+		Map<String,String> map=new HashMap<String,String>();
+		map.put("url","dummy");
+		System.out.println(map.get("key"));
+	}
+	
 	@Test
 	public void test01(){
 		int num=1;

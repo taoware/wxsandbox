@@ -28,6 +28,10 @@ public class UserBasicInfoService {
 	public UserBasicInfo save(UserBasicInfo userBasicInfo) {
 		return userBasicInfoRepository.save(userBasicInfo);
 	}
+
+	public UserBasicInfo findOneByOpenId(String openId) {
+		return userBasicInfoRepository.findOneByOpenId(openId);
+	}
 	
 //	/**保存用户openId和mobile*/
 //	public void saveBasicInfo(String openId,String mobile) {

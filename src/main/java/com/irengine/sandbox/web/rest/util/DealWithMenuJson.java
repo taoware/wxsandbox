@@ -16,7 +16,7 @@ import com.irengine.sandbox.repository.OutNewsMessageRepository;
 public class DealWithMenuJson {
     
 //	private static String initMenu = "{\"menu\":{\"button\":[{\"name\":\"今日活动\",\"sub_button\":[add-activity]},{\"name\":\"推送信息\",\"sub_button\":[add-push]}]}}";
-	private static String initMenu = "{\"menu\":{\"button\":[{\"name\":\"发财/活动\",\"sub_button\":[add-activity]},{\"name\":\"车享笑派卡\",\"sub_button\":[{\"type\":\"view\",\"name\":\"个人中心\",\"url\":\"http://180.166.29.246:8089/mediawap/\"},{\"type\":\"view\",\"name\":\"网点查询\",\"url\":\"http://bovps1.taoware.com/storecat/app/index.html\"}]}]}}";
+	private static String initMenu = "{\"menu\":{\"button\":[{\"name\":\"发财/活动\",\"sub_button\":[add-activity]},{\"name\":\"车享笑派卡\",\"sub_button\":[{\"type\":\"view\",\"name\":\"个人中心\",\"url\":\"https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx24a039ac596c8ad8&redirect_uri=http%3A%2F%2Fbovps1.taoware.com%2Fweb%2Fverify%2F-1%2Fsend%2F&response_type=code&scope=snsapi_userinfo#wechat_redirect\"},{\"type\":\"view\",\"name\":\"网点查询\",\"url\":\"http://bovps1.taoware.com/storecat/app/index.html\"}]}]}}";
 
 	private static String shopUrl="http://mp.weixin.qq.com/bizmall/mallshelf?id=&t=mall/list&biz=MzI3MzAzMjU3OQ==&shelf_id=1&showwxpaytitle=1#wechat_redirect";
 	

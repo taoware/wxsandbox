@@ -7,16 +7,22 @@ import org.springframework.web.client.RestTemplate;
 
 public class RestTemplateTest {
 
-	private static final String Url_Validate = "http://180.166.29.246:8089/mediawap/customer/wx_validate.xhtml";
+	//登录
+	//private static final String Url_Validate = "http://180.166.29.246:8089/mediawap/customer/wx_validate.xhtml";
+	private static final String Url_Validate = "http://www.jctpay.com/mediawap/customer/wx_validate.xhtml";
+	//挂失
 	private static final String Url_Report = "http://180.166.29.246:8089/mediawap/customer/wx_cardlost.xhtml";
+	//充值
 	private static final String Url_Charge = "http://180.166.29.246:8089/payweb/product/reprepay.xhtml";
 
 	@Test
 	public void testValidate() {
-		String wxOpenId = "yhq2015010001";
-		String mobileNo = "13601234567";
-		String sign = "653209bc6235b48c72f08921d514dbb5";
-		
+		//String wxOpenId = "yhq2015010001";
+		String wxOpenId = "oKQu3sw532uqxYrdsRIfX6nnWajw";
+		//String mobileNo = "13601234567";
+		String mobileNo = "18616949668";
+		//String sign = "653209bc6235b48c72f08921d514dbb5";
+		String sign = "b78f47bcab73b4d7fa1827e19d3885b4";
 		RestTemplate restTemplate = new RestTemplate();
 		MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
 		map.add("wxOpenId", wxOpenId);

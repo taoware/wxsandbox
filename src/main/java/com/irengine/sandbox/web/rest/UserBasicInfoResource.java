@@ -4,9 +4,12 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import javax.inject.Inject;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
@@ -31,6 +34,7 @@ import com.irengine.sandbox.domain.UserBasicInfo.USERSTATUS;
 import com.irengine.sandbox.repository.OutNewsMessageItemRepository;
 import com.irengine.sandbox.repository.UserBasicInfoRepository;
 import com.irengine.sandbox.web.rest.util.PaginationUtil;
+import com.irengine.sandbox.web.rest.util.RestTemplateUtil;
 
 /**
  * REST controller for managing UserBasicInfo.
@@ -50,20 +54,46 @@ public class UserBasicInfoResource {
     @RequestMapping(value = "/userBasicInfos/c")
     @Timed
     public void createByGet(@RequestParam("id") Long id,@RequestParam("mobile") String mobile,
-    		@RequestParam(value="itemId",required=false) Long itemId,
-    		HttpServletResponse response) throws IOException{
+    		@RequestParam(value="itemId") Long itemId,
+    		HttpServletResponse response,HttpServletRequest request) throws IOException, ServletException{
+    	log.debug("调用/userBasicInfos/c接口:id:"+id+",mobile:"+mobile+",itemId:"+itemId);
     	UserBasicInfo userBasicInfo=userBasicInfoRepository.findOne(id);
     	userBasicInfo.setMobile(mobile);
-    	userBasicInfoRepository.save(userBasicInfo);
+    	userBasicInfo=userBasicInfoRepository.save(userBasicInfo);
     	/*注册金诚通并修改status*/
-    	/*根据itemId决定跳转到哪个页面*/
-    	if(itemId==null){
-    		//跳转到个人中心
-    		response.sendRedirect("http://180.166.29.246:8089/mediawap/");
-    	}else{
-    		OutNewsMessageItem outNewsMessageItem=outNewsMessageItemRepository.findOne(itemId);
-    		response.sendRedirect(outNewsMessageItem.getUrl());
-    	}
+    	try {
+			Map<String,String> returnMap=RestTemplateUtil.validate(userBasicInfo.getOpenId(), userBasicInfo.getMobile());
+			log.debug("注册/登录金诚通:returnMap:"+returnMap);
+			if(returnMap.get("url")!=null){
+				//注册/登录成功
+				log.debug("userBasicInfo:"+userBasicInfo+".注册/登录金诚通成功");
+				//更改用户status
+				userBasicInfo.setStatus(USERSTATUS.registered);
+				userBasicInfoRepository.save(userBasicInfo);
+		    	/*根据itemId决定跳转到哪个页面*/
+		    	if(itemId==-1){
+		    		//跳转到个人中心
+		    		log.debug("跳转到个人中心");
+		    		log.debug("金诚通url:"+returnMap.get("url"));
+		    		response.sendRedirect(returnMap.get("url"));
+		    		//request.getRequestDispatcher("http://180.166.29.246:8089/mediawap/").forward(request, response);
+		    	}else{
+		    		OutNewsMessageItem outNewsMessageItem=outNewsMessageItemRepository.findOne(itemId);
+		    		log.debug("跳转到子图文id为"+itemId+"对应的url.url:"+outNewsMessageItem.toString());
+		    		response.sendRedirect(outNewsMessageItem.getUrl());
+		    		//request.getRequestDispatcher(outNewsMessageItem.getUrl()).forward(request, response);
+		    	}
+			}else{
+				//注册/登录失败
+				log.debug("userBasicInfo:"+userBasicInfo+".注册/登录金诚通失败");
+				//处理(如何处理?)
+				
+			}
+		} catch (Exception e) {
+			log.debug("注册/登录金诚通失败");
+			e.printStackTrace();
+		}
+
     }
     
     /**

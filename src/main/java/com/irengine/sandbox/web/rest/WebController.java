@@ -27,6 +27,7 @@ import com.irengine.sandbox.domain.UserBasicInfo.USERSTATUS;
 import com.irengine.sandbox.repository.OutNewsMessageItemRepository;
 import com.irengine.sandbox.repository.OutNewsMessageRepository;
 import com.irengine.sandbox.service.UserBasicInfoService;
+import com.irengine.sandbox.web.rest.util.RestTemplateUtil;
 
 @Controller
 @RequestMapping("/web")
@@ -140,16 +141,41 @@ public class WebController {
 				wxMpOAuth2AccessToken, null);
 		String openId = wxMpUser.getOpenId();
 		logger.debug("openId:"+openId);
+		UserBasicInfo userBasicInfo=userBasicInfoService.findOneByOpenId(openId);
 		//userBasicInfoService.dealWithOpenId(openId);
-		OutNewsMessageItem outNewsMessageItem=outNewsMessageItemRepository.findOne(Long.parseLong(id));
 		/*检测openId是否被注册:已注册->跳转到活动,未注册->跳转到绑定页面*/
-		if(!userBasicInfoService.verifyOpenId(openId)){
+		if(userBasicInfo==null||userBasicInfo.getStatus()==USERSTATUS.unregistered){
+			/*未注册金诚通*/
 			/*储存该用户,只记录openId,返回id*/
-			UserBasicInfo userBasicInfo=userBasicInfoService.save(new UserBasicInfo(null,openId,null,USERSTATUS.unregistered));
+			if(userBasicInfo==null){
+				userBasicInfo=userBasicInfoService.save(new UserBasicInfo(null,openId,null,USERSTATUS.unregistered));
+			}
+			if("-1".equals(id)){
+				/*点击的是个人中心*/
+				logger.debug("该用户点击的是个人中心");
+			}
 			response.sendRedirect("/Nphone/app/index.html?id="+userBasicInfo.getId()+"&itemId="+id);
 		}else{
-			if(outNewsMessageItem!=null){
-				response.sendRedirect(outNewsMessageItem.getUrl());
+			/*已注册金诚通,直接调转到登录后的个人中心*/
+			OutNewsMessageItem outNewsMessageItem=null;
+			if("-1".equals(id)){
+				/*点击的是个人中心*/
+				try {
+					Map<String, String> returnMap = RestTemplateUtil.validate(userBasicInfo.getOpenId(), userBasicInfo.getMobile());
+					logger.debug("注册/登录金诚通:returnMap:"+returnMap);
+		    		logger.debug("跳转到个人中心");
+		    		response.sendRedirect(returnMap.get("url"));
+				} catch (Exception e) {
+					logger.debug("登录金诚通失败");
+					//处理逻辑(未写)
+					
+				}
+			}else{
+				/*点击的是子图文*/
+				outNewsMessageItem=outNewsMessageItemRepository.findOne(Long.parseLong(id));
+				if(outNewsMessageItem!=null){
+					response.sendRedirect(outNewsMessageItem.getUrl());
+				}
 			}
 		}
 	}

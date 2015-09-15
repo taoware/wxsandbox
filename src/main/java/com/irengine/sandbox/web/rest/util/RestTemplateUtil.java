@@ -2,6 +2,7 @@ package com.irengine.sandbox.web.rest.util;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.security.MessageDigest;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,6 +10,8 @@ import net.sf.json.JSONObject;
 
 import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import com.irengine.sandbox.WeChatConnectorInMemoryConfigStorage;
@@ -22,6 +25,41 @@ public class RestTemplateUtil {
 	private static String getOrderInfo="https://api.weixin.qq.com/merchant/order/getbyid?access_token={ACCESS_TOKEN}";
 	//发送模版消息
 	private static String sendTemplateInfo="https://api.weixin.qq.com/cgi-bin/message/template/send?access_token={ACCESS_TOKEN}";
+	//登录
+	private static String Url_Validate = "http://www.jctpay.com/mediawap/customer/wx_validate.xhtml";
+	
+	/**金诚通注册登录接口
+	 * @throws Exception */
+	public static Map<String,String> validate(String wxOpenId,String mobileNo) throws Exception{
+		String sign = getMD5(wxOpenId+mobileNo);
+		RestTemplate restTemplate = new RestTemplate();
+		MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
+		map.add("wxOpenId", wxOpenId);
+		map.add("mobileNo", mobileNo);
+		map.add("sign", sign);
+		String result = restTemplate.postForObject(Url_Validate, map, String.class);
+		result =new String(result.getBytes("ISO-8859-1"),"UTF-8");
+		JSONObject  jasonObject = JSONObject.fromObject(result);
+		@SuppressWarnings("unchecked")
+		Map<String,String> returnMap = (Map<String,String>)jasonObject;
+		return returnMap;
+	}
+	
+	private static String getMD5(String val) throws Exception
+    {
+        MessageDigest md = MessageDigest.getInstance("MD5");
+        
+        md.update(val.getBytes());
+
+        byte[] mdbytes = md.digest();
+     
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < mdbytes.length; i++) {
+          sb.append(Integer.toString((mdbytes[i] & 0xff) + 0x100, 16).substring(1));
+        }
+        
+        return sb.toString();
+    }
 	
 	/**
 	 * 获得token
@@ -97,6 +135,17 @@ public class RestTemplateUtil {
 	@Test
 	public void testInterface() throws IOException{
 		getOrderInfo("14057567885757129933");
+	}
+	
+	@Test
+	public void testMd5() throws Exception{
+		String text="oKQu3sw532uqxYrdsRIfX6nnWajw18616949668";
+		System.out.println(getMD5(text));
+	}
+	
+	@Test
+	public void testValidate() throws Exception{
+		System.out.println(validate("og4MWwzPcHSBc8Jmxt6ZIebNuCTI", "18616949668").toString());
 	}
 	
 }
