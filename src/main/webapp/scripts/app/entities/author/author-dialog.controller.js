@@ -55,7 +55,7 @@ angular.module('sandboxApp')
     .controller('AuthorEditController',function($scope,$rootScope,$stateParams,$state,Author,entity,Book){
 
         $scope.author = entity;
-        $scope.books = Book.query();
+        //$scope.books = Book.query();
         $scope.load = function(id) {
             Author.get({id : id}, function(result) {
                 $scope.author = result;

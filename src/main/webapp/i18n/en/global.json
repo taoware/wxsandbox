@@ -48,7 +48,7 @@
         "database": "Database"
       },
       "tables": {
-        "main": "Tables",
+        "main": "Tab",
         "datatable": "datatable",
         "datatable1": "datatable1",
         "datatable2": "datatable2",
